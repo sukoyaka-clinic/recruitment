@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>採用情報 | すこやか整形外科医院 - 能登の地域医療を共に支えるスタッフ募集</title>
-    <meta name="description" content="2026年春開業予定。能登の地域医療を20年以上支えてきた中村健一医師と共に、新しい医療の形を創造するスタッフを募集しています。">
+    <meta name="description" content="2026年春開業予定。能登の地域医瀂を20年以上支えてきた中村健一医師と共に、新しい医療の形を創造するスタッフを募集しています。">
+    <link rel="icon" href="data:,">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -93,7 +94,7 @@
     </header>
 
     <!-- Mobile Menu -->
-    <div id="mobileMenu" class="fixed inset-0 hidden" style="background-color: rgba(0, 0, 0, 0.5); z-index: 9999; display: none;">
+    <div id="mobileMenu" class="fixed inset-0 hidden" style="background-color: rgba(0, 0, 0, 0.5); z-index: 9999; display: none; visibility: hidden; opacity: 0;">
         <div class="absolute right-0 top-0 h-full bg-white shadow-xl" style="width: 320px; max-width: 85vw;">
             <div class="p-6">
                 <!-- Close Button -->
@@ -668,10 +669,15 @@
                     e.preventDefault();
                     e.stopPropagation();
                     console.log('Menu button clicked');
-                    mobileMenu.style.display = 'block';
+                    // Remove all blocking styles and classes first
                     mobileMenu.classList.remove('hidden');
-                    // Force reflow
-                    mobileMenu.offsetHeight;
+                    mobileMenu.style.removeProperty('display');
+                    // Then force display block
+                    setTimeout(function() {
+                        mobileMenu.style.display = 'block';
+                        mobileMenu.style.visibility = 'visible';
+                        mobileMenu.style.opacity = '1';
+                    }, 10);
                 });
             }
             
