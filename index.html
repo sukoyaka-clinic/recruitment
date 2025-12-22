@@ -653,28 +653,45 @@
     </button>
 
     <script>
-        // Simple mobile menu - proven to work
-        document.getElementById('mobileMenuButton').onclick = function() {
-            document.getElementById('mobileMenu').style.display = 'block';
-        };
-        
-        document.getElementById('mobileMenuClose').onclick = function() {
-            document.getElementById('mobileMenu').style.display = 'none';
-        };
-        
-        document.getElementById('mobileMenu').onclick = function(e) {
-            if (e.target.id === 'mobileMenu') {
-                this.style.display = 'none';
+        // Wrap everything in DOMContentLoaded to ensure elements exist
+        window.addEventListener('DOMContentLoaded', function() {
+            try {
+                // Mobile menu functionality
+                var mobileMenuButton = document.getElementById('mobileMenuButton');
+                var mobileMenuClose = document.getElementById('mobileMenuClose');
+                var mobileMenu = document.getElementById('mobileMenu');
+                
+                if (mobileMenuButton) {
+                    mobileMenuButton.onclick = function() {
+                        if (mobileMenu) mobileMenu.style.display = 'block';
+                    };
+                }
+                
+                if (mobileMenuClose) {
+                    mobileMenuClose.onclick = function() {
+                        if (mobileMenu) mobileMenu.style.display = 'none';
+                    };
+                }
+                
+                if (mobileMenu) {
+                    mobileMenu.onclick = function(e) {
+                        if (e.target.id === 'mobileMenu') {
+                            this.style.display = 'none';
+                        }
+                    };
+                    
+                    // Close menu when clicking links
+                    var menuLinks = mobileMenu.querySelectorAll('a');
+                    for (var i = 0; i < menuLinks.length; i++) {
+                        menuLinks[i].onclick = function() {
+                            mobileMenu.style.display = 'none';
+                        };
+                    }
+                }
+            } catch (e) {
+                console.error('Mobile menu error:', e);
             }
-        };
-        
-        // Close menu when clicking links
-        var menuLinks = document.querySelectorAll('#mobileMenu a');
-        for (var i = 0; i < menuLinks.length; i++) {
-            menuLinks[i].onclick = function() {
-                document.getElementById('mobileMenu').style.display = 'none';
-            };
-        }
+        });
         
         // Smooth scroll for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
