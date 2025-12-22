@@ -83,7 +83,7 @@
                 </div>
                 
                 <!-- Mobile Menu Button -->
-                <button class="md:hidden p-2 rounded-lg hover:bg-gray-100">
+                <button id="mobileMenuButton" class="md:hidden p-2 rounded-lg hover:bg-gray-100">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                     </svg>
@@ -91,6 +91,30 @@
             </div>
         </nav>
     </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="fixed inset-0 z-40 bg-black/50 backdrop-blur-sm hidden md:hidden">
+        <div class="absolute right-0 top-0 h-full w-80 bg-white shadow-xl">
+            <div class="p-6">
+                <!-- Close Button -->
+                <button id="mobileMenuClose" class="absolute top-4 right-4 p-2 rounded-lg hover:bg-gray-100">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+                
+                <!-- Menu Items -->
+                <div class="mt-12 space-y-6">
+                    <a href="#vision" class="block text-lg text-gray-700 hover:text-medical-blue transition-colors duration-200 py-2 border-b border-gray-100">私たちが目指す医療</a>
+                    <a href="#positions" class="block text-lg text-gray-700 hover:text-medical-blue transition-colors duration-200 py-2 border-b border-gray-100">募集職種</a>
+                    <a href="#benefits" class="block text-lg text-gray-700 hover:text-medical-blue transition-colors duration-200 py-2 border-b border-gray-100">福利厚生</a>
+                    <a href="#contact" class="block bg-medical-green text-white text-center px-6 py-3 rounded-xl hover:bg-green-600 transition-all duration-200 shadow-md hover:shadow-lg mt-8">
+                        応募・お問い合わせ
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Hero Section -->
     <section class="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 via-white to-teal-50 overflow-hidden">
@@ -106,7 +130,7 @@
             </svg>
         </div>
         
-        <div class="container mx-auto px-6 pt-20 pb-16 relative z-10">
+        <div class="container mx-auto px-6 pt-32 pb-16 relative z-10">
             <div class="grid lg:grid-cols-2 gap-12 items-center">
                 <!-- Left Content -->
                 <div class="animate-fade-in">
@@ -630,6 +654,33 @@
     </button>
 
     <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobileMenuButton');
+        const mobileMenuClose = document.getElementById('mobileMenuClose');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.remove('hidden');
+        });
+        
+        mobileMenuClose.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+        });
+        
+        // Close mobile menu when clicking outside
+        mobileMenu.addEventListener('click', (e) => {
+            if (e.target === mobileMenu) {
+                mobileMenu.classList.add('hidden');
+            }
+        });
+        
+        // Close mobile menu when clicking a link
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+        
         // Smooth scroll for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
