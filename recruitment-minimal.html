@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>採用情報 | すこやか整形外科医院 - 能登の地域医療を共に支えるスタッフ募集</title>
+    <meta name="description" content="2026年春開業予定。能登の地域医療を20年以上支えてきた中村健一医師と共に、新しい医療の形を創造するスタッフを募集しています。">
+    <link rel="icon" href="data:,">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'inter': ['Inter', 'Helvetica Neue', 'sans-serif'],
+                    },
+                    colors: {
+                        'medical-blue': '#4A90E2',
+                        'medical-mint': '#26D0CE',
+                        'medical-green': '#10B981',
+                        'text-dark': '#2C3E50',
+                        'bg-light': '#F8F9FA',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+    </style>
+</head>
+<body class="font-inter bg-white text-text-dark overflow-x-hidden">
+
+    <!-- Header -->
+    <header class="fixed top-0 w-full z-50 bg-white/95 backdrop-blur-md border-b border-gray-100">
+        <nav class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 bg-gradient-to-br from-medical-blue to-medical-mint rounded-xl flex items-center justify-center">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                        </svg>
+                    </div>
+                    <div>
+                        <h1 class="text-xl font-bold text-text-dark">すこやか整形外科医院</h1>
+                        <p class="text-sm text-gray-600">採用情報</p>
+                    </div>
+                </div>
+                
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#vision" class="text-gray-700 hover:text-medical-blue">私たちが目指す医療</a>
+                    <a href="#positions" class="text-gray-700 hover:text-medical-blue">募集職種</a>
+                    <a href="#benefits" class="text-gray-700 hover:text-medical-blue">福利厚生</a>
+                    <a href="#contact" class="bg-medical-green text-white px-6 py-2 rounded-xl hover:bg-green-600">
+                        応募・お問い合わせ
+                    </a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button id="mobileMenuButton" class="md:hidden p-2 rounded-lg hover:bg-gray-100">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Mobile Menu - Simple Version -->
+    <div id="mobileMenu" style="position: fixed; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(0, 0, 0, 0.5); z-index: 9999; display: none;">
+        <div style="position: absolute; right: 0; top: 0; width: 320px; max-width: 85vw; height: 100%; background: white; box-shadow: -2px 0 10px rgba(0,0,0,0.2);">
+            <div style="padding: 1.5rem;">
+                <button id="mobileMenuClose" style="position: absolute; top: 1rem; right: 1rem; width: 2.5rem; height: 2.5rem; background: #f3f4f6; border: none; border-radius: 0.5rem; cursor: pointer; font-size: 1.5rem;">
+                    ×
+                </button>
+                <div style="margin-top: 4rem;">
+                    <a href="#vision" style="display: block; padding: 1rem 0; text-decoration: none; color: #374151; border-bottom: 1px solid #e5e7eb; font-size: 1.125rem;">私たちが目指す医療</a>
+                    <a href="#positions" style="display: block; padding: 1rem 0; text-decoration: none; color: #374151; border-bottom: 1px solid #e5e7eb; font-size: 1.125rem;">募集職種</a>
+                    <a href="#benefits" style="display: block; padding: 1rem 0; text-decoration: none; color: #374151; border-bottom: 1px solid #e5e7eb; font-size: 1.125rem;">福利厚生</a>
+                    <a href="#contact" style="display: block; margin-top: 2rem; padding: 0.75rem 1.5rem; background: #10B981; color: white; text-align: center; text-decoration: none; border-radius: 0.75rem; font-weight: 600;">
+                        応募・お問い合わせ
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Content sections remain the same but without animations -->
+    <div style="height: 100px;"></div>
+    
+    <section class="container mx-auto px-6 py-20">
+        <h2 class="text-4xl font-bold text-center mb-8">
+            <span class="text-gray-600 text-2xl block mb-2">共にあゆみ、共につくる</span>
+            <span class="text-medical-blue">能登の地域医療</span>
+        </h2>
+        <p class="text-lg text-gray-700 text-center max-w-3xl mx-auto">
+            震災復興を支えながら、地域医療の新しい形を一緒に創造しませんか。
+            MRIなど最新設備を導入し、患者様に寄り添う医療を提供するチームの一員として。
+        </p>
+    </section>
+
+    <!-- Minimal JavaScript - Only Mobile Menu -->
+    <script>
+        // Mobile menu only - no animations or fancy features
+        document.getElementById('mobileMenuButton').onclick = function() {
+            document.getElementById('mobileMenu').style.display = 'block';
+        };
+        
+        document.getElementById('mobileMenuClose').onclick = function() {
+            document.getElementById('mobileMenu').style.display = 'none';
+        };
+        
+        document.getElementById('mobileMenu').onclick = function(e) {
+            if (e.target.id === 'mobileMenu') {
+                this.style.display = 'none';
+            }
+        };
+    </script>
+</body>
+</html>
