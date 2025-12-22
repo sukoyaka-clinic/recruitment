@@ -653,105 +653,20 @@
     </button>
 
     <script>
-        // Wait for page to fully load
-        window.onload = function() {
-            // Simple mobile menu
-            var btn = document.getElementById('mobileMenuButton');
-            var close = document.getElementById('mobileMenuClose');
-            var menu = document.getElementById('mobileMenu');
-            
-            if (btn && menu) {
-                btn.onclick = function() {
-                    menu.style.display = 'block';
-                };
-            }
-            
-            if (close && menu) {
-                close.onclick = function() {
-                    menu.style.display = 'none';
-                };
-            }
-            
-            if (menu) {
-                menu.onclick = function(e) {
-                    if (e.target.id === 'mobileMenu') {
-                        menu.style.display = 'none';
-                    }
-                };
-            }
+        // Mobile menu only - exactly like recruitment-minimal.html
+        document.getElementById('mobileMenuButton').onclick = function() {
+            document.getElementById('mobileMenu').style.display = 'block';
         };
         
-        // Smooth scroll for navigation links - wrapped separately
-        window.addEventListener('DOMContentLoaded', function() {
-            try {
-                document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
-                    anchor.addEventListener('click', function (e) {
-                        e.preventDefault();
-                        var target = document.querySelector(this.getAttribute('href'));
-                        if (target) {
-                            target.scrollIntoView({
-                                behavior: 'smooth',
-                                block: 'start'
-                            });
-                        }
-                    });
-                });
-            } catch (e) {
-                console.error('Smooth scroll error:', e);
+        document.getElementById('mobileMenuClose').onclick = function() {
+            document.getElementById('mobileMenu').style.display = 'none';
+        };
+        
+        document.getElementById('mobileMenu').onclick = function(e) {
+            if (e.target.id === 'mobileMenu') {
+                this.style.display = 'none';
             }
-            
-            // Scroll to top button
-            try {
-                var scrollToTopButton = document.getElementById('scrollToTop');
-                if (scrollToTopButton) {
-                    window.addEventListener('scroll', function() {
-                        if (window.pageYOffset > 300) {
-                            scrollToTopButton.classList.remove('opacity-0', 'invisible');
-                            scrollToTopButton.classList.add('opacity-100', 'visible');
-                        } else {
-                            scrollToTopButton.classList.add('opacity-0', 'invisible');
-                            scrollToTopButton.classList.remove('opacity-100', 'visible');
-                        }
-                    });
-
-                    scrollToTopButton.addEventListener('click', function() {
-                        window.scrollTo({
-                            top: 0,
-                            behavior: 'smooth'
-                        });
-                    });
-                }
-            } catch (e) {
-                console.error('Scroll button error:', e);
-            }
-
-            // Animation on scroll
-            try {
-                var observerOptions = {
-                    threshold: 0.1,
-                    rootMargin: '0px 0px -50px 0px'
-                };
-
-                var observer = new IntersectionObserver(function(entries) {
-                    entries.forEach(function(entry) {
-                        if (entry.isIntersecting) {
-                            entry.target.style.opacity = '1';
-                            entry.target.style.transform = 'translateY(0)';
-                        }
-                    });
-                }, observerOptions);
-
-                // Observe all cards and sections for animation
-                document.querySelectorAll('.bg-white, .glass-card').forEach(function(el) {
-                    el.style.opacity = '0';
-                    el.style.transform = 'translateY(20px)';
-                    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-                    observer.observe(el);
-                });
-            } catch (e) {
-                console.error('Animation error:', e);
-            }
-        });
+        };
     </script>
 </body>
 </html>
