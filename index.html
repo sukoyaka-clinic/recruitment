@@ -653,18 +653,31 @@
     </button>
 
     <script>
-        // Simple mobile menu - proven to work without DOMContentLoaded
-        document.getElementById('mobileMenuButton').onclick = function() {
-            document.getElementById('mobileMenu').style.display = 'block';
-        };
-        
-        document.getElementById('mobileMenuClose').onclick = function() {
-            document.getElementById('mobileMenu').style.display = 'none';
-        };
-        
-        document.getElementById('mobileMenu').onclick = function(e) {
-            if (e.target.id === 'mobileMenu') {
-                this.style.display = 'none';
+        // Wait for page to fully load
+        window.onload = function() {
+            // Simple mobile menu
+            var btn = document.getElementById('mobileMenuButton');
+            var close = document.getElementById('mobileMenuClose');
+            var menu = document.getElementById('mobileMenu');
+            
+            if (btn && menu) {
+                btn.onclick = function() {
+                    menu.style.display = 'block';
+                };
+            }
+            
+            if (close && menu) {
+                close.onclick = function() {
+                    menu.style.display = 'none';
+                };
+            }
+            
+            if (menu) {
+                menu.onclick = function(e) {
+                    if (e.target.id === 'mobileMenu') {
+                        menu.style.display = 'none';
+                    }
+                };
             }
         };
         
