@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>採用情報 | すこやか整形外科医院</title>
+</head>
+<body>
+
+<!-- このHTMLをWordPressのページエディタ（HTMLモード）に直接貼り付けてください -->
+<!-- 画像ファイルはWordPressのメディアライブラリにアップロード後、URLを置き換えてください -->
+
+<style>
+    .sukoyaka-container {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', 'Helvetica Neue', Arial, 'Noto Sans JP', sans-serif;
+        line-height: 1.5;
+        color: #2C3E50;
+        margin: -20px -20px 0 -20px; /* WordPressのページパディングを相殺 */
+    }
+    .sukoyaka-container * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+    
+    /* ヘッダー */
+    .sukoyaka-header {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid #E5E7EB;
+        padding: 16px 20px;
+        position: sticky;
+        top: 0;
+        z-index: 50;
+    }
+    .sukoyaka-header-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .sukoyaka-logo {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+    .sukoyaka-logo-icon {
+        width: 40px;
+        height: 40px;
+        background: linear-gradient(135deg, #4A90E2 0%, #26D0CE 100%);
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .sukoyaka-logo-text h1 {
+        font-size: 20px;
+        font-weight: 700;
+        color: #2C3E50;
+    }
+    .sukoyaka-logo-text p {
+        font-size: 12px;
+        color: #6B7280;
+    }
+    
+    /* ヒーローセクション */
+    .sukoyaka-hero {
+        padding: 80px 20px;
+        background: linear-gradient(135deg, #E6F3FF 0%, #FFFFFF 50%, #E8FFF9 100%);
+        text-align: center;
+        position: relative;
+    }
+    .sukoyaka-hero-inner {
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+    .sukoyaka-badge {
+        display: inline-block;
+        background: rgba(74, 144, 226, 0.1);
+        color: #4A90E2;
+        padding: 8px 24px;
+        border-radius: 24px;
+        font-size: 14px;
+        font-weight: 600;
+        margin-bottom: 24px;
+        border: 1px solid rgba(74, 144, 226, 0.2);
+    }
+    .sukoyaka-hero h2 {
+        font-size: clamp(32px, 5vw, 48px);
+        font-weight: 700;
+        line-height: 1.2;
+        margin-bottom: 24px;
+        color: #2C3E50;
+    }
+    .sukoyaka-hero .gradient-text {
+        background: linear-gradient(135deg, #4A90E2 0%, #26D0CE 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+    .sukoyaka-hero-description {
+        font-size: clamp(16px, 2vw, 20px);
+        color: #6B7280;
+        line-height: 1.8;
+        margin-bottom: 32px;
+    }
+    
+    /* ビジョンセクション */
+    .sukoyaka-vision {
+        padding: 60px 20px;
+        background: #F8F9FA;
+    }
+    .sukoyaka-section-header {
+        text-align: center;
+        margin-bottom: 48px;
+    }
+    .sukoyaka-section-badge {
+        display: inline-block;
+        background: rgba(16, 185, 129, 0.1);
+        color: #10B981;
+        padding: 6px 16px;
+        border-radius: 20px;
+        font-size: 13px;
+        font-weight: 600;
+        margin-bottom: 16px;
+    }
+    .sukoyaka-section-title {
+        font-size: clamp(28px, 4vw, 36px);
+        font-weight: 700;
+        color: #2C3E50;
+        margin-bottom: 16px;
+    }
+    .sukoyaka-vision-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 32px;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+    .sukoyaka-vision-card {
+        background: #FFFFFF;
+        border-radius: 16px;
+        padding: 32px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        text-align: center;
+        transition: all 0.3s ease;
+    }
+    .sukoyaka-vision-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+    }
+    .sukoyaka-vision-icon {
+        width: 60px;
+        height: 60px;
+        margin: 0 auto 20px;
+        border-radius: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 32px;
+    }
+    
+    /* 募集職種セクション */
+    .sukoyaka-positions {
+        padding: 60px 20px;
+        background: #FFFFFF;
+    }
+    .sukoyaka-positions-inner {
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+    .sukoyaka-positions-subtitle {
+        text-align: center;
+        font-size: 18px;
+        color: #6B7280;
+        margin-bottom: 48px;
+    }
+    .sukoyaka-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        gap: 32px;
+    }
+    
+    /* カード */
+    .sukoyaka-card {
+        background: #FFFFFF;
+        border-radius: 16px;
+        padding: 32px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        border: 1px solid #E5E7EB;
+        transition: all 0.3s ease;
+    }
+    .sukoyaka-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    }
+    .sukoyaka-card-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 20px;
+    }
+    .sukoyaka-card h3 {
+        font-size: 24px;
+        font-weight: 700;
+        color: #2C3E50;
+    }
+    .sukoyaka-card-badge {
+        background: rgba(74, 144, 226, 0.1);
+        color: #4A90E2;
+        padding: 4px 12px;
+        border-radius: 12px;
+        font-size: 12px;
+        font-weight: 600;
+    }
+    .sukoyaka-card-description {
+        color: #6B7280;
+        margin-bottom: 24px;
+        line-height: 1.8;
+    }
+    .sukoyaka-card-details {
+        border-top: 1px solid #E5E7EB;
+        padding-top: 16px;
+        margin-bottom: 20px;
+    }
+    .sukoyaka-detail-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 12px;
+        background: #F8F9FA;
+        border-radius: 8px;
+        margin-bottom: 8px;
+    }
+    .sukoyaka-detail-label {
+        color: #6B7280;
+        font-weight: 500;
+    }
+    .sukoyaka-detail-value {
+        color: #2C3E50;
+        font-weight: 700;
+    }
+    .sukoyaka-apply-button {
+        display: block;
+        width: 100%;
+        background: linear-gradient(135deg, #4A90E2 0%, #26D0CE 100%);
+        color: #FFFFFF;
+        padding: 12px;
+        border-radius: 8px;
+        font-weight: 600;
+        text-align: center;
+        text-decoration: none;
+        transition: all 0.3s ease;
+    }
+    .sukoyaka-apply-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 15px rgba(74, 144, 226, 0.3);
+    }
+    
+    /* 施設画像セクション */
+    .sukoyaka-facility {
+        padding: 60px 20px;
+        background: #FFFFFF;
+    }
+    .sukoyaka-facility-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 32px;
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+    .sukoyaka-facility-card {
+        position: relative;
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+    }
+    .sukoyaka-facility-card:hover {
+        transform: scale(1.02);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    }
+    .sukoyaka-facility-image {
+        width: 100%;
+        height: 320px;
+        object-fit: cover;
+        filter: brightness(1.1);
+    }
+    .sukoyaka-facility-overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(to top, rgba(0,0,0,0.6), transparent);
+        padding: 24px;
+        color: white;
+    }
+    .sukoyaka-facility-title {
+        font-size: 24px;
+        font-weight: 700;
+        margin-bottom: 8px;
+    }
+    .sukoyaka-facility-desc {
+        font-size: 14px;
+        opacity: 0.95;
+    }
+    .sukoyaka-facility-note {
+        text-align: center;
+        color: #9CA3AF;
+        font-size: 14px;
+        margin-top: 24px;
+    }
+    
+    /* 福利厚生セクション */
+    .sukoyaka-benefits {
+        padding: 60px 20px;
+        background: #F8F9FA;
+    }
+    .sukoyaka-benefits-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 24px;
+        max-width: 900px;
+        margin: 0 auto;
+    }
+    .sukoyaka-benefit-item {
+        background: #FFFFFF;
+        border-radius: 12px;
+        padding: 20px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        transition: all 0.3s ease;
+    }
+    .sukoyaka-benefit-item:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    }
+    .sukoyaka-benefit-icon {
+        width: 48px;
+        height: 48px;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+    }
+    .sukoyaka-benefit-text h4 {
+        font-size: 16px;
+        font-weight: 600;
+        color: #2C3E50;
+        margin-bottom: 4px;
+    }
+    .sukoyaka-benefit-text p {
+        font-size: 13px;
+        color: #6B7280;
+    }
+    
+    /* お問い合わせセクション */
+    .sukoyaka-contact {
+        padding: 60px 20px;
+        background: #FFFFFF;
+    }
+    .sukoyaka-contact-inner {
+        max-width: 600px;
+        margin: 0 auto;
+        text-align: center;
+    }
+    .sukoyaka-contact-box {
+        background: #F8F9FA;
+        border-radius: 24px;
+        padding: 48px 32px;
+    }
+    .sukoyaka-contact-text {
+        font-size: 18px;
+        color: #6B7280;
+        margin-bottom: 32px;
+        line-height: 1.8;
+    }
+    .sukoyaka-email-card {
+        background: #FFFFFF;
+        border-radius: 16px;
+        padding: 32px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        display: block;
+        text-decoration: none;
+        margin-bottom: 24px;
+    }
+    .sukoyaka-email-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    }
+    .sukoyaka-email-icon {
+        width: 64px;
+        height: 64px;
+        background: linear-gradient(135deg, #4A90E2 0%, #26D0CE 100%);
+        border-radius: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 20px;
+    }
+    .sukoyaka-email-title {
+        font-size: 20px;
+        font-weight: 700;
+        color: #2C3E50;
+        margin-bottom: 8px;
+    }
+    .sukoyaka-email-address {
+        font-size: 18px;
+        color: #4A90E2;
+        font-weight: 600;
+    }
+    .sukoyaka-notice {
+        background: #FEF3C7;
+        border: 1px solid #FCD34D;
+        border-radius: 12px;
+        padding: 16px;
+        margin-top: 24px;
+    }
+    .sukoyaka-notice-title {
+        font-weight: 600;
+        color: #92400E;
+        margin-bottom: 4px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+    }
+    .sukoyaka-notice-text {
+        color: #92400E;
+        font-size: 14px;
+    }
+    
+    /* フッター */
+    .sukoyaka-footer {
+        background: #2C3E50;
+        color: #FFFFFF;
+        padding: 48px 20px 32px;
+    }
+    .sukoyaka-footer-inner {
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+    .sukoyaka-footer-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 40px;
+        margin-bottom: 32px;
+    }
+    .sukoyaka-footer-logo {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 16px;
+    }
+    .sukoyaka-footer-logo-icon {
+        width: 40px;
+        height: 40px;
+        background: linear-gradient(135deg, #4A90E2 0%, #26D0CE 100%);
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .sukoyaka-footer h3 {
+        font-size: 20px;
+        font-weight: 700;
+        margin-bottom: 4px;
+    }
+    .sukoyaka-footer-subtitle {
+        color: #9CA3AF;
+        font-size: 14px;
+        margin-bottom: 16px;
+    }
+    .sukoyaka-footer-description {
+        color: #D1D5DB;
+        line-height: 1.8;
+    }
+    .sukoyaka-footer h4 {
+        font-size: 18px;
+        font-weight: 600;
+        margin-bottom: 16px;
+    }
+    .sukoyaka-footer-contact {
+        color: #D1D5DB;
+        line-height: 1.8;
+    }
+    .sukoyaka-footer-divider {
+        border-top: 1px solid #4B5563;
+        padding-top: 24px;
+        margin-top: 24px;
+    }
+    .sukoyaka-copyright {
+        text-align: center;
+        color: #9CA3AF;
+        font-size: 14px;
+    }
+    
+    /* レスポンシブ */
+    @media (max-width: 768px) {
+        .sukoyaka-container {
+            margin: -15px -15px 0 -15px;
+        }
+        .sukoyaka-hero {
+            padding: 60px 20px;
+        }
+        .sukoyaka-grid {
+            grid-template-columns: 1fr;
+        }
+        .sukoyaka-card {
+            padding: 24px;
+        }
+        .sukoyaka-facility-grid,
+        .sukoyaka-benefits-grid {
+            grid-template-columns: 1fr;
+        }
+        .sukoyaka-contact-box {
+            padding: 32px 20px;
+        }
+    }
+</style>
+
+<div class="sukoyaka-container">
+    <!-- ヘッダー -->
+    <header class="sukoyaka-header">
+        <div class="sukoyaka-header-inner">
+            <div class="sukoyaka-logo">
+                <div class="sukoyaka-logo-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                        <path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                    </svg>
+                </div>
+                <div class="sukoyaka-logo-text">
+                    <h1>すこやか整形外科医院</h1>
+                    <p>採用情報</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ヒーローセクション -->
+    <section class="sukoyaka-hero">
+        <div class="sukoyaka-hero-inner">
+            <span class="sukoyaka-badge">2026年春 新規開業予定</span>
+            <h2>
+                共にあゆみ、共につくる<br>
+                <span class="gradient-text">能登の地域医療</span>
+            </h2>
+            <p class="sukoyaka-hero-description">
+                20年以上能登の地域医療を支えてきた中村健一医師とともに<br>
+                新しい整形外科医院を創造する仲間を募集しています
+            </p>
+        </div>
+    </section>
+    
+    <!-- ビジョンセクション -->
+    <section class="sukoyaka-vision">
+        <div class="sukoyaka-section-header">
+            <span class="sukoyaka-section-badge">私たちが目指す医療</span>
+            <h2 class="sukoyaka-section-title">
+                共に実現する<span style="color: #4A90E2;">医療の未来</span>
+            </h2>
+        </div>
+        <div class="sukoyaka-vision-grid">
+            <div class="sukoyaka-vision-card">
+                <div class="sukoyaka-vision-icon" style="background: linear-gradient(135deg, #26D0CE, #16A394);">
+                    🤝
+                </div>
+                <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 12px;">地域に寄り添う医療</h3>
+                <p style="color: #6B7280; line-height: 1.8;">
+                    震災復興を支えながら、一人ひとりの患者様に寄り添い、信頼される医療機関を目指します。
+                </p>
+            </div>
+            <div class="sukoyaka-vision-card">
+                <div class="sukoyaka-vision-icon" style="background: linear-gradient(135deg, #10B981, #059862);">
+                    👥
+                </div>
+                <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 12px;">チーム医療の実践</h3>
+                <p style="color: #6B7280; line-height: 1.8;">
+                    医師・理学療法士・医療事務が一体となり、患者様に最適な医療サービスを提供します。
+                </p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 募集職種セクション -->
+    <section class="sukoyaka-positions">
+        <div class="sukoyaka-positions-inner">
+            <div class="sukoyaka-section-header">
+                <span class="sukoyaka-section-badge" style="background: rgba(16, 185, 129, 0.1); color: #10B981;">募集職種</span>
+                <h2 class="sukoyaka-section-title">
+                    あなたの専門性を<span style="color: #10B981;">活かしませんか</span>
+                </h2>
+                <p class="sukoyaka-positions-subtitle">各分野のプロフェッショナルとして、地域医療を支える仲間を募集しています</p>
+            </div>
+            
+            <div class="sukoyaka-grid">
+                <!-- 看護師 -->
+                <div class="sukoyaka-card">
+                    <div class="sukoyaka-card-header">
+                        <h3>看護師</h3>
+                        <span class="sukoyaka-card-badge" style="background: rgba(16, 185, 129, 0.1); color: #10B981;">正社員・パート</span>
+                    </div>
+                    <p class="sukoyaka-card-description">
+                        診療補助、処置、患者様のケアなど、医師と連携して医療を提供します。
+                    </p>
+                    <div class="sukoyaka-card-details">
+                        <div class="sukoyaka-detail-item">
+                            <span class="sukoyaka-detail-label">給与</span>
+                            <span class="sukoyaka-detail-value">月給 23-30万円</span>
+                        </div>
+                        <div class="sukoyaka-detail-item">
+                            <span class="sukoyaka-detail-label">勤務時間</span>
+                            <span class="sukoyaka-detail-value">8:30〜17:30</span>
+                        </div>
+                        <div class="sukoyaka-detail-item">
+                            <span class="sukoyaka-detail-label">休日</span>
+                            <span class="sukoyaka-detail-value" style="font-size: 14px;">日祝、水曜午後、土曜午後</span>
+                        </div>
+                    </div>
+                    <a href="#contact" class="sukoyaka-apply-button">この職種に応募する</a>
+                </div>
+                
+                <!-- 医療事務 -->
+                <div class="sukoyaka-card">
+                    <div class="sukoyaka-card-header">
+                        <h3>医療事務</h3>
+                        <span class="sukoyaka-card-badge">正社員</span>
+                    </div>
+                    <p class="sukoyaka-card-description">
+                        受付業務、レセプト業務、患者様対応など、クリニック運営の要となるポジションです。
+                    </p>
+                    <div class="sukoyaka-card-details">
+                        <div class="sukoyaka-detail-item">
+                            <span class="sukoyaka-detail-label">給与</span>
+                            <span class="sukoyaka-detail-value">月給 20-25万円</span>
+                        </div>
+                        <div class="sukoyaka-detail-item">
+                            <span class="sukoyaka-detail-label">勤務時間</span>
+                            <span class="sukoyaka-detail-value">8:30〜17:30</span>
+                        </div>
+                        <div class="sukoyaka-detail-item">
+                            <span class="sukoyaka-detail-label">休日</span>
+                            <span class="sukoyaka-detail-value" style="font-size: 14px;">日祝、水曜午後、土曜午後</span>
+                        </div>
+                    </div>
+                    <a href="#contact" class="sukoyaka-apply-button">この職種に応募する</a>
+                </div>
+                
+                <!-- 理学療法士 -->
+                <div class="sukoyaka-card">
+                    <div class="sukoyaka-card-header">
+                        <h3>理学療法士</h3>
+                        <span class="sukoyaka-card-badge" style="background: rgba(38, 208, 206, 0.1); color: #26D0CE;">正社員</span>
+                    </div>
+                    <p class="sukoyaka-card-description">
+                        リハビリテーション業務全般。患者様の機能回復を支援する専門職です。
+                    </p>
+                    <div class="sukoyaka-card-details">
+                        <div class="sukoyaka-detail-item">
+                            <span class="sukoyaka-detail-label">給与</span>
+                            <span class="sukoyaka-detail-value">月給 25-35万円</span>
+                        </div>
+                        <div class="sukoyaka-detail-item">
+                            <span class="sukoyaka-detail-label">勤務時間</span>
+                            <span class="sukoyaka-detail-value">8:30〜17:30</span>
+                        </div>
+                        <div class="sukoyaka-detail-item">
+                            <span class="sukoyaka-detail-label">休日</span>
+                            <span class="sukoyaka-detail-value" style="font-size: 14px;">日祝、水曜午後、土曜午後</span>
+                        </div>
+                    </div>
+                    <a href="#contact" class="sukoyaka-apply-button">この職種に応募する</a>
+                </div>
+                
+                <!-- 診療放射線技師 -->
+                <div class="sukoyaka-card">
+                    <div class="sukoyaka-card-header">
+                        <h3>診療放射線技師</h3>
+                        <span class="sukoyaka-card-badge" style="background: rgba(139, 92, 246, 0.1); color: #8B5CF6;">正社員</span>
+                    </div>
+                    <p class="sukoyaka-card-description">
+                        MRI・レントゲン等の画像診断業務。最新機器を用いた専門的な検査を担当します。
+                    </p>
+                    <div class="sukoyaka-card-details">
+                        <div class="sukoyaka-detail-item">
+                            <span class="sukoyaka-detail-label">給与</span>
+                            <span class="sukoyaka-detail-value">月給 26-36万円</span>
+                        </div>
+                        <div class="sukoyaka-detail-item">
+                            <span class="sukoyaka-detail-label">勤務時間</span>
+                            <span class="sukoyaka-detail-value">8:30〜17:30</span>
+                        </div>
+                        <div class="sukoyaka-detail-item">
+                            <span class="sukoyaka-detail-label">休日</span>
+                            <span class="sukoyaka-detail-value" style="font-size: 14px;">日祝、水曜午後、土曜午後</span>
+                        </div>
+                    </div>
+                    <a href="#contact" class="sukoyaka-apply-button">この職種に応募する</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 施設画像セクション -->
+    <section class="sukoyaka-facility">
+        <div class="sukoyaka-section-header">
+            <h2 class="sukoyaka-section-title">
+                <span style="color: #4A90E2;">内装・設備イメージ</span>
+            </h2>
+            <p style="text-align: center; color: #6B7280; margin-top: 16px;">
+                MRI・CTなどの医療機器と、充実したリハビリテーション設備を導入予定
+            </p>
+        </div>
+        <div class="sukoyaka-facility-grid">
+            <div class="sukoyaka-facility-card">
+                <!-- WordPressメディアライブラリにアップロード後、URLを置き換えてください -->
+                <img src="./assets/mri-latest.png" alt="医療機器" class="sukoyaka-facility-image">
+                <div class="sukoyaka-facility-overlay">
+                    <h3 class="sukoyaka-facility-title">医療機器</h3>
+                    <p class="sukoyaka-facility-desc">MRIやCTを導入予定です</p>
+                </div>
+            </div>
+            <div class="sukoyaka-facility-card">
+                <!-- WordPressメディアライブラリにアップロード後、URLを置き換えてください -->
+                <img src="./assets/rehab-final.png" alt="リハビリルーム" class="sukoyaka-facility-image">
+                <div class="sukoyaka-facility-overlay">
+                    <h3 class="sukoyaka-facility-title">広々としたリハビリルーム</h3>
+                    <p class="sukoyaka-facility-desc">患者様一人ひとりに合わせた機能回復訓練を提供</p>
+                </div>
+            </div>
+        </div>
+        <p class="sukoyaka-facility-note">※画像はイメージです</p>
+    </section>
+    
+    <!-- 福利厚生セクション -->
+    <section class="sukoyaka-benefits">
+        <div class="sukoyaka-section-header">
+            <span class="sukoyaka-section-badge" style="background: rgba(16, 185, 129, 0.1); color: #10B981;">福利厚生</span>
+            <h2 class="sukoyaka-section-title">
+                充実した<span style="color: #10B981;">働く環境</span>
+            </h2>
+            <p style="text-align: center; color: #6B7280; margin-top: 16px;">
+                スタッフが安心して働けるよう、充実した福利厚生制度を整えています
+            </p>
+        </div>
+        <div class="sukoyaka-benefits-grid">
+            <div class="sukoyaka-benefit-item">
+                <div class="sukoyaka-benefit-icon" style="background: rgba(74, 144, 226, 0.1);">
+                    <svg width="24" height="24" fill="none" stroke="#4A90E2" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                    </svg>
+                </div>
+                <div class="sukoyaka-benefit-text">
+                    <h4>社会保険完備</h4>
+                    <p>健康保険・厚生年金・雇用保険・労災保険</p>
+                </div>
+            </div>
+            <div class="sukoyaka-benefit-item">
+                <div class="sukoyaka-benefit-icon" style="background: rgba(38, 208, 206, 0.1);">
+                    <svg width="24" height="24" fill="none" stroke="#26D0CE" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                    </svg>
+                </div>
+                <div class="sukoyaka-benefit-text">
+                    <h4>賞与年2回</h4>
+                    <p>業績に応じた賞与を支給します</p>
+                </div>
+            </div>
+            <div class="sukoyaka-benefit-item">
+                <div class="sukoyaka-benefit-icon" style="background: rgba(16, 185, 129, 0.1);">
+                    <svg width="24" height="24" fill="none" stroke="#10B981" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                    </svg>
+                </div>
+                <div class="sukoyaka-benefit-text">
+                    <h4>交通費支給</h4>
+                    <p>通勤にかかる交通費を全額支給</p>
+                </div>
+            </div>
+            <div class="sukoyaka-benefit-item">
+                <div class="sukoyaka-benefit-icon" style="background: rgba(139, 92, 246, 0.1);">
+                    <svg width="24" height="24" fill="none" stroke="#8B5CF6" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                    </svg>
+                </div>
+                <div class="sukoyaka-benefit-text">
+                    <h4>制服貸与</h4>
+                    <p>清潔で機能的な制服を貸与します</p>
+                </div>
+            </div>
+            <div class="sukoyaka-benefit-item">
+                <div class="sukoyaka-benefit-icon" style="background: rgba(251, 146, 60, 0.1);">
+                    <svg width="24" height="24" fill="none" stroke="#FB923C" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                    </svg>
+                </div>
+                <div class="sukoyaka-benefit-text">
+                    <h4>研修制度充実</h4>
+                    <p>スキルアップのための研修制度を完備</p>
+                </div>
+            </div>
+            <div class="sukoyaka-benefit-item">
+                <div class="sukoyaka-benefit-icon" style="background: rgba(236, 72, 153, 0.1);">
+                    <svg width="24" height="24" fill="none" stroke="#EC4899" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                    </svg>
+                </div>
+                <div class="sukoyaka-benefit-text">
+                    <h4>有給休暇取得推進</h4>
+                    <p>ワークライフバランスを重視します</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- お問い合わせセクション -->
+    <section id="contact" class="sukoyaka-contact">
+        <div class="sukoyaka-contact-inner">
+            <div class="sukoyaka-section-header">
+                <span class="sukoyaka-section-badge">エントリー・お問い合わせ</span>
+                <h2 class="sukoyaka-section-title">
+                    共に働く仲間を<span style="color: #4A90E2;">お待ちしています</span>
+                </h2>
+            </div>
+            
+            <div class="sukoyaka-contact-box">
+                <p class="sukoyaka-contact-text">
+                    ご興味をお持ちいただけましたら、お気軽にお問い合わせください。<br>
+                    見学のご希望も承っております。
+                </p>
+                
+                <a href="mailto:recruit@sukoyaka-clinic.jp" class="sukoyaka-email-card">
+                    <div class="sukoyaka-email-icon">
+                        <svg width="32" height="32" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                        </svg>
+                    </div>
+                    <div class="sukoyaka-email-title">メールで応募・問い合わせ</div>
+                    <div class="sukoyaka-email-address">recruit@sukoyaka-clinic.jp</div>
+                </a>
+                
+                <div class="sukoyaka-notice">
+                    <div class="sukoyaka-notice-title">
+                        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                        応募時のお願い
+                    </div>
+                    <p class="sukoyaka-notice-text">
+                        応募の際は、履歴書・職務経歴書をメールまたは郵送にてお送りください。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- フッター -->
+    <footer class="sukoyaka-footer">
+        <div class="sukoyaka-footer-inner">
+            <div class="sukoyaka-footer-grid">
+                <div>
+                    <div class="sukoyaka-footer-logo">
+                        <div class="sukoyaka-footer-logo-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                                <path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3>すこやか整形外科医院</h3>
+                            <p class="sukoyaka-footer-subtitle">能登の地域医療を共に支える仲間募集中</p>
+                        </div>
+                    </div>
+                    <p class="sukoyaka-footer-description">
+                        2026年春開業予定。地域の皆さまの健康を支え、<br>
+                        共に歩む医療チームのメンバーを募集しています。
+                    </p>
+                </div>
+                
+                <div>
+                    <h4>お問い合わせ</h4>
+                    <div class="sukoyaka-footer-contact">
+                        <p><strong>Email:</strong> recruit@sukoyaka-clinic.jp</p>
+                        <p><strong>開業予定地:</strong> 石川県能登地域</p>
+                        <p><strong>開業予定:</strong> 2026年春</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="sukoyaka-footer-divider">
+                <p class="sukoyaka-copyright">
+                    © 2026 すこやか整形外科医院. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+</div>
+
+</body>
+</html>

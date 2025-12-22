@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>採用情報 | すこやか整形外科医院 - グリッドダッシュボード</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --grid-color: rgba(66, 153, 225, 0.15);
+            --grid-color-hover: rgba(66, 153, 225, 0.25);
+            --primary-blue: #3B82F6;
+            --accent-emerald: #10B981;
+            --gold-highlight: #F59E0B;
+            --text-dark: #1F2937;
+            --text-medium: #6B7280;
+            --text-light: #9CA3AF;
+            --white: #FFFFFF;
+            --grid-gap: 24px;
+            --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --card-shadow-hover: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--white);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Grid System */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(24, 1fr);
+            gap: var(--grid-gap);
+            padding: var(--grid-gap);
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        /* Visible Grid Lines */
+        .grid-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                linear-gradient(to right, var(--grid-color) 1px, transparent 1px),
+                linear-gradient(to bottom, var(--grid-color) 1px, transparent 1px);
+            background-size: calc(100% / 24) var(--grid-gap);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .grid-cell {
+            position: relative;
+            z-index: 2;
+            border: 1px solid var(--grid-color);
+            background: var(--white);
+            transition: all 0.3s ease;
+        }
+
+        .grid-cell:hover {
+            border-color: var(--grid-color-hover);
+            transform: translateY(-2px);
+            box-shadow: var(--card-shadow-hover);
+        }
+
+        /* Grid Cell Sizes */
+        .col-24 { grid-column: span 24; }
+        .col-16 { grid-column: span 16; }
+        .col-12 { grid-column: span 12; }
+        .col-8 { grid-column: span 8; }
+        .col-6 { grid-column: span 6; }
+        .col-4 { grid-column: span 4; }
+
+        /* Responsive Grid */
+        @media (max-width: 768px) {
+            .grid-container {
+                grid-template-columns: repeat(12, 1fr);
+                gap: 16px;
+                padding: 16px;
+            }
+            .col-24, .col-16, .col-12 { grid-column: span 12; }
+            .col-8, .col-6 { grid-column: span 6; }
+            .col-4 { grid-column: span 4; }
+        }
+
+        @media (max-width: 480px) {
+            .grid-container {
+                grid-template-columns: repeat(6, 1fr);
+            }
+            .col-24, .col-16, .col-12, .col-8, .col-6 { grid-column: span 6; }
+            .col-4 { grid-column: span 3; }
+        }
+
+        /* Header */
+        .header {
+            padding: 20px;
+            border-bottom: 1px solid var(--grid-color);
+            background: var(--white);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-grid {
+            display: grid;
+            grid-template-columns: auto 1fr auto;
+            align-items: center;
+            gap: 32px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--primary-blue);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            justify-self: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-medium);
+            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-blue);
+            background: rgba(59, 130, 246, 0.1);
+        }
+
+        .cta-button {
+            background: var(--primary-blue);
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .cta-button:hover {
+            background: #2563EB;
+            transform: translateY(-1px);
+            box-shadow: var(--card-shadow);
+        }
+
+        /* Hero Section */
+        .hero-content {
+            padding: 60px 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .hero-title {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 24px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--accent-emerald));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 20px;
+            color: var(--text-medium);
+            margin-bottom: 32px;
+        }
+
+        .hero-stats {
+            padding: 40px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 24px;
+            border: 1px solid var(--grid-color);
+            border-radius: 12px;
+            background: rgba(59, 130, 246, 0.02);
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            border-color: var(--primary-blue);
+            transform: scale(1.05);
+        }
+
+        .stat-number {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--primary-blue);
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            color: var(--text-medium);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Section Headers */
+        .section-header {
+            padding: 40px;
+            text-align: center;
+            border-bottom: 1px solid var(--grid-color);
+        }
+
+        .section-title {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 12px;
+        }
+
+        .section-subtitle {
+            font-size: 18px;
+            color: var(--text-medium);
+        }
+
+        /* Content Cards */
+        .content-card {
+            padding: 32px;
+            background: var(--white);
+            border-radius: 12px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--primary-blue);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            color: white;
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        .card-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: var(--text-dark);
+        }
+
+        .card-description {
+            color: var(--text-medium);
+            flex-grow: 1;
+            margin-bottom: 20px;
+        }
+
+        .card-metric {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px;
+            background: rgba(16, 185, 129, 0.1);
+            border-radius: 8px;
+            margin-top: auto;
+        }
+
+        .metric-value {
+            font-weight: 700;
+            color: var(--accent-emerald);
+        }
+
+        /* Job Cards */
+        .job-card {
+            padding: 24px;
+            background: var(--white);
+            border-radius: 12px;
+            height: 100%;
+        }
+
+        .job-department {
+            background: var(--gold-highlight);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 16px;
+        }
+
+        .job-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: var(--text-dark);
+        }
+
+        .job-details {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .job-detail {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            color: var(--text-medium);
+        }
+
+        .job-detail-icon {
+            width: 16px;
+            height: 16px;
+            background: var(--primary-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 8px;
+        }
+
+        /* Benefits Grid */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--grid-gap);
+        }
+
+        .benefit-item {
+            padding: 24px;
+            text-align: center;
+            background: var(--white);
+            border-radius: 12px;
+        }
+
+        .benefit-icon {
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--accent-emerald));
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: white;
+            font-size: 24px;
+        }
+
+        .benefit-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--text-dark);
+        }
+
+        .benefit-description {
+            font-size: 14px;
+            color: var(--text-medium);
+        }
+
+        /* Progress Bars */
+        .progress-container {
+            margin-top: 16px;
+        }
+
+        .progress-label {
+            font-size: 12px;
+            color: var(--text-medium);
+            margin-bottom: 4px;
+        }
+
+        .progress-bar {
+            height: 6px;
+            background: #E5E7EB;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary-blue), var(--accent-emerald));
+            transition: width 0.6s ease;
+        }
+
+        /* Footer */
+        .footer {
+            background: #F9FAFB;
+            border-top: 1px solid var(--grid-color);
+            padding: 60px 0 40px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--grid-gap);
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 var(--grid-gap);
+        }
+
+        .footer-section h4 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: var(--text-dark);
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section li {
+            margin-bottom: 8px;
+        }
+
+        .footer-section a {
+            color: var(--text-medium);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.2s ease;
+        }
+
+        .footer-section a:hover {
+            color: var(--primary-blue);
+        }
+
+        /* Animations */
+        @keyframes gridPulse {
+            0%, 100% { opacity: 0.15; }
+            50% { opacity: 0.25; }
+        }
+
+        .grid-container:hover::before {
+            animation: gridPulse 2s ease-in-out infinite;
+        }
+
+        /* Data Visualization */
+        .chart-container {
+            height: 200px;
+            display: flex;
+            align-items: end;
+            gap: 8px;
+            padding: 20px;
+        }
+
+        .chart-bar {
+            flex: 1;
+            background: linear-gradient(to top, var(--primary-blue), var(--accent-emerald));
+            border-radius: 4px 4px 0 0;
+            transition: all 0.3s ease;
+        }
+
+        .chart-bar:hover {
+            transform: scaleY(1.1);
+        }
+
+        /* Utility Classes */
+        .text-center { text-align: center; }
+        .mb-4 { margin-bottom: 16px; }
+        .mb-6 { margin-bottom: 24px; }
+        .mt-4 { margin-top: 16px; }
+        .p-4 { padding: 16px; }
+        .rounded { border-radius: 8px; }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav-grid">
+            <div class="logo">すこやか整形外科医院</div>
+            <div class="nav-links">
+                <a href="#vision">私たちが目指す医療</a>
+                <a href="#positions">募集職種</a>
+                <a href="#benefits">福利厚生</a>
+                <a href="#contact">応募・お問い合わせ</a>
+            </div>
+            <a href="#apply" class="cta-button">今すぐ応募</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="grid-container">
+        <div class="grid-cell col-16 hero-content">
+            <p class="hero-subtitle" style="color: var(--primary-blue); font-weight: 600; margin-bottom: 16px;">2026年春 新規開業予定</p>
+            <h1 class="hero-title">共にあゆみ、共につくる<br>能登の地域医療</h1>
+            <div style="margin: 32px 0; padding: 24px; background: rgba(59, 130, 246, 0.05); border-radius: 12px; border-left: 4px solid var(--primary-blue);">
+                <p style="font-weight: 600; color: var(--text-dark); margin-bottom: 12px;">院長メッセージ</p>
+                <p style="color: var(--text-medium); margin-bottom: 16px;">20年以上、能登で整形外科医として地域医療を支えてきました。震災の爪痕が未だ残るこの地で、MRIなど最新の医療機器を導入し、地域の皆様により良い医療を提供したい。その想いを共有し、共に歩んでくれるスタッフを募集します。</p>
+                <p style="font-weight: 600; color: var(--text-dark);">すこやか整形外科医院 院長 中村 健一</p>
+            </div>
+            <div class="nav-links">
+                <a href="#positions" class="cta-button">募集職種を見る</a>
+                <a href="#contact" class="cta-button" style="background: var(--accent-emerald);">応募・お問い合わせ</a>
+            </div>
+        </div>
+        <div class="grid-cell col-8 hero-stats">
+            <div class="stat-card">
+                <span class="stat-number">2026</span>
+                <span class="stat-label">開業予定</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number">20年+</span>
+                <span class="stat-label">院長経験</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number">3職種</span>
+                <span class="stat-label">募集中</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number">最新</span>
+                <span class="stat-label">MRI設備</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vision Section -->
+    <section class="grid-container">
+        <div class="grid-cell col-24 section-header">
+            <h2 class="section-title">私たちが目指す医療</h2>
+            <p class="section-subtitle">能登の地域に寄り添う整形外科医療</p>
+        </div>
+        
+        <div class="grid-cell col-8">
+            <div class="content-card">
+                <div class="card-icon">🏥</div>
+                <h3 class="card-title">最新設備での診療</h3>
+                <p class="card-description">MRIをはじめとする高度な医療機器を導入し、能登地域で最先端の診断・治療を実現します。</p>
+                <div class="card-metric">
+                    <span class="metric-value">最新</span>
+                    <span>MRI機器導入</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid-cell col-8">
+            <div class="content-card">
+                <div class="card-icon">🤝</div>
+                <h3 class="card-title">地域に寄り添う医療</h3>
+                <p class="card-description">震災復興を支えながら、一人ひとりの患者様に寄り添い、信頼される医療機関を目指します。</p>
+                <div class="card-metric">
+                    <span class="metric-value">20年+</span>
+                    <span>地域医療経験</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid-cell col-8">
+            <div class="content-card">
+                <div class="card-icon">👥</div>
+                <h3 class="card-title">チーム医療の実践</h3>
+                <p class="card-description">医師・理学療法士・医療事務が一体となり、患者様に最適な医療サービスを提供します。</p>
+                <div class="card-metric">
+                    <span class="metric-value">3職種</span>
+                    <span>チーム連携</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Open Positions -->
+    <section class="grid-container">
+        <div class="grid-cell col-24 section-header">
+            <h2 class="section-title">募集職種</h2>
+            <p class="section-subtitle">共に地域医療を支えるスタッフを募集しています</p>
+        </div>
+
+        <div class="grid-cell col-8">
+            <div class="job-card">
+                <span class="job-department">事務職</span>
+                <h3 class="job-title">医療事務</h3>
+                <div class="job-details">
+                    <div class="job-detail">
+                        <div class="job-detail-icon">💰</div>
+                        <span>月給 20-25万円</span>
+                    </div>
+                    <div class="job-detail">
+                        <div class="job-detail-icon">📍</div>
+                        <span>正社員</span>
+                    </div>
+                    <div class="job-detail">
+                        <div class="job-detail-icon">⏰</div>
+                        <span>8:30-17:30</span>
+                    </div>
+                    <div class="job-detail">
+                        <div class="job-detail-icon">🗓️</div>
+                        <span>日祝、水曜午後、土曜午後</span>
+                    </div>
+                </div>
+                <p style="margin-top: 16px; color: var(--text-medium); font-size: 14px;">受付業務、レセプト業務、患者様対応など、クリニック運営の要となるポジション</p>
+            </div>
+        </div>
+
+        <div class="grid-cell col-8">
+            <div class="job-card">
+                <span class="job-department" style="background: var(--accent-emerald);">リハビリ</span>
+                <h3 class="job-title">理学療法士</h3>
+                <div class="job-details">
+                    <div class="job-detail">
+                        <div class="job-detail-icon">💰</div>
+                        <span>月給 25-35万円</span>
+                    </div>
+                    <div class="job-detail">
+                        <div class="job-detail-icon">📍</div>
+                        <span>正社員</span>
+                    </div>
+                    <div class="job-detail">
+                        <div class="job-detail-icon">⏰</div>
+                        <span>8:30-17:30</span>
+                    </div>
+                    <div class="job-detail">
+                        <div class="job-detail-icon">🗓️</div>
+                        <span>日祝、水曜午後、土曜午後</span>
+                    </div>
+                </div>
+                <p style="margin-top: 16px; color: var(--text-medium); font-size: 14px;">リハビリテーション業務全般。患者様の機能回復を支援する専門職</p>
+            </div>
+        </div>
+
+        <div class="grid-cell col-8">
+            <div class="job-card">
+                <span class="job-department" style="background: #8B5CF6;">看護</span>
+                <h3 class="job-title">看護師</h3>
+                <div class="job-details">
+                    <div class="job-detail">
+                        <div class="job-detail-icon">💰</div>
+                        <span>月給 23-30万円</span>
+                    </div>
+                    <div class="job-detail">
+                        <div class="job-detail-icon">📍</div>
+                        <span>正社員・パート</span>
+                    </div>
+                    <div class="job-detail">
+                        <div class="job-detail-icon">⏰</div>
+                        <span>8:30-17:30</span>
+                    </div>
+                    <div class="job-detail">
+                        <div class="job-detail-icon">🗓️</div>
+                        <span>日祝、水曜午後、土曜午後</span>
+                    </div>
+                </div>
+                <p style="margin-top: 16px; color: var(--text-medium); font-size: 14px;">診療補助、処置、患者様のケアなど、医師と連携して医療を提供</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits -->
+    <section class="grid-container">
+        <div class="grid-cell col-24 section-header">
+            <h2 class="section-title">充実の福利厚生</h2>
+            <p class="section-subtitle">働きやすい環境で地域医療をサポート</p>
+        </div>
+
+        <div class="grid-cell col-4">
+            <div class="benefit-item">
+                <div class="benefit-icon">✓</div>
+                <h4 class="benefit-title">社会保険完備</h4>
+                <p class="benefit-description">健康保険・厚生年金・雇用保険・労災保険</p>
+            </div>
+        </div>
+
+        <div class="grid-cell col-4">
+            <div class="benefit-item">
+                <div class="benefit-icon">✓</div>
+                <h4 class="benefit-title">賞与年2回</h4>
+                <p class="benefit-description">業績による賞与支給制度</p>
+            </div>
+        </div>
+
+        <div class="grid-cell col-4">
+            <div class="benefit-item">
+                <div class="benefit-icon">✓</div>
+                <h4 class="benefit-title">交通費支給</h4>
+                <p class="benefit-description">通勤にかかる交通費を支給</p>
+            </div>
+        </div>
+
+        <div class="grid-cell col-4">
+            <div class="benefit-item">
+                <div class="benefit-icon">✓</div>
+                <h4 class="benefit-title">制服貸与</h4>
+                <p class="benefit-description">業務用制服の貸与</p>
+            </div>
+        </div>
+
+        <div class="grid-cell col-4">
+            <div class="benefit-item">
+                <div class="benefit-icon">✓</div>
+                <h4 class="benefit-title">研修制度充実</h4>
+                <p class="benefit-description">スキルアップのための研修機会</p>
+            </div>
+        </div>
+
+        <div class="grid-cell col-4">
+            <div class="benefit-item">
+                <div class="benefit-icon">✓</div>
+                <h4 class="benefit-title">有給休暇取得推進</h4>
+                <p class="benefit-description">働きやすい職場環境</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Performance Metrics -->
+    <section class="grid-container">
+        <div class="grid-cell col-24 section-header">
+            <h2 class="section-title">クリニック情報</h2>
+            <p class="section-subtitle">新規開業に向けた取り組み</p>
+        </div>
+
+        <div class="grid-cell col-6">
+            <div class="content-card text-center">
+                <h4 class="card-title">開業予定</h4>
+                <div style="font-size: 36px; font-weight: 700; color: var(--primary-blue); margin: 20px 0;">2026年春</div>
+                <p style="color: var(--text-medium); font-size: 14px;">石川県能登地区に新規開業予定</p>
+            </div>
+        </div>
+
+        <div class="grid-cell col-6">
+            <div class="content-card text-center">
+                <h4 class="card-title">院長経験</h4>
+                <div style="font-size: 36px; font-weight: 700; color: var(--accent-emerald); margin: 20px 0;">20年以上</div>
+                <p style="color: var(--text-medium); font-size: 14px;">能登地域での整形外科医療実績</p>
+            </div>
+        </div>
+
+        <div class="grid-cell col-6">
+            <div class="content-card text-center">
+                <h4 class="card-title">最新設備</h4>
+                <div style="font-size: 36px; font-weight: 700; color: var(--gold-highlight); margin: 20px 0;">MRI導入</div>
+                <p style="color: var(--text-medium); font-size: 14px;">高度な診断・治療機器を完備</p>
+            </div>
+        </div>
+
+        <div class="grid-cell col-6">
+            <div class="content-card text-center">
+                <h4 class="card-title">地域貢献</h4>
+                <div style="font-size: 36px; font-weight: 700; color: #8B5CF6; margin: 20px 0;">復興支援</div>
+                <p style="color: var(--text-medium); font-size: 14px;">震災復興を支える医療提供</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="grid-container">
+        <div class="grid-cell col-24">
+            <div class="content-card text-center" style="padding: 60px;">
+                <h2 style="font-size: 36px; margin-bottom: 20px;">共に能登の地域医療を支えませんか</h2>
+                <p style="font-size: 18px; color: var(--text-medium); margin-bottom: 40px;">ご興味をお持ちいただけましたら、お気軽にお問い合わせください</p>
+                <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+                    <a href="mailto:recruit@sukoyaka-clinic.jp" class="cta-button" style="font-size: 18px; padding: 16px 32px;">メールで応募</a>
+                    <a href="tel:0767-xx-xxxx" class="cta-button" style="background: var(--accent-emerald); font-size: 18px; padding: 16px 32px;">電話で問い合わせ</a>
+                    <a href="#info" class="cta-button" style="background: var(--gold-highlight); font-size: 18px; padding: 16px 32px;">施設見学予約</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-section">
+                <h4>医院情報</h4>
+                <ul>
+                    <li><a href="#">医院概要</a></li>
+                    <li><a href="#">診療方針</a></li>
+                    <li><a href="#">院長紹介</a></li>
+                    <li><a href="#">アクセス</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>採用情報</h4>
+                <ul>
+                    <li><a href="#">医療事務</a></li>
+                    <li><a href="#">理学療法士</a></li>
+                    <li><a href="#">看護師</a></li>
+                    <li><a href="#">福利厚生</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>診療案内</h4>
+                <ul>
+                    <li><a href="#">整形外科</a></li>
+                    <li><a href="#">リハビリテーション</a></li>
+                    <li><a href="#">診療時間</a></li>
+                    <li><a href="#">診療予約</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>お問い合わせ</h4>
+                <ul>
+                    <li><a href="tel:0767-xx-xxxx">電話: 0767-xx-xxxx（準備室）</a></li>
+                    <li><a href="mailto:recruit@sukoyaka-clinic.jp">採用: recruit@sukoyaka-clinic.jp</a></li>
+                    <li><a href="#">〒xxx-xxxx 石川県能登地区</a></li>
+                    <li><a href="#">2026年春開業予定</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Grid interaction effects
+        document.querySelectorAll('.grid-cell').forEach(cell => {
+            cell.addEventListener('mouseenter', function() {
+                this.style.borderColor = 'var(--primary-blue)';
+            });
+            
+            cell.addEventListener('mouseleave', function() {
+                this.style.borderColor = 'var(--grid-color)';
+            });
+        });
+
+        // Progress bar animations
+        function animateProgressBars() {
+            const progressBars = document.querySelectorAll('.progress-fill');
+            progressBars.forEach(bar => {
+                const width = bar.style.width;
+                bar.style.width = '0%';
+                setTimeout(() => {
+                    bar.style.width = width;
+                }, 100);
+            });
+        }
+
+        // Chart bar hover effects
+        document.querySelectorAll('.chart-bar').forEach(bar => {
+            bar.addEventListener('mouseenter', function() {
+                this.style.filter = 'brightness(1.2)';
+            });
+            
+            bar.addEventListener('mouseleave', function() {
+                this.style.filter = 'brightness(1)';
+            });
+        });
+
+        // Initialize animations
+        window.addEventListener('load', animateProgressBars);
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>採用情報 | すこやか整形外科医院 - 能登の地域医療を共に支えるスタッフ募集</title>
+    <meta name="description" content="2026年春開業予定。能登の地域医療を20年以上支えてきた中村健一医師と共に、新しい医療の形を創造するスタッフを募集しています。">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'inter': ['Inter', 'Helvetica Neue', 'sans-serif'],
+                    },
+                    colors: {
+                        'medical-blue': '#4A90E2',
+                        'medical-mint': '#26D0CE',
+                        'medical-green': '#10B981',
+                        'text-dark': '#2C3E50',
+                        'bg-light': '#F8F9FA',
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.6s ease-out',
+                        'slide-up': 'slideUp 0.8s ease-out',
+                        'float': 'float 3s ease-in-out infinite',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes slideUp {
+            from { transform: translateY(30px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .scroll-smooth {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body class="font-inter bg-white text-text-dark overflow-x-hidden scroll-smooth">
+
+    <!-- Header -->
+    <header class="fixed top-0 w-full z-50 bg-white/95 backdrop-blur-md border-b border-gray-100 transition-all duration-300">
+        <nav class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 bg-gradient-to-br from-medical-blue to-medical-mint rounded-xl flex items-center justify-center">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                        </svg>
+                    </div>
+                    <div>
+                        <h1 class="text-xl font-bold text-text-dark">すこやか整形外科医院</h1>
+                        <p class="text-sm text-gray-600">採用情報</p>
+                    </div>
+                </div>
+                
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#vision" class="text-gray-700 hover:text-medical-blue transition-colors duration-200">私たちが目指す医療</a>
+                    <a href="#positions" class="text-gray-700 hover:text-medical-blue transition-colors duration-200">募集職種</a>
+                    <a href="#benefits" class="text-gray-700 hover:text-medical-blue transition-colors duration-200">福利厚生</a>
+                    <a href="#contact" class="bg-medical-green text-white px-6 py-2 rounded-xl hover:bg-green-600 transition-all duration-200 shadow-md hover:shadow-lg">
+                        応募・お問い合わせ
+                    </a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden p-2 rounded-lg hover:bg-gray-100">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 via-white to-teal-50 overflow-hidden">
+        <!-- Background Pattern -->
+        <div class="absolute inset-0 opacity-5">
+            <svg class="w-full h-full" viewBox="0 0 400 400" fill="none">
+                <defs>
+                    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+                        <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#4A90E2" stroke-width="1"/>
+                    </pattern>
+                </defs>
+                <rect width="100%" height="100%" fill="url(#grid)" />
+            </svg>
+        </div>
+        
+        <div class="container mx-auto px-6 pt-20 pb-16 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <!-- Left Content -->
+                <div class="animate-fade-in">
+                    <div class="inline-flex items-center space-x-2 bg-white/80 backdrop-blur-sm px-4 py-2 rounded-full border border-gray-200 mb-6">
+                        <div class="w-2 h-2 bg-medical-green rounded-full animate-pulse"></div>
+                        <span class="text-sm text-gray-600 font-medium">2026年春 新規開業予定</span>
+                    </div>
+                    
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-text-dark leading-tight mb-6">
+                        <span class="text-gray-600 text-2xl md:text-3xl block mb-2">共にあゆみ、共につくる</span>
+                        <span class="bg-gradient-to-r from-medical-blue to-medical-mint bg-clip-text text-transparent">
+                            能登の地域医療
+                        </span>
+                    </h1>
+                    
+                    <p class="text-lg text-gray-700 mb-8 leading-relaxed max-w-lg">
+                        震災復興を支えながら、地域医療の新しい形を一緒に創造しませんか。
+                        MRIなど最新設備を導入し、患者様に寄り添う医療を提供するチームの一員として。
+                    </p>
+                    
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="#contact" class="inline-flex items-center justify-center bg-medical-green text-white px-8 py-4 rounded-xl font-semibold hover:bg-green-600 transition-all duration-200 shadow-lg hover:shadow-xl group">
+                            <span>エントリー</span>
+                            <svg class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                            </svg>
+                        </a>
+                        <a href="#vision" class="inline-flex items-center justify-center bg-white text-text-dark px-8 py-4 rounded-xl font-semibold border border-gray-200 hover:bg-gray-50 transition-all duration-200 shadow-md hover:shadow-lg">
+                            詳しい募集内容を見る
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Right Content - Doctor Section -->
+                <div class="relative animate-slide-up">
+                    <!-- Doctor Message Card -->
+                    <div class="glass-card rounded-3xl p-8 shadow-2xl animate-float">
+                        <div class="flex items-center mb-6">
+                            <div class="w-16 h-16 bg-gradient-to-br from-medical-blue to-medical-mint rounded-2xl flex items-center justify-center mr-4">
+                                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-text-dark">院長メッセージ</h3>
+                                <p class="text-gray-600">中村 健一</p>
+                            </div>
+                        </div>
+                        
+                        <div class="space-y-4 text-gray-700 leading-relaxed">
+                            <p class="font-medium text-text-dark">
+                                20年以上、能登で整形外科医として地域医療を支えてきました。
+                            </p>
+                            <p class="text-sm">
+                                震災の爪痕が未だ残るこの地で、MRIなど最新の医療機器を導入し、地域の皆様により良い医療を提供したい。
+                                その想いを共有し、共に歩んでくれるスタッフを募集します。
+                            </p>
+                        </div>
+                        
+                        <div class="mt-6 p-4 bg-blue-50 rounded-xl border border-blue-100">
+                            <div class="text-sm text-blue-800 font-medium">すこやか整形外科医院 院長</div>
+                            <div class="text-lg font-bold text-blue-900">中村 健一</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Floating Stats -->
+                    <div class="absolute -top-4 -right-4 bg-white rounded-2xl p-4 shadow-lg border border-gray-100" style="animation-delay: 0.5s;">
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-medical-blue">20+</div>
+                            <div class="text-sm text-gray-600">年の経験</div>
+                        </div>
+                    </div>
+                    
+                    <div class="absolute -bottom-4 -left-4 bg-white rounded-2xl p-4 shadow-lg border border-gray-100" style="animation-delay: 1s;">
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-medical-mint">MRI</div>
+                            <div class="text-sm text-gray-600">最新設備</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vision Section -->
+    <section id="vision" class="py-20 bg-bg-light">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="inline-block bg-medical-blue/10 text-medical-blue px-4 py-2 rounded-full text-sm font-semibold mb-4">
+                    私たちが目指す医療
+                </span>
+                <h2 class="text-3xl md:text-4xl font-bold text-text-dark mb-6">
+                    共に実現する
+                    <span class="text-medical-blue">医療の未来</span>
+                </h2>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <!-- Vision Card 1 -->
+                <div class="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 group text-center">
+                    <div class="w-20 h-20 bg-gradient-to-br from-medical-mint to-teal-600 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <span class="text-3xl">🤝</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-text-dark mb-4">地域に寄り添う医療</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        震災復興を支えながら、一人ひとりの患者様に寄り添い、信頼される医療機関を目指します。
+                    </p>
+                </div>
+                
+                <!-- Vision Card 2 -->
+                <div class="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 group text-center">
+                    <div class="w-20 h-20 bg-gradient-to-br from-medical-green to-green-600 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <span class="text-3xl">👥</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-text-dark mb-4">チーム医療の実践</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        医師・理学療法士・医療事務が一体となり、患者様に最適な医療サービスを提供します。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Positions Section -->
+    <section id="positions" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="inline-block bg-medical-green/10 text-medical-green px-4 py-2 rounded-full text-sm font-semibold mb-4">
+                    募集職種
+                </span>
+                <h2 class="text-3xl md:text-4xl font-bold text-text-dark mb-6">
+                    あなたの専門性を
+                    <span class="text-medical-green">活かしませんか</span>
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    各分野のプロフェッショナルとして、地域医療を支える仲間を募集しています
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                <!-- Position Card 1 - 看護師 -->
+                <div class="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300">
+                    <div class="flex items-center justify-between mb-6">
+                        <h3 class="text-2xl font-bold text-text-dark">看護師</h3>
+                        <span class="bg-medical-green/10 text-medical-green px-3 py-1 rounded-full text-sm font-semibold">正社員・パート</span>
+                    </div>
+                    
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        診療補助、処置、患者様のケアなど、医師と連携して医療を提供します。
+                    </p>
+                    
+                    <div class="space-y-4 mb-8">
+                        <div class="flex items-center justify-between py-3 px-4 bg-gray-50 rounded-xl">
+                            <span class="text-gray-600 font-medium">給与</span>
+                            <span class="text-text-dark font-bold">月給 23-30万円</span>
+                        </div>
+                        <div class="flex items-center justify-between py-3 px-4 bg-gray-50 rounded-xl">
+                            <span class="text-gray-600 font-medium">勤務時間</span>
+                            <span class="text-text-dark font-bold">8:30〜17:30</span>
+                        </div>
+                        <div class="flex items-center justify-between py-3 px-4 bg-gray-50 rounded-xl">
+                            <span class="text-gray-600 font-medium">休日</span>
+                            <span class="text-text-dark font-bold text-sm">日祝、水曜午後、土曜午後</span>
+                        </div>
+                    </div>
+                    
+                    <div class="pt-6 border-t border-gray-100">
+                        <a href="#contact" class="block text-center bg-medical-green text-white py-3 px-6 rounded-xl font-semibold hover:bg-green-600 transition-all duration-200">
+                            この職種に応募する
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Position Card 2 - 医療事務 -->
+                <div class="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300">
+                    <div class="flex items-center justify-between mb-6">
+                        <h3 class="text-2xl font-bold text-text-dark">医療事務</h3>
+                        <span class="bg-medical-blue/10 text-medical-blue px-3 py-1 rounded-full text-sm font-semibold">正社員</span>
+                    </div>
+                    
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        受付業務、レセプト業務、患者様対応など、クリニック運営の要となるポジションです。
+                    </p>
+                    
+                    <div class="space-y-4 mb-8">
+                        <div class="flex items-center justify-between py-3 px-4 bg-gray-50 rounded-xl">
+                            <span class="text-gray-600 font-medium">給与</span>
+                            <span class="text-text-dark font-bold">月給 20-25万円</span>
+                        </div>
+                        <div class="flex items-center justify-between py-3 px-4 bg-gray-50 rounded-xl">
+                            <span class="text-gray-600 font-medium">勤務時間</span>
+                            <span class="text-text-dark font-bold">8:30〜17:30</span>
+                        </div>
+                        <div class="flex items-center justify-between py-3 px-4 bg-gray-50 rounded-xl">
+                            <span class="text-gray-600 font-medium">休日</span>
+                            <span class="text-text-dark font-bold text-sm">日祝、水曜午後、土曜午後</span>
+                        </div>
+                    </div>
+                    
+                    <div class="pt-6 border-t border-gray-100">
+                        <a href="#contact" class="block text-center bg-medical-blue text-white py-3 px-6 rounded-xl font-semibold hover:bg-blue-600 transition-all duration-200">
+                            この職種に応募する
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Position Card 3 - 理学療法士 -->
+                <div class="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300">
+                    <div class="flex items-center justify-between mb-6">
+                        <h3 class="text-2xl font-bold text-text-dark">理学療法士</h3>
+                        <span class="bg-medical-mint/10 text-medical-mint px-3 py-1 rounded-full text-sm font-semibold">正社員</span>
+                    </div>
+                    
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        リハビリテーション業務全般。患者様の機能回復を支援する専門職です。
+                    </p>
+                    
+                    <div class="space-y-4 mb-8">
+                        <div class="flex items-center justify-between py-3 px-4 bg-gray-50 rounded-xl">
+                            <span class="text-gray-600 font-medium">給与</span>
+                            <span class="text-text-dark font-bold">月給 25-35万円</span>
+                        </div>
+                        <div class="flex items-center justify-between py-3 px-4 bg-gray-50 rounded-xl">
+                            <span class="text-gray-600 font-medium">勤務時間</span>
+                            <span class="text-text-dark font-bold">8:30〜17:30</span>
+                        </div>
+                        <div class="flex items-center justify-between py-3 px-4 bg-gray-50 rounded-xl">
+                            <span class="text-gray-600 font-medium">休日</span>
+                            <span class="text-text-dark font-bold text-sm">日祝、水曜午後、土曜午後</span>
+                        </div>
+                    </div>
+                    
+                    <div class="pt-6 border-t border-gray-100">
+                        <a href="#contact" class="block text-center bg-medical-mint text-white py-3 px-6 rounded-xl font-semibold hover:bg-teal-600 transition-all duration-200">
+                            この職種に応募する
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Position Card 4 - 診療放射線技師 -->
+                <div class="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300">
+                    <div class="flex items-center justify-between mb-6">
+                        <h3 class="text-2xl font-bold text-text-dark">診療放射線技師</h3>
+                        <span class="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm font-semibold">正社員</span>
+                    </div>
+                    
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        MRI・レントゲン等の画像診断業務。最新機器を用いた専門的な検査を担当します。
+                    </p>
+                    
+                    <div class="space-y-4 mb-8">
+                        <div class="flex items-center justify-between py-3 px-4 bg-gray-50 rounded-xl">
+                            <span class="text-gray-600 font-medium">給与</span>
+                            <span class="text-text-dark font-bold">月給 26-36万円</span>
+                        </div>
+                        <div class="flex items-center justify-between py-3 px-4 bg-gray-50 rounded-xl">
+                            <span class="text-gray-600 font-medium">勤務時間</span>
+                            <span class="text-text-dark font-bold">8:30〜17:30</span>
+                        </div>
+                        <div class="flex items-center justify-between py-3 px-4 bg-gray-50 rounded-xl">
+                            <span class="text-gray-600 font-medium">休日</span>
+                            <span class="text-text-dark font-bold text-sm">日祝、水曜午後、土曜午後</span>
+                        </div>
+                    </div>
+                    
+                    <div class="pt-6 border-t border-gray-100">
+                        <a href="#contact" class="block text-center bg-purple-600 text-white py-3 px-6 rounded-xl font-semibold hover:bg-purple-700 transition-all duration-200">
+                            この職種に応募する
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Facility Images Section -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-text-dark mb-6">
+                    <span class="text-medical-blue">内装・設備イメージ</span>
+                </h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                    MRI・CTなどの医療機器と、充実したリハビリテーション設備を導入予定
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+                <!-- MRI Equipment Image -->
+                <div class="group cursor-pointer overflow-hidden rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300">
+                    <div class="relative">
+                        <img src="/assets/mri-latest.png" alt="MRI検査室" class="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-300 brightness-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
+                        <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
+                            <h3 class="text-2xl font-bold mb-2 drop-shadow-lg">医療機器</h3>
+                            <p class="text-sm opacity-95 drop-shadow">MRIやCTを導入予定です</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Rehabilitation Room Image -->
+                <div class="group cursor-pointer overflow-hidden rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300">
+                    <div class="relative">
+                        <img src="/assets/rehab-final.png" alt="リハビリテーションルーム" class="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-300 brightness-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
+                        <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
+                            <h3 class="text-2xl font-bold mb-2 drop-shadow-lg">広々としたリハビリルーム</h3>
+                            <p class="text-sm opacity-95 drop-shadow">患者様一人ひとりに合わせた機能回復訓練を提供</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <p class="text-center text-sm text-gray-500 mt-6">※画像はイメージです</p>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section id="benefits" class="py-20 bg-bg-light">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="inline-block bg-medical-green/10 text-medical-green px-4 py-2 rounded-full text-sm font-semibold mb-4">
+                    福利厚生
+                </span>
+                <h2 class="text-3xl md:text-4xl font-bold text-text-dark mb-6">
+                    充実した
+                    <span class="text-medical-green">働く環境</span>
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    スタッフが安心して働けるよう、充実した福利厚生制度を整えています
+                </p>
+            </div>
+            
+            <div class="max-w-4xl mx-auto">
+                <div class="grid md:grid-cols-2 gap-6">
+                    <!-- Benefits Items -->
+                    <div class="bg-white rounded-2xl p-6 shadow-md hover:shadow-lg transition-all duration-300 flex items-center space-x-4">
+                        <div class="w-12 h-12 bg-medical-blue/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <svg class="w-6 h-6 text-medical-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-text-dark mb-1">社会保険完備</h4>
+                            <p class="text-gray-600 text-sm">健康保険・厚生年金・雇用保険・労災保険</p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-2xl p-6 shadow-md hover:shadow-lg transition-all duration-300 flex items-center space-x-4">
+                        <div class="w-12 h-12 bg-medical-mint/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <svg class="w-6 h-6 text-medical-mint" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-text-dark mb-1">賞与年2回</h4>
+                            <p class="text-gray-600 text-sm">業績に応じた賞与を支給します</p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-2xl p-6 shadow-md hover:shadow-lg transition-all duration-300 flex items-center space-x-4">
+                        <div class="w-12 h-12 bg-medical-green/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <svg class="w-6 h-6 text-medical-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-text-dark mb-1">交通費支給</h4>
+                            <p class="text-gray-600 text-sm">通勤にかかる交通費を全額支給</p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-2xl p-6 shadow-md hover:shadow-lg transition-all duration-300 flex items-center space-x-4">
+                        <div class="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-text-dark mb-1">制服貸与</h4>
+                            <p class="text-gray-600 text-sm">清潔で機能的な制服を貸与します</p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-2xl p-6 shadow-md hover:shadow-lg transition-all duration-300 flex items-center space-x-4">
+                        <div class="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <svg class="w-6 h-6 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-text-dark mb-1">研修制度充実</h4>
+                            <p class="text-gray-600 text-sm">スキルアップのための研修制度を完備</p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-2xl p-6 shadow-md hover:shadow-lg transition-all duration-300 flex items-center space-x-4">
+                        <div class="w-12 h-12 bg-pink-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <svg class="w-6 h-6 text-pink-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-text-dark mb-1">有給休暇取得推進</h4>
+                            <p class="text-gray-600 text-sm">ワークライフバランスを重視します</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="inline-block bg-medical-blue/10 text-medical-blue px-4 py-2 rounded-full text-sm font-semibold mb-4">
+                    エントリー・お問い合わせ
+                </span>
+                <h2 class="text-3xl md:text-4xl font-bold text-text-dark mb-6">
+                    共に働く仲間を
+                    <span class="text-medical-blue">お待ちしています</span>
+                </h2>
+            </div>
+            
+            <div class="max-w-4xl mx-auto">
+                <div class="bg-bg-light rounded-3xl p-8 md:p-12">
+                    <p class="text-lg text-gray-700 mb-8 text-center leading-relaxed">
+                        ご興味をお持ちいただけましたら、お気軽にお問い合わせください。<br>
+                        見学のご希望も承っております。
+                    </p>
+                    
+                    <!-- Email Contact Only -->
+                    <div class="max-w-lg mx-auto mb-8">
+                        <a href="mailto:recruit@sukoyaka-clinic.jp" class="group">
+                            <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 text-center">
+                                <div class="w-16 h-16 bg-gradient-to-br from-medical-blue to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                                    <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                                    </svg>
+                                </div>
+                                <h3 class="text-xl font-bold text-text-dark mb-2">メールで応募・問い合わせ</h3>
+                                <p class="text-medical-blue font-semibold group-hover:underline">recruit@sukoyaka-clinic.jp</p>
+                            </div>
+                        </a>
+                    </div>
+                    
+                    <div class="bg-yellow-50 border border-yellow-200 rounded-xl p-6 text-center">
+                        <div class="flex items-center justify-center mb-2">
+                            <svg class="w-5 h-5 text-yellow-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            <span class="font-semibold text-yellow-800">応募時のお願い</span>
+                        </div>
+                        <p class="text-yellow-700 text-sm">
+                            応募の際は、履歴書・職務経歴書をメールまたは郵送にてお送りください。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-text-dark text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-8">
+                <div>
+                    <div class="flex items-center space-x-3 mb-4">
+                        <div class="w-10 h-10 bg-gradient-to-br from-medical-blue to-medical-mint rounded-xl flex items-center justify-center">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold">すこやか整形外科医院</h3>
+                            <p class="text-gray-300 text-sm">能登の地域医療を共に支える仲間募集中</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 leading-relaxed">
+                        2026年春開業予定。地域の皆さまの健康を支え、
+                        共に歩む医療チームのメンバーを募集しています。
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">お問い合わせ</h4>
+                    <div class="space-y-3 text-gray-300">
+                        <p>
+                            <span class="font-semibold">Email:</span> recruit@sukoyaka-clinic.jp
+                        </p>
+                        <p>
+                            <span class="font-semibold">所在地:</span><br>
+                            2026年春 石川県能登地区に開業予定<br>
+                            〒xxx-xxxx 石川県（詳細住所は決定次第公開）
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-600 mt-8 pt-8 text-center">
+                <p class="text-gray-400">
+                    &copy; 2026 すこやか整形外科医院 All Rights Reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button id="scrollToTop" class="fixed bottom-6 right-6 bg-medical-green text-white p-4 rounded-full shadow-lg hover:bg-green-600 transition-all duration-200 opacity-0 invisible">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+        </svg>
+    </button>
+
+    <script>
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Scroll to top button
+        const scrollToTopButton = document.getElementById('scrollToTop');
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                scrollToTopButton.classList.remove('opacity-0', 'invisible');
+                scrollToTopButton.classList.add('opacity-100', 'visible');
+            } else {
+                scrollToTopButton.classList.add('opacity-0', 'invisible');
+                scrollToTopButton.classList.remove('opacity-100', 'visible');
+            }
+        });
+
+        scrollToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards and sections for animation
+        document.querySelectorAll('.bg-white, .glass-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>

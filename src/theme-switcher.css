@@ -1,0 +1,186 @@
+/* テーマ切り替えUI用スタイル */
+
+/* フローティングボタン */
+#theme-switcher-trigger {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 12px 24px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    z-index: 9999;
+    transition: all 0.3s ease;
+}
+
+#theme-switcher-trigger:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* 切り替えパネル */
+#theme-switcher-panel {
+    position: fixed;
+    right: -400px;
+    top: 0;
+    width: 400px;
+    height: 100vh;
+    background: white;
+    box-shadow: -5px 0 20px rgba(0, 0, 0, 0.1);
+    z-index: 10000;
+    transition: right 0.3s ease;
+    overflow-y: auto;
+}
+
+#theme-switcher-panel.active {
+    right: 0;
+}
+
+.theme-switcher-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.theme-switcher-header h3 {
+    margin: 0;
+    font-size: 18px;
+}
+
+#theme-panel-toggle {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* テーマリスト */
+.theme-list {
+    padding: 20px;
+}
+
+.theme-btn {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 10px;
+    border: 2px solid #e5e7eb;
+    border-radius: 8px;
+    background: white;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.2s ease;
+}
+
+.theme-btn:hover {
+    border-color: #667eea;
+    background: #f9fafb;
+}
+
+.theme-name {
+    font-size: 14px;
+    font-weight: 500;
+    color: #374151;
+}
+
+.theme-check {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: #e5e7eb;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    opacity: 0;
+    transition: all 0.2s ease;
+}
+
+.theme-check.active {
+    background: #10b981;
+    opacity: 1;
+}
+
+/* デバイスプレビュー */
+.theme-info {
+    padding: 20px;
+    border-top: 1px solid #e5e7eb;
+}
+
+.theme-info p {
+    margin: 0 0 10px 0;
+    font-size: 14px;
+    font-weight: 600;
+    color: #374151;
+}
+
+.device-preview {
+    display: flex;
+    gap: 10px;
+}
+
+.device-preview button {
+    flex: 1;
+    padding: 10px;
+    border: 2px solid #e5e7eb;
+    border-radius: 6px;
+    background: white;
+    cursor: pointer;
+    font-size: 12px;
+    transition: all 0.2s ease;
+}
+
+.device-preview button:hover {
+    border-color: #667eea;
+    background: #f9fafb;
+}
+
+.device-preview button.active {
+    background: #667eea;
+    color: white;
+    border-color: #667eea;
+}
+
+/* プレビューモード用スタイル */
+@media (min-width: 1024px) {
+    body.preview-mobile {
+        max-width: 375px;
+        margin: 0 auto;
+        border: 2px solid #e5e7eb;
+    }
+    
+    body.preview-tablet {
+        max-width: 768px;
+        margin: 0 auto;
+        border: 2px solid #e5e7eb;
+    }
+}
+
+/* モバイル対応 */
+@media (max-width: 768px) {
+    #theme-switcher-panel {
+        width: 100%;
+        right: -100%;
+    }
+    
+    #theme-switcher-trigger {
+        bottom: 70px; /* ナビゲーションを避ける */
+    }
+}
