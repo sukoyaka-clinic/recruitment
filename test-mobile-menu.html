@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>モバイルメニューテスト</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: sans-serif;
+            background: #f0f0f0;
+        }
+        
+        .header {
+            background: white;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .menu-button {
+            width: 40px;
+            height: 40px;
+            background: #4A90E2;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .menu-button:hover {
+            background: #357ABD;
+        }
+        
+        .menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            display: none;
+            z-index: 1000;
+        }
+        
+        .menu-panel {
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 300px;
+            max-width: 80vw;
+            height: 100%;
+            background: white;
+            padding: 20px;
+            box-shadow: -2px 0 10px rgba(0,0,0,0.2);
+        }
+        
+        .close-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 30px;
+            height: 30px;
+            background: #f0f0f0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 20px;
+        }
+        
+        .menu-links {
+            margin-top: 60px;
+        }
+        
+        .menu-links a {
+            display: block;
+            padding: 15px 0;
+            text-decoration: none;
+            color: #333;
+            border-bottom: 1px solid #eee;
+            font-size: 16px;
+        }
+        
+        .menu-links a:hover {
+            color: #4A90E2;
+        }
+        
+        .content {
+            padding: 2rem;
+            text-align: center;
+        }
+        
+        h1 {
+            color: #333;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div>テストサイト</div>
+        <button id="openMenu" class="menu-button">
+            <svg width="24" height="24" fill="white" viewBox="0 0 24 24">
+                <path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/>
+            </svg>
+        </button>
+    </div>
+    
+    <div id="menuOverlay" class="menu-overlay">
+        <div class="menu-panel">
+            <button id="closeMenu" class="close-button">×</button>
+            <div class="menu-links">
+                <a href="#section1">セクション1</a>
+                <a href="#section2">セクション2</a>
+                <a href="#section3">セクション3</a>
+                <a href="#contact">お問い合わせ</a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="content">
+        <h1>モバイルメニューテスト</h1>
+        <p>このページはモバイルメニューの動作テスト用です。</p>
+        <p>右上のハンバーガーメニューをクリックしてください。</p>
+    </div>
+    
+    <script>
+        // シンプルなバニラJavaScript
+        document.getElementById('openMenu').onclick = function() {
+            document.getElementById('menuOverlay').style.display = 'block';
+        };
+        
+        document.getElementById('closeMenu').onclick = function() {
+            document.getElementById('menuOverlay').style.display = 'none';
+        };
+        
+        document.getElementById('menuOverlay').onclick = function(e) {
+            if (e.target.id === 'menuOverlay') {
+                this.style.display = 'none';
+            }
+        };
+    </script>
+</body>
+</html>

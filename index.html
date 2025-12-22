@@ -95,21 +95,19 @@
 
     <!-- Mobile Menu -->
     <div id="mobileMenu" style="position: fixed; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(0, 0, 0, 0.5); z-index: 9999; display: none;">
-        <div class="absolute right-0 top-0 h-full bg-white shadow-xl" style="width: 320px; max-width: 85vw;">
-            <div class="p-6">
+        <div style="position: absolute; right: 0; top: 0; width: 320px; max-width: 85vw; height: 100%; background: white; box-shadow: -2px 0 10px rgba(0,0,0,0.2);">
+            <div style="padding: 1.5rem;">
                 <!-- Close Button -->
-                <button id="mobileMenuClose" class="absolute top-4 right-4 p-2 rounded-lg hover:bg-gray-100">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                    </svg>
+                <button id="mobileMenuClose" style="position: absolute; top: 1rem; right: 1rem; width: 2.5rem; height: 2.5rem; background: #f3f4f6; border: none; border-radius: 0.5rem; cursor: pointer; font-size: 1.5rem;">
+                    ×
                 </button>
                 
                 <!-- Menu Items -->
-                <div class="mt-12 space-y-6">
-                    <a href="#vision" class="block text-lg text-gray-700 hover:text-medical-blue transition-colors duration-200 py-2 border-b border-gray-100">私たちが目指す医療</a>
-                    <a href="#positions" class="block text-lg text-gray-700 hover:text-medical-blue transition-colors duration-200 py-2 border-b border-gray-100">募集職種</a>
-                    <a href="#benefits" class="block text-lg text-gray-700 hover:text-medical-blue transition-colors duration-200 py-2 border-b border-gray-100">福利厚生</a>
-                    <a href="#contact" class="block bg-medical-green text-white text-center px-6 py-3 rounded-xl hover:bg-green-600 transition-all duration-200 shadow-md hover:shadow-lg mt-8">
+                <div style="margin-top: 4rem;">
+                    <a href="#vision" style="display: block; padding: 1rem 0; text-decoration: none; color: #374151; border-bottom: 1px solid #e5e7eb; font-size: 1.125rem;">私たちが目指す医療</a>
+                    <a href="#positions" style="display: block; padding: 1rem 0; text-decoration: none; color: #374151; border-bottom: 1px solid #e5e7eb; font-size: 1.125rem;">募集職種</a>
+                    <a href="#benefits" style="display: block; padding: 1rem 0; text-decoration: none; color: #374151; border-bottom: 1px solid #e5e7eb; font-size: 1.125rem;">福利厚生</a>
+                    <a href="#contact" style="display: block; margin-top: 2rem; padding: 0.75rem 1.5rem; background: #10B981; color: white; text-align: center; text-decoration: none; border-radius: 0.75rem; font-weight: 600;">
                         応募・お問い合わせ
                     </a>
                 </div>
@@ -655,44 +653,28 @@
     </button>
 
     <script>
-        // Wait for DOM to be fully loaded
-        window.addEventListener('load', function() {
-            // Mobile menu toggle - simple version
-            var mobileMenuButton = document.getElementById('mobileMenuButton');
-            var mobileMenuClose = document.getElementById('mobileMenuClose');
-            var mobileMenu = document.getElementById('mobileMenu');
-            
-            if (mobileMenuButton && mobileMenu) {
-                mobileMenuButton.onclick = function(e) {
-                    if (e) e.preventDefault();
-                    mobileMenu.style.display = 'block';
-                };
+        // Simple mobile menu - proven to work
+        document.getElementById('mobileMenuButton').onclick = function() {
+            document.getElementById('mobileMenu').style.display = 'block';
+        };
+        
+        document.getElementById('mobileMenuClose').onclick = function() {
+            document.getElementById('mobileMenu').style.display = 'none';
+        };
+        
+        document.getElementById('mobileMenu').onclick = function(e) {
+            if (e.target.id === 'mobileMenu') {
+                this.style.display = 'none';
             }
-            
-            if (mobileMenuClose && mobileMenu) {
-                mobileMenuClose.onclick = function(e) {
-                    if (e) e.preventDefault();
-                    mobileMenu.style.display = 'none';
-                };
-            }
-            
-            // Close mobile menu when clicking outside
-            if (mobileMenu) {
-                mobileMenu.onclick = function(e) {
-                    if (e.target === mobileMenu) {
-                        mobileMenu.style.display = 'none';
-                    }
-                };
-                
-                // Close mobile menu when clicking a link
-                var menuLinks = mobileMenu.querySelectorAll('a');
-                for (var i = 0; i < menuLinks.length; i++) {
-                    menuLinks[i].onclick = function() {
-                        mobileMenu.style.display = 'none';
-                    };
-                }
-            }
-        });
+        };
+        
+        // Close menu when clicking links
+        var menuLinks = document.querySelectorAll('#mobileMenu a');
+        for (var i = 0; i < menuLinks.length; i++) {
+            menuLinks[i].onclick = function() {
+                document.getElementById('mobileMenu').style.display = 'none';
+            };
+        }
         
         // Smooth scroll for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
