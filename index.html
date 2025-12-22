@@ -93,8 +93,8 @@
     </header>
 
     <!-- Mobile Menu -->
-    <div id="mobileMenu" class="fixed inset-0 z-40 bg-black/50 backdrop-blur-sm hidden">
-        <div class="absolute right-0 top-0 h-full w-80 bg-white shadow-xl">
+    <div id="mobileMenu" class="fixed inset-0 z-40 hidden" style="background-color: rgba(0, 0, 0, 0.5);">
+        <div class="absolute right-0 top-0 h-full bg-white shadow-xl" style="width: 320px; max-width: 85vw;">
             <div class="p-6">
                 <!-- Close Button -->
                 <button id="mobileMenuClose" class="absolute top-4 right-4 p-2 rounded-lg hover:bg-gray-100">
@@ -660,13 +660,19 @@
         const mobileMenu = document.getElementById('mobileMenu');
         
         if (mobileMenuButton && mobileMenu) {
-            mobileMenuButton.addEventListener('click', () => {
+            mobileMenuButton.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                mobileMenu.style.display = 'block';
                 mobileMenu.classList.remove('hidden');
             });
         }
         
         if (mobileMenuClose && mobileMenu) {
-            mobileMenuClose.addEventListener('click', () => {
+            mobileMenuClose.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                mobileMenu.style.display = 'none';
                 mobileMenu.classList.add('hidden');
             });
         }
@@ -675,6 +681,7 @@
         if (mobileMenu) {
             mobileMenu.addEventListener('click', (e) => {
                 if (e.target === mobileMenu) {
+                    mobileMenu.style.display = 'none';
                     mobileMenu.classList.add('hidden');
                 }
             });
@@ -682,6 +689,7 @@
             // Close mobile menu when clicking a link
             mobileMenu.querySelectorAll('a').forEach(link => {
                 link.addEventListener('click', () => {
+                    mobileMenu.style.display = 'none';
                     mobileMenu.classList.add('hidden');
                 });
             });
