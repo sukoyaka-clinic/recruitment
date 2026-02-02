@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>すこやか整形外科医院 | 石川県能登地区の整形外科・リハビリテーション</title>
+    <meta name="description" content="石川県能登地区のすこやか整形外科医院。MRI・CT完備。整形外科・リハビリテーション。地域の皆さまに寄り添う医療を提供します。">
+    <link rel="icon" href="data:,">
+    <script src="https://cdn.tailwindcss.com?v=3.4.0"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'sans': ['Noto Sans JP', 'sans-serif'],
+                        'inter': ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        'primary': '#FF6B35',
+                        'primary-light': '#FF8F5C',
+                        'primary-pale': '#FFF4EF',
+                        'dark': '#1A1A1A',
+                        'gray-dark': '#333333',
+                        'gray-mid': '#666666',
+                        'gray-light': '#999999',
+                        'gray-pale': '#F5F5F5',
+                        'line': '#E5E5E5',
+                        'accent-green': '#4CAF50',
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        .scroll-smooth { scroll-behavior: smooth; }
+
+        /* Vertical Grid Lines */
+        .grid-lines {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            pointer-events: none;
+            z-index: 0;
+        }
+        .grid-lines::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 1px;
+            background: linear-gradient(to bottom, transparent, #E5E5E5 10%, #E5E5E5 90%, transparent);
+        }
+        .grid-lines::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: calc(50% - 300px);
+            right: calc(50% - 300px);
+            border-left: 1px solid rgba(229, 229, 229, 0.5);
+            border-right: 1px solid rgba(229, 229, 229, 0.5);
+        }
+        @media (min-width: 1024px) {
+            .grid-lines::after {
+                left: calc(50% - 500px);
+                right: calc(50% - 500px);
+            }
+        }
+
+        /* Section Number */
+        .section-num {
+            font-family: 'Inter', sans-serif;
+            font-size: 8rem;
+            font-weight: 700;
+            line-height: 1;
+            color: rgba(255, 107, 53, 0.08);
+            position: absolute;
+            top: -20px;
+            left: -20px;
+        }
+        @media (max-width: 768px) {
+            .section-num {
+                font-size: 5rem;
+            }
+        }
+
+        /* Hover effects */
+        .card-lift {
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+        }
+        .card-lift:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.1);
+        }
+
+        /* Text reveal animation */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .fade-up {
+            animation: fadeUp 0.8s ease-out forwards;
+        }
+
+        /* Vertical text */
+        .vertical-text {
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #FF6B35;
+            border-radius: 4px;
+        }
+
+        /* Diagonal line decoration */
+        .diagonal-line {
+            position: relative;
+        }
+        .diagonal-line::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 60px;
+            height: 1px;
+            background: #FF6B35;
+            transform: rotate(-45deg);
+            transform-origin: left center;
+        }
+    </style>
+</head>
+<body class="font-sans bg-white text-dark scroll-smooth">
+
+    <!-- Grid Lines Background -->
+    <div class="grid-lines"></div>
+
+    <!-- Header -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-line">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <a href="#" class="flex items-center space-x-4 relative z-10">
+                    <div class="w-10 h-10 bg-primary flex items-center justify-center">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                        </svg>
+                    </div>
+                    <div>
+                        <h1 class="text-lg font-bold text-dark tracking-tight">すこやか整形外科医院</h1>
+                        <p class="text-xs text-gray-light font-inter tracking-widest">SUKOYAKA ORTHOPEDICS</p>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden lg:flex items-center space-x-8">
+                    <a href="#about" class="text-base text-gray-mid hover:text-primary transition-colors font-medium">当院について</a>
+                    <a href="#services" class="text-base text-gray-mid hover:text-primary transition-colors font-medium">診療案内</a>
+                    <a href="#doctor" class="text-base text-gray-mid hover:text-primary transition-colors font-medium">院長紹介</a>
+                    <a href="#access" class="text-base text-gray-mid hover:text-primary transition-colors font-medium">アクセス</a>
+                    <a href="index.html" class="text-base text-primary font-medium">採用情報</a>
+                    <a href="#access" class="text-base text-gray-mid hover:text-primary transition-colors font-medium">お問い合わせ</a>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobileMenuBtn" class="lg:hidden p-2">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="fixed inset-0 z-[100] hidden">
+        <div class="absolute inset-0 bg-black/50" id="mobileMenuOverlay"></div>
+        <div class="absolute right-0 top-0 h-full w-80 max-w-[85vw] bg-white">
+            <div class="p-8">
+                <button id="mobileMenuClose" class="absolute top-6 right-6 p-2">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+
+                <div class="mt-16 space-y-1">
+                    <a href="#" class="block py-4 text-dark border-b border-line font-medium">ホーム</a>
+                    <a href="#about" class="block py-4 text-dark border-b border-line font-medium">当院について</a>
+                    <a href="#services" class="block py-4 text-dark border-b border-line font-medium">診療案内</a>
+                    <a href="#doctor" class="block py-4 text-dark border-b border-line font-medium">院長紹介</a>
+                    <a href="#access" class="block py-4 text-dark border-b border-line font-medium">アクセス</a>
+                    <a href="index.html" class="block py-4 text-primary border-b border-line font-medium">採用情報</a>
+                </div>
+
+                <div class="mt-10 space-y-4">
+                    <a href="tel:0768-XX-XXXX" class="flex items-center justify-center py-4 border-2 border-dark text-dark font-bold">
+                        0768-XX-XXXX
+                    </a>
+                    <a href="#" class="flex items-center justify-center py-4 bg-primary text-white font-bold">
+                        WEB予約
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center pt-20">
+        <div class="max-w-7xl mx-auto px-6 py-20 w-full relative z-10">
+            <div class="grid lg:grid-cols-12 gap-8 items-center">
+                <!-- Left Content -->
+                <div class="lg:col-span-5 relative">
+                    <div class="mb-8">
+                        <span class="font-inter text-[10rem] md:text-[14rem] font-bold text-primary/5 absolute -top-20 -left-10 select-none">01</span>
+                    </div>
+
+                    <div class="relative">
+                        <p class="text-base text-primary font-inter font-medium tracking-widest mb-6">2026 SPRING OPEN</p>
+
+                        <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-dark leading-tight mb-8">
+                            地域の皆さまの<br>
+                            <span class="text-primary">健やかな毎日</span>を<br>
+                            支えます
+                        </h2>
+
+                        <div class="w-20 h-1 bg-primary mb-8"></div>
+
+                        <p class="text-gray-mid leading-loose mb-10 max-w-md">
+                            能登で20年以上、地域医療に携わってきた経験を活かし、
+                            お一人おひとりに寄り添った丁寧な診療を行います。
+                        </p>
+
+                        <div class="flex flex-col sm:flex-row gap-4">
+                            <a href="#services" class="group inline-flex items-center justify-center bg-dark text-white px-8 py-4 font-bold text-base transition-all hover:bg-primary">
+                                診療案内を見る
+                                <svg class="w-4 h-4 ml-3 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                                </svg>
+                            </a>
+                            <a href="tel:0768-XX-XXXX" class="inline-flex items-center justify-center border-2 border-dark text-dark px-8 py-4 font-bold text-base hover:bg-dark hover:text-white transition-all">
+                                <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                                </svg>
+                                0768-XX-XXXX
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Content - Image + Info Cards -->
+                <div class="lg:col-span-7 relative">
+                    <div class="relative">
+                        <!-- Top Orange Line with WEB予約 Button -->
+                        <div class="absolute top-0 left-0 right-0 h-[5px] bg-primary z-10"></div>
+                        <a href="#" class="absolute -top-[43px] right-0 px-8 py-3 bg-primary text-white text-sm font-bold hover:bg-primary-light transition-colors z-20">
+                            WEB予約
+                        </a>
+
+                        <img src="assets/u6935556256_Japanese_internal_medicine_clinic_interior_no_peo_d3b252cd-8eef-4d1c-ad55-94601cbd90ee_1.png"
+                             alt="クリニック内観"
+                             class="w-full h-[500px] lg:h-[600px] object-cover">
+
+                        <!-- Clinic Hours Card -->
+                        <div class="absolute -bottom-10 -left-10 bg-white/80 backdrop-blur-sm px-6 py-4 shadow-2xl" style="right: 50px;">
+                            <div class="flex items-center mb-3">
+                                <div class="w-1 h-6 bg-primary mr-3"></div>
+                                <p class="text-lg font-bold text-dark">診療時間<span class="text-gray-dark font-normal ml-2">：休診: 木曜・日祝・土曜午後</span></p>
+                            </div>
+                            <table class="w-full">
+                                <thead>
+                                    <tr class="border-b border-dark/20">
+                                        <th class="py-2 text-left text-dark font-medium text-sm"></th>
+                                        <th class="py-2 px-3 text-center text-dark font-medium text-sm">月</th>
+                                        <th class="py-2 px-3 text-center text-dark font-medium text-sm">火</th>
+                                        <th class="py-2 px-3 text-center text-dark font-medium text-sm">水</th>
+                                        <th class="py-2 px-3 text-center text-dark font-medium text-sm">木</th>
+                                        <th class="py-2 px-3 text-center text-dark font-medium text-sm">金</th>
+                                        <th class="py-2 px-3 text-center text-dark font-medium text-sm">土</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="border-b border-dark/20">
+                                        <td class="py-2 text-dark font-medium text-sm">午前<span class="text-dark ml-2">9:00-12:30</span></td>
+                                        <td class="py-2 text-center text-primary font-bold text-base">●</td>
+                                        <td class="py-2 text-center text-primary font-bold text-base">●</td>
+                                        <td class="py-2 text-center text-primary font-bold text-base">●</td>
+                                        <td class="py-2 text-center text-dark/30 text-base">－</td>
+                                        <td class="py-2 text-center text-primary font-bold text-base">●</td>
+                                        <td class="py-2 text-center text-primary font-bold text-base">●</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-2 text-dark font-medium text-sm">午後<span class="text-dark ml-2">14:30-18:00</span></td>
+                                        <td class="py-2 text-center text-primary font-bold text-base">●</td>
+                                        <td class="py-2 text-center text-primary font-bold text-base">●</td>
+                                        <td class="py-2 text-center text-primary font-bold text-base">●</td>
+                                        <td class="py-2 text-center text-dark/30 text-base">－</td>
+                                        <td class="py-2 text-center text-primary font-bold text-base">●</td>
+                                        <td class="py-2 text-center text-dark/30 text-base">－</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center">
+            <span class="text-xs text-gray-light font-inter tracking-widest mb-2 vertical-text">SCROLL</span>
+            <div class="w-px h-16 bg-gradient-to-b from-primary to-transparent"></div>
+        </div>
+    </section>
+
+    <!-- News Section -->
+    <section class="py-20 bg-gray-pale relative z-10">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-12">
+                <div class="flex items-center mb-6 md:mb-0">
+                    <span class="font-inter text-6xl font-bold text-primary/10 mr-6">N</span>
+                    <div>
+                        <p class="text-xs text-primary font-inter tracking-widest mb-1">NEWS</p>
+                        <h2 class="text-2xl font-bold">お知らせ</h2>
+                    </div>
+                </div>
+                <a href="#" class="group inline-flex items-center text-base text-gray-mid hover:text-primary transition-colors">
+                    一覧を見る
+                    <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                </a>
+            </div>
+
+            <div class="space-y-0">
+                <a href="#" class="group flex flex-col md:flex-row md:items-center py-6 border-t border-line hover:bg-white transition-colors px-4 -mx-4">
+                    <span class="text-base text-primary font-inter font-medium min-w-[130px]">2026.04.01</span>
+                    <span class="inline-block bg-primary text-white text-sm px-3 py-1 font-medium my-2 md:my-0 md:mx-4 w-fit">重要</span>
+                    <span class="text-lg text-dark group-hover:text-primary transition-colors">すこやか整形外科医院 開院のお知らせ</span>
+                </a>
+                <a href="#" class="group flex flex-col md:flex-row md:items-center py-6 border-t border-line hover:bg-white transition-colors px-4 -mx-4">
+                    <span class="text-base text-primary font-inter font-medium min-w-[130px]">2026.03.15</span>
+                    <span class="inline-block bg-gray-mid text-white text-sm px-3 py-1 font-medium my-2 md:my-0 md:mx-4 w-fit">お知らせ</span>
+                    <span class="text-lg text-dark group-hover:text-primary transition-colors">WEB予約システムの利用方法について</span>
+                </a>
+                <a href="#" class="group flex flex-col md:flex-row md:items-center py-6 border-t border-b border-line hover:bg-white transition-colors px-4 -mx-4">
+                    <span class="text-base text-primary font-inter font-medium min-w-[130px]">2026.03.01</span>
+                    <span class="inline-block bg-gray-mid text-white text-sm px-3 py-1 font-medium my-2 md:my-0 md:mx-4 w-fit">お知らせ</span>
+                    <span class="text-lg text-dark group-hover:text-primary transition-colors">ホームページを開設しました</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-32 relative z-10">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid lg:grid-cols-12 gap-16 items-center">
+                <!-- Section Title -->
+                <div class="lg:col-span-4 relative">
+                    <span class="font-inter text-[10rem] font-bold text-primary/5 absolute -top-20 -left-10 select-none">02</span>
+                    <div class="relative">
+                        <p class="text-sm text-primary font-inter tracking-widest mb-3">ABOUT US</p>
+                        <h2 class="text-3xl md:text-4xl font-bold mb-6">当院について</h2>
+                        <div class="w-16 h-1 bg-primary"></div>
+                    </div>
+                </div>
+
+                <!-- Content -->
+                <div class="lg:col-span-8">
+                    <p class="text-lg text-gray-mid leading-loose mb-12">
+                        地域の皆さまに信頼される医療機関を目指して、<br class="hidden md:block">
+                        丁寧な診療と最新の医療設備で、皆さまの健康をサポートいたします。
+                    </p>
+
+                    <div class="grid md:grid-cols-3 gap-8">
+                        <!-- Feature 1 -->
+                        <div class="group card-lift bg-white border border-line p-8 relative overflow-hidden">
+                            <div class="absolute top-0 left-0 w-1 h-full bg-primary transform -translate-x-full group-hover:translate-x-0 transition-transform"></div>
+                            <span class="font-inter text-4xl font-bold text-primary/20 block mb-4">01</span>
+                            <h3 class="text-lg font-bold mb-3">やさしい診療</h3>
+                            <p class="text-base text-gray-mid leading-relaxed">
+                                患者さまのお話をしっかりとお聞きし、わかりやすい説明を心がけています。
+                            </p>
+                        </div>
+
+                        <!-- Feature 2 -->
+                        <div class="group card-lift bg-white border border-line p-8 relative overflow-hidden">
+                            <div class="absolute top-0 left-0 w-1 h-full bg-primary transform -translate-x-full group-hover:translate-x-0 transition-transform"></div>
+                            <span class="font-inter text-4xl font-bold text-primary/20 block mb-4">02</span>
+                            <h3 class="text-lg font-bold mb-3">最新の医療設備</h3>
+                            <p class="text-base text-gray-mid leading-relaxed">
+                                MRI・CTなど最新の医療機器を導入し、正確な診断を提供します。
+                            </p>
+                        </div>
+
+                        <!-- Feature 3 -->
+                        <div class="group card-lift bg-white border border-line p-8 relative overflow-hidden">
+                            <div class="absolute top-0 left-0 w-1 h-full bg-primary transform -translate-x-full group-hover:translate-x-0 transition-transform"></div>
+                            <span class="font-inter text-4xl font-bold text-primary/20 block mb-4">03</span>
+                            <h3 class="text-lg font-bold mb-3">地域医療への貢献</h3>
+                            <p class="text-base text-gray-mid leading-relaxed">
+                                能登で20年以上の経験を活かし、地域の皆さまの健康を支えます。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-32 bg-dark text-white relative z-10">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid lg:grid-cols-12 gap-16">
+                <!-- Section Title -->
+                <div class="lg:col-span-4 relative">
+                    <span class="font-inter text-[10rem] font-bold text-white/5 absolute -top-20 -left-10 select-none">03</span>
+                    <div class="relative lg:sticky lg:top-32">
+                        <p class="text-sm text-primary font-inter tracking-widest mb-3">MEDICAL SERVICES</p>
+                        <h2 class="text-3xl md:text-4xl font-bold mb-6">診療案内</h2>
+                        <div class="w-16 h-1 bg-primary mb-8"></div>
+                        <p class="text-white/60 leading-loose">
+                            整形外科全般からリハビリテーションまで、幅広く対応いたします。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Services Grid -->
+                <div class="lg:col-span-8 space-y-8">
+                    <!-- Orthopedics -->
+                    <div class="group relative bg-white/5 border border-white/10 p-10 hover:bg-white/10 transition-all">
+                        <div class="flex flex-col md:flex-row md:items-start gap-8">
+                            <div class="flex-shrink-0">
+                                <span class="font-inter text-6xl font-bold text-primary">01</span>
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-bold mb-4">整形外科</h3>
+                                <p class="text-white/60 mb-6 leading-relaxed">
+                                    骨・関節・筋肉・神経など運動器の疾患に幅広く対応します。
+                                </p>
+                                <div class="flex flex-wrap gap-3">
+                                    <span class="px-4 py-2 border border-white/20 text-base">腰痛・肩こり</span>
+                                    <span class="px-4 py-2 border border-white/20 text-base">関節痛</span>
+                                    <span class="px-4 py-2 border border-white/20 text-base">骨折・捻挫</span>
+                                    <span class="px-4 py-2 border border-white/20 text-base">スポーツ外傷</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Rehabilitation -->
+                    <div class="group relative bg-white/5 border border-white/10 p-10 hover:bg-white/10 transition-all">
+                        <div class="flex flex-col md:flex-row md:items-start gap-8">
+                            <div class="flex-shrink-0">
+                                <span class="font-inter text-6xl font-bold text-primary">02</span>
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-bold mb-4">リハビリテーション</h3>
+                                <p class="text-white/60 mb-6 leading-relaxed">
+                                    理学療法士による個別リハビリで、日常生活への復帰をサポートします。
+                                </p>
+                                <div class="flex flex-wrap gap-3">
+                                    <span class="px-4 py-2 border border-white/20 text-base">運動器リハビリ</span>
+                                    <span class="px-4 py-2 border border-white/20 text-base">物理療法</span>
+                                    <span class="px-4 py-2 border border-white/20 text-base">日常動作訓練</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Doctor Section -->
+    <section id="doctor" class="py-32 relative z-10">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid lg:grid-cols-12 gap-16 items-center">
+                <!-- Photo -->
+                <div class="lg:col-span-5 relative">
+                    <span class="font-inter text-[10rem] font-bold text-primary/5 absolute -top-20 -left-10 select-none">04</span>
+                    <div class="relative">
+                        <img src="assets/Firefly_Gemini Flash (7).png" alt="院長 中村健一" class="w-full aspect-[3/4] object-cover">
+                        <div class="absolute -bottom-6 -right-6 bg-primary text-white p-6">
+                            <p class="text-sm font-inter tracking-widest mb-1">DIRECTOR</p>
+                            <p class="text-xl font-bold">院長</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Info -->
+                <div class="lg:col-span-7">
+                    <p class="text-sm text-primary font-inter tracking-widest mb-3">DOCTOR</p>
+                    <h2 class="text-3xl md:text-4xl font-bold mb-2">中村 健一</h2>
+                    <p class="text-gray-light font-inter text-base tracking-wider mb-8">KENICHI NAKAMURA</p>
+
+                    <div class="w-16 h-1 bg-primary mb-8"></div>
+
+                    <p class="text-gray-mid leading-loose mb-10">
+                        能登で20年以上、整形外科医として地域医療に携わってまいりました。
+                        お一人おひとりに寄り添い、丁寧な診療を心がけてまいります。
+                        地域の皆さまが安心して暮らせるよう、全力でサポートいたします。
+                    </p>
+
+                    <div class="space-y-4">
+                        <div class="flex border-b border-line pb-4">
+                            <span class="text-primary font-medium min-w-[100px] text-lg">資格</span>
+                            <span class="text-lg">日本整形外科学会専門医</span>
+                        </div>
+                        <div class="flex border-b border-line pb-4">
+                            <span class="text-primary font-medium min-w-[100px] text-lg">経歴</span>
+                            <span class="text-lg">金沢大学医学部卒業</span>
+                        </div>
+                        <div class="flex border-b border-line pb-4">
+                            <span class="text-primary font-medium min-w-[100px] text-lg">経験</span>
+                            <span class="text-lg">能登地区の病院にて20年以上勤務</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Facilities Section -->
+    <section id="facilities" class="py-32 bg-gray-pale relative z-10">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="font-inter text-8xl font-bold text-primary/10 block mb-4">05</span>
+                <p class="text-sm text-primary font-inter tracking-widest mb-3">FACILITIES</p>
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">設備紹介</h2>
+                <div class="w-16 h-1 bg-primary mx-auto"></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                <div class="group relative overflow-hidden">
+                    <img src="assets/mri-latest.png" alt="MRI検査室" class="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-dark/80 to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-8">
+                        <span class="text-primary font-inter font-bold text-lg">01</span>
+                        <h3 class="text-white text-xl font-bold mt-2">MRI・CT</h3>
+                        <p class="text-white/70 text-base mt-2">詳細な画像診断が可能な最新機器を完備</p>
+                    </div>
+                </div>
+
+                <div class="group relative overflow-hidden">
+                    <img src="assets/rehab-final.png" alt="リハビリテーションルーム" class="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-dark/80 to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-8">
+                        <span class="text-primary font-inter font-bold text-lg">02</span>
+                        <h3 class="text-white text-xl font-bold mt-2">リハビリテーション室</h3>
+                        <p class="text-white/70 text-base mt-2">広々としたスペースで個別リハビリを実施</p>
+                    </div>
+                </div>
+            </div>
+
+            <p class="text-center text-base text-gray-light mt-8">※画像はイメージです</p>
+        </div>
+    </section>
+
+    <!-- Access Section -->
+    <section id="access" class="py-32 relative z-10">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid lg:grid-cols-12 gap-16">
+                <!-- Section Title & Info -->
+                <div class="lg:col-span-5 relative">
+                    <span class="font-inter text-[10rem] font-bold text-primary/5 absolute -top-20 -left-10 select-none">06</span>
+                    <div class="relative">
+                        <p class="text-sm text-primary font-inter tracking-widest mb-3">ACCESS</p>
+                        <h2 class="text-3xl md:text-4xl font-bold mb-6">アクセス・診療時間</h2>
+                        <div class="w-16 h-1 bg-primary mb-10"></div>
+
+                        <div class="space-y-6">
+                            <div class="border-l-2 border-primary pl-6">
+                                <p class="text-sm text-gray-light font-inter tracking-widest mb-2">ADDRESS</p>
+                                <p class="text-dark text-lg">〒XXX-XXXX<br>石川県能登地区（詳細住所は決定次第公開）</p>
+                            </div>
+                            <div class="border-l-2 border-primary pl-6">
+                                <p class="text-sm text-gray-light font-inter tracking-widest mb-2">TELEPHONE</p>
+                                <p class="text-2xl font-bold text-dark">0768-XX-XXXX</p>
+                            </div>
+                            <div class="border-l-2 border-primary pl-6">
+                                <p class="text-sm text-gray-light font-inter tracking-widest mb-2">PARKING</p>
+                                <p class="text-dark text-lg">駐車場20台完備</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Map & Hours -->
+                <div class="lg:col-span-7 space-y-8">
+                    <!-- Map Placeholder -->
+                    <div class="bg-gray-pale h-64 flex items-center justify-center border border-line">
+                        <div class="text-center">
+                            <svg class="w-12 h-12 text-gray-light mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            </svg>
+                            <p class="text-gray-mid">Googleマップ</p>
+                            <p class="text-sm text-gray-light">（開院時に地図を掲載予定）</p>
+                        </div>
+                    </div>
+
+                    <!-- Hours Table -->
+                    <div class="bg-white border border-line p-8">
+                        <h3 class="text-lg font-bold mb-6 flex items-center">
+                            <span class="w-1 h-6 bg-primary mr-4"></span>
+                            診療時間
+                        </h3>
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-base">
+                                <thead>
+                                    <tr class="border-b-2 border-line">
+                                        <th class="py-3 text-left text-gray-light font-medium">診療時間</th>
+                                        <th class="py-3 px-2 text-center text-gray-light font-medium">月</th>
+                                        <th class="py-3 px-2 text-center text-gray-light font-medium">火</th>
+                                        <th class="py-3 px-2 text-center text-gray-light font-medium">水</th>
+                                        <th class="py-3 px-2 text-center text-gray-light font-medium">木</th>
+                                        <th class="py-3 px-2 text-center text-gray-light font-medium">金</th>
+                                        <th class="py-3 px-2 text-center text-gray-light font-medium">土</th>
+                                        <th class="py-3 px-2 text-center text-gray-light font-medium">日祝</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="border-b border-line">
+                                        <td class="py-4 text-dark font-medium">午前<br><span class="text-sm text-gray-light">9:00-12:30</span></td>
+                                        <td class="py-4 text-center text-primary font-bold text-lg">●</td>
+                                        <td class="py-4 text-center text-primary font-bold text-lg">●</td>
+                                        <td class="py-4 text-center text-primary font-bold text-lg">●</td>
+                                        <td class="py-4 text-center text-gray-light text-lg">－</td>
+                                        <td class="py-4 text-center text-primary font-bold text-lg">●</td>
+                                        <td class="py-4 text-center text-primary font-bold text-lg">●</td>
+                                        <td class="py-4 text-center text-gray-light text-lg">－</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-4 text-dark font-medium">午後<br><span class="text-sm text-gray-light">14:30-18:00</span></td>
+                                        <td class="py-4 text-center text-primary font-bold text-lg">●</td>
+                                        <td class="py-4 text-center text-primary font-bold text-lg">●</td>
+                                        <td class="py-4 text-center text-primary font-bold text-lg">●</td>
+                                        <td class="py-4 text-center text-gray-light text-lg">－</td>
+                                        <td class="py-4 text-center text-primary font-bold text-lg">●</td>
+                                        <td class="py-4 text-center text-gray-light text-lg">－</td>
+                                        <td class="py-4 text-center text-gray-light text-lg">－</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p class="text-base text-gray-mid mt-4 pt-4 border-t border-line">
+                            <span class="font-bold">休診日：</span>木曜・日曜・祝日・土曜午後
+                        </p>
+                    </div>
+
+                    <!-- CTA -->
+                    <div class="flex flex-col sm:flex-row gap-4 relative z-20">
+                        <a href="tel:0768-XX-XXXX" class="flex-1 flex items-center justify-center py-5 border-2 border-dark text-dark font-bold bg-white hover:bg-dark hover:text-white transition-all">
+                            <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                            </svg>
+                            電話予約
+                        </a>
+                        <a href="#" class="flex-1 flex items-center justify-center py-5 bg-primary text-white font-bold hover:bg-primary-light transition-all">
+                            <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                            </svg>
+                            WEB予約
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-16 relative z-10">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-12 mb-12">
+                <!-- Logo & Info -->
+                <div class="md:col-span-2">
+                    <div class="flex items-center space-x-4 mb-6">
+                        <div class="w-10 h-10 bg-primary flex items-center justify-center">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="font-bold">すこやか整形外科医院</h3>
+                            <p class="text-xs text-white/50 font-inter tracking-widest">SUKOYAKA ORTHOPEDICS</p>
+                        </div>
+                    </div>
+                    <p class="text-white/60 text-base leading-loose">
+                        地域の皆さまの健やかな毎日を支えるために、<br>
+                        お一人おひとりに寄り添った丁寧な診療を行います。
+                    </p>
+                </div>
+
+                <!-- Navigation -->
+                <div>
+                    <h4 class="font-bold mb-6 text-primary text-base font-inter tracking-widest">NAVIGATION</h4>
+                    <ul class="space-y-3 text-white/60 text-base">
+                        <li><a href="#about" class="hover:text-white transition-colors">当院について</a></li>
+                        <li><a href="#services" class="hover:text-white transition-colors">診療案内</a></li>
+                        <li><a href="#doctor" class="hover:text-white transition-colors">院長紹介</a></li>
+                        <li><a href="#access" class="hover:text-white transition-colors">アクセス</a></li>
+                        <li><a href="index.html" class="hover:text-white transition-colors">採用情報</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div>
+                    <h4 class="font-bold mb-6 text-primary text-base font-inter tracking-widest">CONTACT</h4>
+                    <div class="space-y-3 text-white/60 text-base">
+                        <p class="flex items-center">
+                            <svg class="w-5 h-5 mr-3 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                            </svg>
+                            0768-XX-XXXX
+                        </p>
+                        <p>〒XXX-XXXX</p>
+                        <p>石川県能登地区</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pt-8 border-t border-white/10 text-center">
+                <p class="text-sm text-white/40">© 2026 すこやか整形外科医院 All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Fixed Bottom Bar (Mobile) -->
+    <div class="fixed bottom-0 left-0 right-0 bg-white border-t border-line shadow-lg lg:hidden z-40">
+        <div class="grid grid-cols-2">
+            <a href="tel:0768-XX-XXXX" class="flex items-center justify-center py-4 text-dark font-bold border-r border-line">
+                <svg class="w-5 h-5 mr-2 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                </svg>
+                電話
+            </a>
+            <a href="#" class="flex items-center justify-center py-4 bg-primary text-white font-bold">
+                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                </svg>
+                WEB予約
+            </a>
+        </div>
+    </div>
+
+    <div class="h-16 lg:hidden"></div>
+
+    <script>
+        // Mobile Menu
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileMenuClose = document.getElementById('mobileMenuClose');
+        const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+
+        function openMobileMenu() {
+            mobileMenu.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeMobileMenu() {
+            mobileMenu.classList.add('hidden');
+            document.body.style.overflow = '';
+        }
+
+        mobileMenuBtn.addEventListener('click', openMobileMenu);
+        mobileMenuClose.addEventListener('click', closeMobileMenu);
+        mobileMenuOverlay.addEventListener('click', closeMobileMenu);
+
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', closeMobileMenu);
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href !== '#') {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        const headerHeight = document.querySelector('header').offsetHeight;
+                        const targetPosition = target.offsetTop - headerHeight - 20;
+                        window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
