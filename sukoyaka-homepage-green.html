@@ -93,7 +93,7 @@
                 <nav class="hidden lg:block">
                     <ul class="flex items-center space-x-1">
                         <li><a href="#" class="px-3 py-2 text-text-dark hover:text-warm-orange transition-colors font-medium">ホーム</a></li>
-                        <li><a href="about.html" class="px-3 py-2 text-text-dark hover:text-warm-orange transition-colors font-medium">当院について</a></li>
+                        <li><a href="#about" class="px-3 py-2 text-text-dark hover:text-warm-orange transition-colors font-medium">当院について</a></li>
                         <li><a href="#services" class="px-3 py-2 text-text-dark hover:text-warm-orange transition-colors font-medium">診療案内</a></li>
                         <li><a href="#doctor" class="px-3 py-2 text-text-dark hover:text-warm-orange transition-colors font-medium">院長紹介</a></li>
                         <li><a href="#facilities" class="px-3 py-2 text-text-dark hover:text-warm-orange transition-colors font-medium">設備紹介</a></li>
@@ -125,7 +125,7 @@
 
                 <div class="mt-12 space-y-1">
                     <a href="#" class="block py-3 px-4 text-text-dark hover:bg-warm-beige rounded-lg transition-colors">ホーム</a>
-                    <a href="about.html" class="block py-3 px-4 text-text-dark hover:bg-warm-beige rounded-lg transition-colors">当院について</a>
+                    <a href="#about" class="block py-3 px-4 text-text-dark hover:bg-warm-beige rounded-lg transition-colors">当院について</a>
                     <a href="#services" class="block py-3 px-4 text-text-dark hover:bg-warm-beige rounded-lg transition-colors">診療案内</a>
                     <a href="#doctor" class="block py-3 px-4 text-text-dark hover:bg-warm-beige rounded-lg transition-colors">院長紹介</a>
                     <a href="#facilities" class="block py-3 px-4 text-text-dark hover:bg-warm-beige rounded-lg transition-colors">設備紹介</a>
@@ -320,49 +320,75 @@
                 <p class="text-text-gray max-w-2xl mx-auto">地域の皆さまに信頼される医療機関を目指して</p>
             </div>
 
-            <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-                <!-- Feature 1 -->
-                <div class="bg-white rounded-2xl p-8 shadow-md hover:shadow-lg transition-all text-center group">
-                    <div class="w-16 h-16 bg-warm-orange-light/50 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-warm-orange-light transition-colors">
-                        <svg class="w-8 h-8 text-warm-brown" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
-                        </svg>
+            <div class="max-w-4xl mx-auto space-y-16">
+                <!-- Feature 1: 確かで丁寧な医療を -->
+                <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+                    <div class="order-2 lg:order-1">
+                        <div class="flex items-center mb-4">
+                            <span class="text-4xl font-heading font-bold text-warm-orange/30 mr-3">01</span>
+                            <div class="h-px flex-1 bg-warm-orange/30"></div>
+                        </div>
+                        <h3 class="text-xl md:text-2xl font-bold text-warm-brown-dark font-maru mb-4">
+                            確かで丁寧な医療を
+                        </h3>
+                        <p class="text-text-dark leading-relaxed">
+                            経験に裏打ちされた確かな診断と、最新の知見。そして何より、患者さまとの丁寧な対話を大切にしています。お困りごとに深く耳を傾け、おひとりお一人に最適な治療を一緒に考えてまいります。
+                        </p>
                     </div>
-                    <h3 class="text-xl font-bold text-warm-brown-dark mb-4 font-maru">やさしい診療</h3>
-                    <p class="text-text-gray leading-relaxed">
-                        患者さまのお話をしっかりとお聞きし、わかりやすい説明を心がけています。不安なことがあればお気軽にご相談ください。
-                    </p>
+                    <div class="order-1 lg:order-2">
+                        <div class="bg-warm-orange rounded-2xl p-8 flex items-center justify-center">
+                            <svg class="w-24 h-24 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                            </svg>
+                        </div>
+                    </div>
                 </div>
 
-                <!-- Feature 2 -->
-                <div class="bg-white rounded-2xl p-8 shadow-md hover:shadow-lg transition-all text-center group">
-                    <div class="w-16 h-16 bg-warm-orange-light/50 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-warm-orange-light transition-colors">
-                        <svg class="w-8 h-8 text-warm-brown" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
-                        </svg>
+                <!-- Feature 2: 高度な医療を身近な場所で -->
+                <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+                    <div>
+                        <div class="bg-warm-brown rounded-2xl p-8 flex items-center justify-center">
+                            <svg class="w-24 h-24 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                            </svg>
+                        </div>
                     </div>
-                    <h3 class="text-xl font-bold text-warm-brown-dark mb-4 font-maru">最新の医療設備</h3>
-                    <p class="text-text-gray leading-relaxed">
-                        MRI・CTなど最新の医療機器を導入し、正確な診断と適切な治療を提供します。
-                    </p>
+                    <div>
+                        <div class="flex items-center mb-4">
+                            <span class="text-4xl font-heading font-bold text-warm-orange/30 mr-3">02</span>
+                            <div class="h-px flex-1 bg-warm-orange/30"></div>
+                        </div>
+                        <h3 class="text-xl md:text-2xl font-bold text-warm-brown-dark font-maru mb-4">
+                            高度な医療を身近な場所で
+                        </h3>
+                        <p class="text-text-dark leading-relaxed">
+                            MRIをはじめとした最新医療機器を導入し、住み慣れたこの地で質の高い医療を受けていただきたい。「ちょっと気になる」から「しっかり調べたい」まで、かかりつけ医として一番身近な相談窓口でありたいと考えています。
+                        </p>
+                    </div>
                 </div>
 
-                <!-- Feature 3 -->
-                <div class="bg-white rounded-2xl p-8 shadow-md hover:shadow-lg transition-all text-center group">
-                    <div class="w-16 h-16 bg-warm-orange-light/50 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-warm-orange-light transition-colors">
-                        <svg class="w-8 h-8 text-warm-brown" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
-                        </svg>
+                <!-- Feature 3: 能登とともに、これからも歩み続ける -->
+                <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+                    <div class="order-2 lg:order-1">
+                        <div class="flex items-center mb-4">
+                            <span class="text-4xl font-heading font-bold text-warm-orange/30 mr-3">03</span>
+                            <div class="h-px flex-1 bg-warm-orange/30"></div>
+                        </div>
+                        <h3 class="text-xl md:text-2xl font-bold text-warm-brown-dark font-maru mb-4">
+                            能登とともに、これからも歩み続ける
+                        </h3>
+                        <p class="text-text-dark leading-relaxed">
+                            この地で20年以上、地域の皆様とともに歩んできました。震災を経験し平時の健康管理はもちろん、いざという災害時にも地域を守る拠点として。これまでも、これからも、能登に根ざした医療者として皆様の安心を支え続けます。
+                        </p>
                     </div>
-                    <h3 class="text-xl font-bold text-warm-brown-dark mb-4 font-maru">地域医療への貢献</h3>
-                    <p class="text-text-gray leading-relaxed">
-                        能登で20年以上の経験を活かし、地域の皆さまの健康を支えるパートナーとして貢献します。
-                    </p>
+                    <div class="order-1 lg:order-2">
+                        <div class="bg-warm-orange rounded-2xl p-8 flex items-center justify-center">
+                            <svg class="w-24 h-24 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                            </svg>
+                        </div>
+                    </div>
                 </div>
-            </div>
-
-            <div class="text-center mt-10">
-                <a href="about.html" class="inline-block bg-warm-orange text-white px-8 py-3 rounded-full font-semibold hover:bg-warm-brown transition-colors">詳しく見る</a>
             </div>
         </div>
     </section>
@@ -705,7 +731,7 @@
                         <div>
                             <h4 class="font-bold mb-4 text-warm-orange">メニュー</h4>
                             <ul class="space-y-2 text-text-gray">
-                                <li><a href="about.html" class="hover:text-warm-orange transition-colors">当院について</a></li>
+                                <li><a href="#about" class="hover:text-warm-orange transition-colors">当院について</a></li>
                                 <li><a href="#services" class="hover:text-warm-orange transition-colors">診療案内</a></li>
                                 <li><a href="#doctor" class="hover:text-warm-orange transition-colors">院長紹介</a></li>
                                 <li><a href="#access" class="hover:text-warm-orange transition-colors">アクセス</a></li>
