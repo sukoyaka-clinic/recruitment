@@ -113,9 +113,9 @@ function sukoyaka_recruitment_shortcode($atts) {
                     ご興味をお持ちいただけましたら、お気軽にお問い合わせください。<br>
                     見学のご希望も承っております。
                 </p>
-                <a href="mailto:recruit@sukoyaka-clinic.jp" class="inline-block bg-medical-blue text-white px-8 py-3 rounded-lg font-medium hover:bg-blue-600 transition-colors">
+                <a href="mailto:staff@sukoyaka-ortho-clinic.com" class="inline-block bg-medical-blue text-white px-8 py-3 rounded-lg font-medium hover:bg-blue-600 transition-colors">
                     メールで応募・問い合わせ<br>
-                    <span class="text-sm">recruit@sukoyaka-clinic.jp</span>
+                    <span class="text-sm">staff@sukoyaka-ortho-clinic.com</span>
                 </a>
             </div>
         </section>
