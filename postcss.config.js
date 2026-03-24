@@ -1,6 +1,6 @@
 module.exports = {
   plugins: {
-    tailwindcss: {},
+    // tailwindcss: {},  // TailwindCSSを使用しない場合はコメントアウト
     autoprefixer: {},
   },
 }
