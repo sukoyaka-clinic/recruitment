@@ -268,7 +268,7 @@
     </section>
 
     <!-- News Section -->
-    <section class="py-12 bg-white">
+    <section class="pt-12 pb-4 bg-white">
         <div class="container mx-auto px-4">
             <div class="flex items-center justify-between mb-6">
                 <h2 class="text-2xl font-bold text-warm-brown-dark font-maru flex items-center">
@@ -311,8 +311,20 @@
         </div>
     </section>
 
+    <!-- Medical DX Notice Link -->
+    <div class="bg-white pt-2 pb-8 border-b border-warm-beige">
+        <div class="container mx-auto px-4">
+            <a href="#" onclick="openDxModal(); return false;" class="inline-flex items-center text-warm-orange hover:text-warm-brown transition-colors text-sm font-medium">
+                <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                医療DX推進体制に関するお知らせ
+            </a>
+        </div>
+    </div>
+
     <!-- About Section -->
-    <section id="about" class="py-16 lg:py-24 bg-[#F9F9F9]">
+    <section id="about" class="pt-20 pb-16 lg:pt-28 lg:pb-24 bg-[#F9F9F9]">
         <div class="container mx-auto px-4">
             <div class="text-center mb-12">
                 <span class="inline-block text-warm-orange text-3xl font-heading font-bold tracking-widest mb-4">About Us</span>
@@ -486,7 +498,7 @@
             </div>
 
             <div class="text-center mt-10">
-                <a href="#" class="inline-block bg-warm-orange text-white px-8 py-3 rounded-full font-semibold hover:bg-warm-brown transition-colors">院長からの挨拶</a>
+                <a href="doctor.html" class="inline-block bg-warm-orange text-white px-8 py-3 rounded-full font-semibold hover:bg-warm-brown transition-colors">院長からの挨拶</a>
             </div>
         </div>
     </section>
@@ -687,6 +699,12 @@
                                 地域の皆さまの健やかな毎日を支えるために、<br>
                                 お一人おひとりに寄り添った丁寧な診療を行います。
                             </p>
+                            <a href="#" onclick="openDxModal(); return false;" class="inline-flex items-center text-warm-orange hover:text-warm-brown transition-colors text-sm mt-6">
+                                <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                                医療DX推進体制に関するお知らせ
+                            </a>
                         </div>
 
                         <!-- Quick Links -->
@@ -749,7 +767,87 @@
     <!-- Add padding for fixed bottom bar on mobile -->
     <div class="h-16 lg:hidden"></div>
 
+    <!-- Medical DX Modal -->
+    <div id="dxModal" class="fixed inset-0 z-[200] hidden">
+        <div class="absolute inset-0 bg-black/50" onclick="closeDxModal()"></div>
+        <div class="absolute inset-4 md:inset-auto md:top-1/2 md:left-1/2 md:-translate-x-1/2 md:-translate-y-1/2 md:max-w-2xl md:w-full bg-white rounded-2xl shadow-2xl overflow-hidden flex flex-col max-h-[90vh]">
+            <!-- Modal Header -->
+            <div class="bg-warm-green-light px-6 py-4 flex items-center justify-between flex-shrink-0">
+                <h3 class="text-lg font-bold text-warm-brown-dark font-maru flex items-center">
+                    <svg class="w-5 h-5 mr-2 text-warm-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                    </svg>
+                    医療DX推進体制に関するお知らせ
+                </h3>
+                <button onclick="closeDxModal()" class="p-2 rounded-lg hover:bg-warm-beige transition-colors">
+                    <svg class="w-5 h-5 text-text-gray" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+            <!-- Modal Body -->
+            <div class="p-6 overflow-y-auto">
+                <p class="text-text-dark leading-relaxed mb-6">
+                    当院では、医療DXの推進を通じて患者さまに質の高い医療をお届けできるよう、以下の取り組みを行っております。
+                </p>
+                <ol class="space-y-4 text-text-dark">
+                    <li class="flex items-start">
+                        <span class="flex-shrink-0 w-6 h-6 bg-warm-orange text-white rounded-full flex items-center justify-center text-sm font-bold mr-3 mt-0.5">1</span>
+                        <span>電子情報処理組織によるオンライン請求を実施しております。</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="flex-shrink-0 w-6 h-6 bg-warm-orange text-white rounded-full flex items-center justify-center text-sm font-bold mr-3 mt-0.5">2</span>
+                        <span>オンライン資格確認を行う体制を整備しております。</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="flex-shrink-0 w-6 h-6 bg-warm-orange text-white rounded-full flex items-center justify-center text-sm font-bold mr-3 mt-0.5">3</span>
+                        <span>オンライン資格確認等システムで取得した受診歴・薬剤情報・特定健診情報などを診療に活用できる体制を整えております。</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="flex-shrink-0 w-6 h-6 bg-warm-green text-white rounded-full flex items-center justify-center text-sm font-bold mr-3 mt-0.5">4</span>
+                        <span>電子処方箋の発行体制を<span class="text-warm-orange font-medium">現在整備中</span>です。</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="flex-shrink-0 w-6 h-6 bg-warm-green text-white rounded-full flex items-center justify-center text-sm font-bold mr-3 mt-0.5">5</span>
+                        <span>電子カルテ情報共有サービスを活用できる体制を<span class="text-warm-orange font-medium">現在整備中</span>です。</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="flex-shrink-0 w-6 h-6 bg-warm-orange text-white rounded-full flex items-center justify-center text-sm font-bold mr-3 mt-0.5">6</span>
+                        <span>マイナンバーカードの健康保険証利用を推進しております。</span>
+                    </li>
+                </ol>
+                <div class="mt-6 p-4 bg-warm-beige rounded-xl">
+                    <p class="text-text-dark text-sm leading-relaxed">
+                        当院は、これらの取り組みを継続的に推進し、十分な診療情報を取得・活用することで、患者さまに安心・安全で質の高い医療を提供できるよう努めてまいります。
+                    </p>
+                </div>
+            </div>
+            <!-- Modal Footer -->
+            <div class="px-6 py-4 bg-gray-50 flex-shrink-0">
+                <button onclick="closeDxModal()" class="w-full bg-warm-orange hover:bg-warm-brown text-white py-3 rounded-full font-semibold transition-colors">
+                    閉じる
+                </button>
+            </div>
+        </div>
+    </div>
+
     <script>
+        // Medical DX Modal
+        function openDxModal() {
+            document.getElementById('dxModal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeDxModal() {
+            document.getElementById('dxModal').classList.add('hidden');
+            document.body.style.overflow = '';
+        }
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeDxModal();
+            }
+        });
+
         // Mobile Menu
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const mobileMenu = document.getElementById('mobileMenu');
