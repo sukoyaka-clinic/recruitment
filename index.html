@@ -3,1229 +3,851 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>perpDEX × TradFi Strategy</title>
-    <meta name="description" content="Next Generation Hybrid Investment Strategy">
+    <title>採用情報 | すこやか整形外科医院 - 能登の地域医療を共に支えるスタッフ募集</title>
+    <meta name="description" content="2026年春開業予定。能登の地域医療を20年以上支えてきた中村健一医師と共に、新しい医療の形を創造するスタッフを募集しています。">
     <link rel="icon" href="data:,">
+    <script src="https://cdn.tailwindcss.com?v=3.4.0"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'inter': ['Inter', 'Helvetica Neue', 'sans-serif'],
+                    },
+                    colors: {
+                        'medical-blue': '#4A90E2',
+                        'medical-mint': '#26D0CE',
+                        'medical-green': '#10B981',
+                        'text-dark': '#2C3E50',
+                        'bg-light': '#F8F9FA',
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.6s ease-out',
+                        'slide-up': 'slideUp 0.8s ease-out',
+                        'float': 'float 3s ease-in-out infinite',
+                    }
+                }
+            }
+        }
+    </script>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", Arial, sans-serif;
-            background: #000;
-            color: #fff;
-            overflow: hidden;
-            height: 100vh;
-            position: relative;
-        }
-        
-        /* Gradient Definitions */
-        .gradient-text {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #ffa0ae 75%, #feca57 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        .gradient-border {
-            background: linear-gradient(135deg, #667eea, #764ba2, #f093fb);
-            padding: 1px;
-            border-radius: 12px;
-        }
-        
-        /* Layout */
-        .main-container {
-            height: 100vh;
-            position: relative;
-        }
-        
-        .content-section {
-            width: 100%;
-            padding: 40px 60px;
-            overflow: hidden; /* No scrolling */
-            position: relative;
-            z-index: 10;
-        }
-        
-        .visual-section {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            z-index: 1;
-        }
-        
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            background: transparent;
-            backdrop-filter: blur(10px);
-            z-index: 100;
-            padding: 20px 60px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-        }
-        
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .logo {
-            font-size: 20px;
-            font-weight: 700;
-            letter-spacing: -0.5px;
-        }
-        
-        .tab-nav {
-            display: flex;
-            gap: 8px;
-        }
-        
-        .tab-btn {
-            padding: 8px 20px;
-            background: transparent;
-            color: rgba(255, 255, 255, 0.6);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 24px;
-            cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            font-size: 14px;
-            font-weight: 500;
-        }
-        
-        .tab-btn:hover {
-            color: #fff;
-            border-color: rgba(255, 255, 255, 0.3);
-            transform: translateY(-2px);
-        }
-        
-        .tab-btn.active {
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: #fff;
-            border-color: transparent;
-        }
-        
-        /* Content Panels */
-        .content-panel {
-            display: none;
-            padding-top: 100px;
-            height: calc(100vh - 100px);
-            overflow-y: auto;
-            overflow-x: hidden;
-            animation: fadeIn 0.6s ease-out;
-        }
-        
-        .content-panel.active {
-            display: block;
-        }
-        
-        /* Hide scrollbar but keep functionality */
-        .content-panel::-webkit-scrollbar {
-            display: none;
-        }
-        
-        .content-panel {
-            -ms-overflow-style: none;  /* IE and Edge */
-            scrollbar-width: none;  /* Firefox */
-        }
-        
         @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
-        
-        h1 {
-            font-size: clamp(48px, 6vw, 72px);
-            font-weight: 800;
-            line-height: 1.1;
-            margin-bottom: 24px;
-            letter-spacing: -2px;
+        @keyframes slideUp {
+            from { transform: translateY(30px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
         }
-        
-        h2 {
-            font-size: 36px;
-            font-weight: 700;
-            margin-bottom: 32px;
-            letter-spacing: -1px;
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
         }
-        
-        h3 {
-            font-size: 24px;
-            font-weight: 600;
-            margin: 32px 0 16px;
-            color: rgba(255, 255, 255, 0.9);
-        }
-        
-        p {
-            line-height: 1.7;
-            color: rgba(255, 255, 255, 0.8);
-            margin-bottom: 20px;
-            font-size: 16px;
-        }
-        
-        .subtitle {
-            font-size: 20px;
-            color: rgba(255, 255, 255, 0.6);
-            margin-bottom: 40px;
-        }
-        
-        /* Cards */
-        .card {
-            background: transparent;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 16px;
-            padding: 32px;
-            margin-bottom: 24px;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
-        .card:hover {
-            background: rgba(255, 255, 255, 0.05);
-            border-color: rgba(255, 255, 255, 0.3);
-            transform: translateX(8px);
-        }
-        
-        /* Tables */
-        table {
-            width: 100%;
-            border-collapse: separate;
-            border-spacing: 0;
-            margin: 24px 0;
-            overflow: hidden;
-            border-radius: 12px;
-            background: transparent;
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.2);
         }
-        
-        th {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 16px;
-            text-align: left;
-            font-weight: 600;
-            font-size: 14px;
-            color: rgba(255, 255, 255, 0.7);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-        
-        td {
-            padding: 16px;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-            font-size: 15px;
-        }
-        
-        /* Badges */
-        .badge {
-            display: inline-block;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: 600;
-        }
-        
-        .badge-gradient {
-            background: linear-gradient(135deg, #667eea, #764ba2);
-        }
-        
-        .badge-success {
-            background: linear-gradient(135deg, #00d2ff, #3a7bd5);
-        }
-        
-        .badge-warning {
-            background: linear-gradient(135deg, #f093fb, #f5576c);
-        }
-        
-        /* Lists */
-        .feature-list {
-            list-style: none;
-        }
-        
-        .feature-list li {
-            padding: 12px 0;
-            padding-left: 32px;
-            position: relative;
-            color: rgba(255, 255, 255, 0.8);
-        }
-        
-        .feature-list li:before {
-            content: "";
-            position: absolute;
-            left: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 8px;
-            height: 8px;
-            background: linear-gradient(135deg, #667eea, #f093fb);
-            border-radius: 50%;
-        }
-        
-        /* Info Boxes */
-        .info-box {
-            background: transparent;
-            border: 2px solid rgba(102, 126, 234, 0.4);
-            border-radius: 12px;
-            padding: 24px;
-            margin: 24px 0;
-        }
-        
-        .warning-box {
-            background: transparent;
-            border: 2px solid rgba(245, 87, 108, 0.4);
-            border-radius: 12px;
-            padding: 24px;
-            margin: 24px 0;
-        }
-        
-        /* 3D Blockchain Canvas */
-        #blockchain-canvas {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-        
-        /* Glow Effects */
-        .glow-orb {
-            position: absolute;
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            background: radial-gradient(circle, rgba(102, 126, 234, 0.15), transparent 70%);
-            filter: blur(40px);
-            animation: drift 20s ease-in-out infinite;
-        }
-        
-        .glow-orb:nth-child(2) {
-            width: 150px;
-            height: 150px;
-            background: radial-gradient(circle, rgba(240, 147, 251, 0.15), transparent 70%);
-            animation-duration: 25s;
-            animation-delay: -5s;
-        }
-        
-        .glow-orb:nth-child(3) {
-            width: 250px;
-            height: 250px;
-            background: radial-gradient(circle, rgba(118, 75, 162, 0.1), transparent 70%);
-            animation-duration: 30s;
-            animation-delay: -10s;
-        }
-        
-        @keyframes drift {
-            0%, 100% {
-                transform: translate(0, 0) scale(1);
-            }
-            33% {
-                transform: translate(50px, -50px) scale(1.1);
-            }
-            66% {
-                transform: translate(-50px, 50px) scale(0.9);
-            }
-        }
-        
-        /* Subtle Grid */
-        .subtle-grid {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-image: 
-                linear-gradient(rgba(102, 126, 234, 0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(102, 126, 234, 0.03) 1px, transparent 1px);
-            background-size: 30px 30px;
-            opacity: 1;
-        }
-        
-        /* Responsive */
-        @media (max-width: 1024px) {
-            .content-section {
-                padding: 40px 30px;
-            }
-            
-            nav {
-                padding: 20px 30px;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .tab-nav {
-                flex-wrap: wrap;
-                gap: 4px;
-            }
-            
-            .tab-btn {
-                font-size: 12px;
-                padding: 6px 12px;
-            }
-            
-            h1 {
-                font-size: 36px;
-            }
-            
-            .content-section {
-                padding: 30px 20px;
-            }
-        }
-        
-        
-        /* Number Emphasis */
-        .number-lg {
-            font-size: 48px;
-            font-weight: 800;
-            background: linear-gradient(135deg, #667eea, #f093fb);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        .stat-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 24px;
-            margin: 32px 0;
-        }
-        
-        .stat-card {
-            background: transparent;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 12px;
-            padding: 24px;
-            text-align: center;
-        }
-        
-        .stat-value {
-            font-size: 32px;
-            font-weight: 700;
-            background: linear-gradient(135deg, #00d2ff, #3a7bd5);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        .stat-label {
-            font-size: 14px;
-            color: rgba(255, 255, 255, 0.5);
-            margin-top: 8px;
+        .scroll-smooth {
+            scroll-behavior: smooth;
         }
     </style>
 </head>
-<body>
-    <!-- Visual Background -->
-    <div class="visual-section">
-        <div class="subtle-grid"></div>
-        <canvas id="blockchain-canvas"></canvas>
-        
-        <!-- Glow Effects -->
-        <div class="glow-orb" style="top: 20%; right: 10%;"></div>
-        <div class="glow-orb" style="bottom: 30%; left: 20%;"></div>
-        <div class="glow-orb" style="top: 60%; right: 40%;"></div>
-    </div>
+<body class="font-inter bg-white text-text-dark overflow-x-hidden scroll-smooth">
 
-    <div class="main-container">
-        <!-- Content Section -->
-        <div class="content-section">
-            <nav>
-                <div class="nav-container">
-                    <div class="logo gradient-text">perpDEX Strategy</div>
-                    <div class="tab-nav">
-                        <button class="tab-btn active" data-tab="overview">Overview</button>
-                        <button class="tab-btn" data-tab="perpdex">perpDEX</button>
-                        <button class="tab-btn" data-tab="strategy">Strategy</button>
-                        <button class="tab-btn" data-tab="simulation">Simulation</button>
-                        <button class="tab-btn" data-tab="risk">Risk</button>
-                        <button class="tab-btn" data-tab="start">Start</button>
+    <!-- Header -->
+    <header class="fixed top-0 w-full z-50 bg-white/95 backdrop-blur-md border-b border-gray-100 transition-all duration-300">
+        <nav class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 bg-gradient-to-br from-medical-blue to-medical-mint rounded-xl flex items-center justify-center">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                        </svg>
                     </div>
-                </div>
-            </nav>
-
-            <!-- Overview Panel -->
-            <div class="content-panel active" id="overview">
-                <h1>
-                    伝統金融 × <span class="gradient-text">perpDEX</span><br>
-                    ハイブリッド戦略
-                </h1>
-                <p class="subtitle">利回り格差の獲得とエアドロ狙い</p>
-                
-                <div class="stat-grid">
-                    <div class="stat-card">
-                        <div class="stat-value">3-15%</div>
-                        <div class="stat-label">年間期待リターン</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-value">¥100万〜</div>
-                        <div class="stat-label">最低投資額</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-value">$10,000+</div>
-                        <div class="stat-label">エアドロ期待値</div>
+                    <div>
+                        <h1 class="text-xl font-bold text-text-dark">すこやか整形外科医院</h1>
+                        <p class="text-sm text-gray-600">採用情報</p>
                     </div>
                 </div>
                 
-                <div class="card">
-                    <h3>戦略のポイント</h3>
-                    <ul class="feature-list">
-                        <li>為替スワップ金利 ＋ DEXエアドロップの二刀流</li>
-                        <li>デルタニュートラルで為替リスクをヘッジ</li>
-                        <li>月数万円〜数十万円の安定収入を目指す</li>
-                        <li>複数アカウント運用でエアドロップを最大化</li>
-                    </ul>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="sukoyaka-homepage-green.html" class="text-gray-700 hover:text-medical-blue transition-colors duration-200">ホームページ</a>
+                    <a href="#vision" class="text-gray-700 hover:text-medical-blue transition-colors duration-200">私たちが目指す医療</a>
+                    <a href="#positions" class="text-gray-700 hover:text-medical-blue transition-colors duration-200">募集職種</a>
+                    <a href="#benefits" class="text-gray-700 hover:text-medical-blue transition-colors duration-200">福利厚生</a>
+                    <a href="#contact" class="bg-medical-green text-white px-6 py-2 rounded-xl hover:bg-green-600 transition-all duration-200 shadow-md hover:shadow-lg">
+                        応募・お問い合わせ
+                    </a>
                 </div>
                 
-                <div class="info-box">
-                    <h3>なぜ今この戦略が有効か？</h3>
-                    <p>日米金利差が拡大している今、ドル円のスワップポイントは歴史的高水準にあります。同時に、perpDEXエコシステムは成長期にあり、早期参加者への報酬（エアドロップ）が期待できます。この2つを組み合わせることで、リスクを抑えながら複数の収益源を確保できます。</p>
-                </div>
+                <!-- Mobile Menu Button -->
+                <button id="mobileMenuButton" class="md:hidden p-2 rounded-lg hover:bg-gray-100">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
             </div>
+        </nav>
+    </header>
 
-            <!-- perpDEX Panel -->
-            <div class="content-panel" id="perpdex">
-                <h1>What is <span class="gradient-text">perpDEX?</span></h1>
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" style="position: fixed; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(0, 0, 0, 0.5); z-index: 9999; display: none;">
+        <div style="position: absolute; right: 0; top: 0; width: 320px; max-width: 85vw; height: 100%; background: white; box-shadow: -2px 0 10px rgba(0,0,0,0.2);">
+            <div style="padding: 1.5rem;">
+                <!-- Close Button -->
+                <button id="mobileMenuClose" style="position: absolute; top: 1rem; right: 1rem; width: 2.5rem; height: 2.5rem; background: #f3f4f6; border: none; border-radius: 0.5rem; cursor: pointer; font-size: 1.5rem;">
+                    ×
+                </button>
                 
-                <div class="card">
-                    <h3>永久先物DEXの基礎知識</h3>
-                    <p><strong>perpDEX（Perpetual DEX）</strong>は、「永久先物」を取引できる分散型取引所です。</p>
-                    <ul class="feature-list">
-                        <li>中央集権的な取引所（CEX）と違い、ウォレット接続だけで取引可能</li>
-                        <li>KYC不要、資産は自己管理</li>
-                        <li>スマートコントラクトによる透明性の高い取引</li>
-                    </ul>
-                </div>
-
-                <table>
-                    <thead>
-                        <tr>
-                            <th>項目</th>
-                            <th>従来の先物</th>
-                            <th>永久先物（perp）</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>期限</td>
-                            <td>あり（SQ決済）</td>
-                            <td><span class="badge badge-gradient">なし（無期限）</span></td>
-                        </tr>
-                        <tr>
-                            <td>レバレッジ</td>
-                            <td>〜25倍</td>
-                            <td><span class="badge badge-success">〜50倍以上</span></td>
-                        </tr>
-                        <tr>
-                            <td>価格調整</td>
-                            <td>限月交代時</td>
-                            <td>資金調達率で常時調整</td>
-                        </tr>
-                    </tbody>
-                </table>
-
-                <div class="info-box">
-                    <h3>資金調達率（Funding Rate）とは</h3>
-                    <ul class="feature-list">
-                        <li>現物価格と先物価格の乖離を調整する仕組み</li>
-                        <li>ロングが多い → ロング側がショート側に支払う</li>
-                        <li>ショートが多い → ショート側がロング側に支払う</li>
-                        <li>通常8時間ごとに発生（取引所による）</li>
-                    </ul>
-                </div>
-
-                <div class="card">
-                    <h3>主要perpDEXのエアドロップ実績</h3>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>DEX</th>
-                                <th>配布実績</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Hyperliquid</td>
-                                <td>2024年実施済（残り30%以上）</td>
-                            </tr>
-                            <tr>
-                                <td>Lighter</td>
-                                <td>未実施（残り25%程度）</td>
-                            </tr>
-                            <tr>
-                                <td>Extended</td>
-                                <td>未TGE（2026 Q2まで）</td>
-                            </tr>
-                            <tr>
-                                <td>Variational</td>
-                                <td>未TGE</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
-            <!-- Strategy Panel -->
-            <div class="content-panel" id="strategy">
-                <h1><span class="gradient-text">Hybrid</span> Strategy</h1>
-                
-                <div class="card">
-                    <h3>デルタニュートラル戦略の仕組み</h3>
-                    <div class="stat-grid">
-                        <div class="stat-card">
-                            <div class="stat-value">FX</div>
-                            <div class="stat-label">ドル円ロング</div>
-                        </div>
-                        <div class="stat-card">
-                            <div class="stat-value">perpDEX</div>
-                            <div class="stat-label">ドル円ショート</div>
-                        </div>
-                    </div>
-                    <p>同額のロングとショートを持つことで、為替変動リスクを完全にヘッジしながら、スワップ金利とFunding Rateの差額を獲得します。</p>
-                </div>
-
-                <div class="info-box">
-                    <h3>この戦略で得られるもの</h3>
-                    <ul class="feature-list">
-                        <li><strong>スワップ金利収入</strong>（月数万円〜数十万円）</li>
-                        <li><strong>為替変動リスクの排除</strong>（デルタニュートラル）</li>
-                        <li><strong>perpDEXでの取引実績</strong>（エアドロップ獲得）</li>
-                        <li><strong>複数収益源の確保</strong>（分散投資効果）</li>
-                    </ul>
-                </div>
-
-                <div class="card">
-                    <h3>複数ウォレット運用のメリット</h3>
-                    <p>実際の事例として、<strong>Plasm</strong>というプロジェクトでは、今年アカウントごとに約$1,000のエアドロップが実施されました。このプロジェクトでは、わずか$1でもPlasmを利用していたアカウントが対象となり、複数アカウントで運用していたユーザーの中には、総額で大きなエアドロップを受け取った人もいます。</p>
-                    <div class="info-box">
-                        <h4>なぜ複数アカウント運用が有効なのか？</h4>
-                        <ul class="feature-list">
-                            <li><strong>リスクヘッジ効果</strong>：1つのアカウントに集中させず、複数に分散することで損失リスクを軽減</li>
-                            <li><strong>エアドロップの最大化</strong>：アカウントごとに配布されるエアドロップを複数受け取れる</li>
-                            <li><strong>小額投資でも参加可能</strong>：各アカウントに少額ずつ入金することで、資金効率良く運用可能</li>
-                            <li><strong>プロジェクトの選別</strong>：複数のDEXに分散してリスクを抑えながら、将来性のあるプロジェクトを探れる</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <h3>Bot開発と自動化の価値</h3>
-                    <p>これらの戦略を<strong>AI駆動で自動運用</strong>することは、効率性と収益性を大幅に向上させます。Bot開発は単なるツール作成ではなく、今後のAI時代を生き抜く上で非常に貴重なスキルセットとなります。</p>
-                    
-                    <div class="info-box">
-                        <h4>Bot開発で得られるもの</h4>
-                        <ul class="feature-list">
-                            <li><strong>24時間365日の自動監視</strong>：人間には不可能な常時モニタリングと即座の対応</li>
-                            <li><strong>感情を排除した取引</strong>：プログラムに基づいた冷静な判断で、FOMOやパニック売りを回避</li>
-                            <li><strong>複数アカウントの一括管理</strong>：手動では困難な複数ウォレットの同時操作が可能</li>
-                            <li><strong>データ分析と最適化</strong>：取引履歴を自動分析し、戦略を継続的に改善</li>
-                        </ul>
-                        <p style="margin-top: 20px;">Bot開発を通じて身につくプログラミング、API連携、データ分析、リスク管理などのスキルは、暗号資産取引にとどまらず、あらゆる分野でのAI活用に応用可能です。これは単なる投資戦略の一部ではなく、<strong>未来への投資</strong>でもあるのです。</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Simulation Panel -->
-            <div class="content-panel" id="simulation">
-                <h1>Profit <span class="gradient-text">Simulation</span></h1>
-                
-                <div class="card">
-                    <h3>現在のスワップ条件</h3>
-                    <div class="stat-grid">
-                        <div class="stat-card">
-                            <div class="stat-value">¥155</div>
-                            <div class="stat-label">ドル円レート</div>
-                        </div>
-                        <div class="stat-card">
-                            <div class="stat-value">¥130/日</div>
-                            <div class="stat-label">スワップ（1枚）</div>
-                        </div>
-                        <div class="stat-card">
-                            <div class="stat-value">3.06%</div>
-                            <div class="stat-label">年利（レバ1倍）</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <h3>レバレッジ別収益シミュレーション</h3>
-                    <p style="margin-bottom: 20px; color: rgba(255, 255, 255, 0.7);">
-                        <strong>例：総資金200万円の場合</strong>（FXに100万円、perpDEXに100万円を配分）<br>
-                        以下はFX側の証拠金100万円での運用シミュレーション
-                    </p>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>レバレッジ</th>
-                                <th>運用枚数</th>
-                                <th>必要証拠金</th>
-                                <th>月間スワップ</th>
-                                <th>年間スワップ</th>
-                                <th>年利</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>1倍</td>
-                                <td>約0.65枚</td>
-                                <td>100万円</td>
-                                <td>2,500円</td>
-                                <td>30,000円</td>
-                                <td>3.0%</td>
-                            </tr>
-                            <tr>
-                                <td><span class="badge badge-success">3倍（推奨）</span></td>
-                                <td>約1.9枚</td>
-                                <td>100万円</td>
-                                <td>7,500円</td>
-                                <td>90,000円</td>
-                                <td>9.0%</td>
-                            </tr>
-                            <tr>
-                                <td>5倍</td>
-                                <td>約3.2枚</td>
-                                <td>100万円</td>
-                                <td>12,500円</td>
-                                <td>150,000円</td>
-                                <td><span class="badge badge-warning">15.0%</span></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <div class="info-box" style="margin-top: 20px;">
-                        <strong>💡 注意</strong>
-                        <ul style="margin: 10px 0; padding-left: 20px;">
-                            <li>perpDEX側にも同額（100万円）の証拠金が必要</li>
-                            <li>両建てにより為替変動リスクはヘッジ済み</li>
-                            <li>実際の収益はFunding Rateにより変動する可能性あり</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="info-box">
-                    <h3>資金500万円での運用例</h3>
-                    <p style="margin-bottom: 20px; color: rgba(255, 255, 255, 0.7);">
-                        FXに250万円、perpDEXに250万円を配分（レバレッジ3倍）
-                    </p>
-                    <div class="stat-grid">
-                        <div class="stat-card">
-                            <div class="stat-value">4.8枚</div>
-                            <div class="stat-label">レバ3倍運用枚数</div>
-                        </div>
-                        <div class="stat-card">
-                            <div class="stat-value">¥18,720</div>
-                            <div class="stat-label">月間スワップ</div>
-                        </div>
-                        <div class="stat-card">
-                            <div class="stat-value">¥224,640</div>
-                            <div class="stat-label">年間収益</div>
-                        </div>
-                    </div>
-                    <small style="color: rgba(255, 255, 255, 0.5);">
-                        ※FX側の証拠金250万円での計算。1枚あたり130円/日のスワップ想定
-                    </small>
-                </div>
-
-                <div class="card">
-                    <h3>Funding Rate影響シナリオ</h3>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>FR状況</th>
-                                <th>ショート側への影響</th>
-                                <th>総合収益</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>プラス（ロング優勢）</td>
-                                <td>FR受取</td>
-                                <td><span class="badge badge-gradient">スワップ＋FR</span></td>
-                            </tr>
-                            <tr>
-                                <td>マイナス（ショート優勢）</td>
-                                <td>FR支払</td>
-                                <td>スワップ−FR</td>
-                            </tr>
-                            <tr>
-                                <td>ニュートラル</td>
-                                <td>影響なし</td>
-                                <td>スワップのみ</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
-            <!-- Risk Panel -->
-            <div class="content-panel" id="risk">
-                <h1>Risk <span class="gradient-text">Management</span></h1>
-                
-                <div class="warning-box">
-                    <h3>⚠️ 推奨レバレッジ：3倍〜5倍</h3>
-                    <p>高レバレッジは両建てでもロスカットリスクがあります。急激な価格変動時に片方のポジションだけが決済される可能性があるため、適切な証拠金管理が必要です。</p>
-                </div>
-
-                <div class="card">
-                    <h3>主要リスクと対策</h3>
-                    
-                    <h4>1. ロスカットリスク</h4>
-                    <ul class="feature-list">
-                        <li>急変動で片方のポジションだけロスカット</li>
-                        <li><strong>対策：</strong>レバレッジを3倍以内に抑える</li>
-                    </ul>
-                    
-                    <h4>2. ハッキングリスク</h4>
-                    <ul class="feature-list">
-                        <li>スマートコントラクトの脆弱性</li>
-                        <li><strong>対策：</strong>監査済みDEX選択、資金分散</li>
-                    </ul>
-                    
-                    <h4>3. 流動性リスク</h4>
-                    <ul class="feature-list">
-                        <li>板が薄いとスリッページが大きくなる</li>
-                        <li><strong>対策：</strong>Hyperliquid等の高流動性DEX使用</li>
-                    </ul>
-                </div>
-
-                <div class="info-box">
-                    <h3>リスク管理のベストプラクティス</h3>
-                    <ul class="feature-list">
-                        <li>両建てポジションの証拠金は同額以上を維持</li>
-                        <li>価格アラートを設定して急変動に備える</li>
-                        <li>定期的にFunding Rateをモニタリング</li>
-                        <li>複数DEXに資金を分散してリスクヘッジ</li>
-                        <li>利益は定期的に出金して元本回収</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Start Panel -->
-            <div class="content-panel" id="start">
-                <h1>Getting <span class="gradient-text">Started</span></h1>
-                
-                <div class="card">
-                    <h3>ステップ1：準備</h3>
-                    <ul class="feature-list">
-                        <li>Rabby/Zerionでウォレットを複数作成</li>
-                        <li>国内FX口座を開設（高スワップ業者）</li>
-                        <li>perpDEXアカウントを設定</li>
-                    </ul>
-                </div>
-
-                <div class="card">
-                    <h3>ステップ2：資金配分</h3>
-                    <p style="margin-bottom: 20px; color: rgba(255, 255, 255, 0.7);">
-                        <strong>基本原則：</strong>FXとperpDEXに同額の証拠金を配分（50:50）して両建てポジションを構築
-                    </p>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>総資金</th>
-                                <th>FX証拠金</th>
-                                <th>perpDEX証拠金</th>
-                                <th>レバレッジ</th>
-                                <th>月間収益</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>100万円</td>
-                                <td>50万円</td>
-                                <td>50万円</td>
-                                <td>3倍</td>
-                                <td>約3,750円</td>
-                            </tr>
-                            <tr>
-                                <td>300万円</td>
-                                <td>150万円</td>
-                                <td>150万円</td>
-                                <td>3倍</td>
-                                <td>約11,250円</td>
-                            </tr>
-                            <tr>
-                                <td>500万円</td>
-                                <td>250万円</td>
-                                <td>250万円</td>
-                                <td>3倍</td>
-                                <td><span class="badge badge-gradient">約18,700円</span></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <div class="info-box" style="margin-top: 20px;">
-                        <strong>💡 ポイント</strong>
-                        <ul style="margin: 10px 0; padding-left: 20px;">
-                            <li>両建てのため、FXとperpDEXに同額を入金</li>
-                            <li>レバレッジ3倍なら、各50万円で150万円相当のポジション</li>
-                            <li>為替変動による損益は相殺されるため、証拠金維持率も安定</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <h3>ステップ3：ポジション構築</h3>
-                    <ol style="padding-left: 20px; color: rgba(255, 255, 255, 0.8);">
-                        <li style="margin-bottom: 12px;">FXでドル円ロングポジションを建てる</li>
-                        <li style="margin-bottom: 12px;">perpDEXで同額のドル円ショートを建てる</li>
-                        <li style="margin-bottom: 12px;">両ポジションの証拠金維持率を確認</li>
-                        <li style="margin-bottom: 12px;">定期的にFRとスワップを確認</li>
-                        <li style="margin-bottom: 12px;">月次で収益を記録・分析</li>
-                    </ol>
-                </div>
-
-                <div class="warning-box">
-                    <h3>投資は自己責任で</h3>
-                    <p>この戦略は投資助言ではありません。十分なリサーチと理解の上、自己責任で実行してください。投資には常にリスクが伴います。</p>
+                <!-- Menu Items -->
+                <div style="margin-top: 4rem;">
+                    <a href="sukoyaka-homepage-green.html" style="display: block; padding: 1rem 0; text-decoration: none; color: #4A90E2; border-bottom: 1px solid #e5e7eb; font-size: 1.125rem; font-weight: 500;">ホームページ</a>
+                    <a href="#vision" style="display: block; padding: 1rem 0; text-decoration: none; color: #374151; border-bottom: 1px solid #e5e7eb; font-size: 1.125rem;">私たちが目指す医療</a>
+                    <a href="#positions" style="display: block; padding: 1rem 0; text-decoration: none; color: #374151; border-bottom: 1px solid #e5e7eb; font-size: 1.125rem;">募集職種</a>
+                    <a href="#benefits" style="display: block; padding: 1rem 0; text-decoration: none; color: #374151; border-bottom: 1px solid #e5e7eb; font-size: 1.125rem;">福利厚生</a>
+                    <a href="#contact" style="display: block; margin-top: 2rem; padding: 0.75rem 1.5rem; background: #10B981; color: white; text-align: center; text-decoration: none; border-radius: 0.75rem; font-weight: 600;">
+                        応募・お問い合わせ
+                    </a>
                 </div>
             </div>
         </div>
     </div>
 
-    <script>
-        // Tab Navigation
-        const tabs = document.querySelectorAll('.tab-btn');
-        const panels = document.querySelectorAll('.content-panel');
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 via-white to-teal-50 overflow-hidden">
+        <!-- Background Pattern -->
+        <div class="absolute inset-0 opacity-5">
+            <svg class="w-full h-full" viewBox="0 0 400 400" fill="none">
+                <defs>
+                    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+                        <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#4A90E2" stroke-width="1"/>
+                    </pattern>
+                </defs>
+                <rect width="100%" height="100%" fill="url(#grid)" />
+            </svg>
+        </div>
         
-        tabs.forEach(tab => {
-            tab.addEventListener('click', () => {
-                const targetTab = tab.dataset.tab;
+        <div class="container mx-auto px-6 pt-32 pb-16 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <!-- Left Content -->
+                <div class="animate-fade-in">
+                    <div class="inline-flex items-center space-x-2 bg-white/80 backdrop-blur-sm px-4 py-2 rounded-full border border-gray-200 mb-6">
+                        <div class="w-2 h-2 bg-medical-green rounded-full animate-pulse"></div>
+                        <span class="text-sm text-gray-600 font-medium">2026年春 新規開業予定</span>
+                    </div>
+                    
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-text-dark leading-tight mb-6">
+                        <span class="text-gray-600 text-2xl md:text-3xl block mb-2">共にあゆみ、共につくる</span>
+                        <span class="bg-gradient-to-r from-medical-blue to-medical-mint bg-clip-text text-transparent">
+                            能登の地域医療
+                        </span>
+                    </h1>
+                    
+                    <p class="text-lg text-gray-700 mb-8 leading-relaxed max-w-lg">
+                        震災復興を支えながら、地域医療の新しい形を一緒に創造しませんか。
+                        MRIなど最新設備を導入し、患者様に寄り添う医療を提供するチームの一員として。
+                    </p>
+                    
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="#contact" class="inline-flex items-center justify-center bg-medical-green text-white px-8 py-4 rounded-xl font-semibold hover:bg-green-600 transition-all duration-200 shadow-lg hover:shadow-xl group">
+                            <span>エントリー</span>
+                            <svg class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                            </svg>
+                        </a>
+                        <a href="#vision" class="inline-flex items-center justify-center bg-white text-text-dark px-8 py-4 rounded-xl font-semibold border border-gray-200 hover:bg-gray-50 transition-all duration-200 shadow-md hover:shadow-lg">
+                            詳しい募集内容を見る
+                        </a>
+                    </div>
+                </div>
                 
-                // Update active states
-                tabs.forEach(t => t.classList.remove('active'));
-                tab.classList.add('active');
-                
-                // Show corresponding panel
-                panels.forEach(panel => {
-                    panel.classList.remove('active');
-                    if (panel.id === targetTab) {
-                        panel.classList.add('active');
-                    }
-                });
-            });
-        });
+                <!-- Right Content - Doctor Section -->
+                <div class="relative animate-slide-up">
+                    <!-- Doctor Message Card -->
+                    <div class="glass-card rounded-3xl p-8 shadow-2xl animate-float">
+                        <div class="flex items-center mb-6">
+                            <div class="w-20 h-20 rounded-2xl overflow-hidden mr-4 border-2 border-medical-blue/20">
+                                <img src="./assets/doctor-new-BwWKKnWs.png" alt="中村健一院長" class="w-full h-full object-cover object-center">
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-text-dark">院長メッセージ</h3>
+                            </div>
+                        </div>
+                        
+                        <div class="space-y-4 text-gray-700 leading-relaxed">
+                            <p class="font-medium text-text-dark">
+                                20年以上、能登で整形外科医として地域医療を支えてきました。
+                            </p>
+                            <p class="text-sm">
+                                震災の爪痕が未だ残るこの地で、MRIなど最新の医療機器を導入し、地域の皆様により良い医療を提供したい。
+                                その想いを共有し、共に歩んでくれるスタッフを募集します。
+                            </p>
+                        </div>
+                        
+                        <div class="mt-6 p-4 bg-blue-50 rounded-xl border border-blue-100">
+                            <div class="text-sm text-blue-800 font-medium">すこやか整形外科医院 院長</div>
+                            <div class="text-lg font-bold text-blue-900">中村 健一</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Floating Stats -->
+                    <div class="absolute -top-4 -right-4 bg-white rounded-2xl p-4 shadow-lg border border-gray-100" style="animation-delay: 0.5s;">
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-medical-blue">20+</div>
+                            <div class="text-sm text-gray-600">年の経験</div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
 
-        // Floating Geometric Animation
-        const canvas = document.getElementById('blockchain-canvas');
-        const ctx = canvas.getContext('2d');
+    <!-- Vision Section -->
+    <section id="vision" class="py-20 bg-bg-light">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="inline-block bg-medical-blue/10 text-medical-blue px-4 py-2 rounded-full text-sm font-semibold mb-4">
+                    私たちが目指す医療
+                </span>
+                <h2 class="text-3xl md:text-4xl font-bold text-text-dark mb-6">
+                    共に実現する
+                    <span class="text-medical-blue">医療の未来</span>
+                </h2>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <!-- Vision Card 1 -->
+                <div class="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 group text-center">
+                    <div class="w-20 h-20 bg-gradient-to-br from-medical-mint to-teal-600 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <span class="text-3xl">🤝</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-text-dark mb-4">地域に寄り添う医療</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        震災復興を支えながら、一人ひとりの患者様に寄り添い、信頼される医療機関を目指します。
+                    </p>
+                </div>
+                
+                <!-- Vision Card 2 -->
+                <div class="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 group text-center">
+                    <div class="w-20 h-20 bg-gradient-to-br from-medical-green to-green-600 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <span class="text-3xl">👥</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-text-dark mb-4">チーム医療の実践</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        医師・理学療法士・医療事務が一体となり、患者様に最適な医療サービスを提供します。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Positions Section -->
+    <section id="positions" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="inline-block bg-medical-green/10 text-medical-green px-4 py-2 rounded-full text-sm font-semibold mb-4">
+                    募集職種
+                </span>
+                <h2 class="text-3xl md:text-4xl font-bold text-text-dark mb-6">
+                    あなたの専門性を
+                    <span class="text-medical-green">活かしませんか</span>
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    各分野のプロフェッショナルとして、地域医療を支える仲間を募集しています
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                <!-- Position Card 1 - 看護師 -->
+                <div class="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300">
+                    <div class="flex items-center justify-between mb-6">
+                        <h3 class="text-2xl font-bold text-text-dark">看護師</h3>
+                        <span class="bg-medical-green/10 text-medical-green px-3 py-1 rounded-full text-sm font-semibold">正社員・パート</span>
+                    </div>
+                    
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        診療補助、処置、患者様のケアなど、医師と連携して医療を提供します。
+                    </p>
+                    
+                    <div class="space-y-4 mb-8">
+                        <div class="flex items-center justify-between py-3 px-4 bg-gray-50 rounded-xl">
+                            <span class="text-gray-600 font-medium">給与</span>
+                            <div class="text-right">
+                                <span class="text-text-dark font-bold">正社員: 月給 24-28万円</span><br>
+                                <span class="text-text-dark font-bold text-sm">パート: 時給 1,500-1,800円</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between py-3 px-4 bg-gray-50 rounded-xl">
+                            <span class="text-gray-600 font-medium">勤務時間</span>
+                            <span class="text-text-dark font-bold">8:45〜18:15</span>
+                        </div>
+                        <div class="flex items-center justify-between py-3 px-4 bg-gray-50 rounded-xl">
+                            <span class="text-gray-600 font-medium">休日</span>
+                            <span class="text-text-dark font-bold text-sm">木曜、日祝、土曜午後</span>
+                        </div>
+                    </div>
+                    
+                    <div class="pt-6 border-t border-gray-100">
+                        <a href="#contact" class="block text-center bg-medical-green text-white py-3 px-6 rounded-xl font-semibold hover:bg-green-600 transition-all duration-200">
+                            この職種に応募する
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Position Card 2 - 医療事務（受付） -->
+                <div class="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300">
+                    <div class="flex items-center justify-between mb-6">
+                        <h3 class="text-2xl font-bold text-text-dark">医療事務（受付）</h3>
+                        <span class="bg-medical-blue/10 text-medical-blue px-3 py-1 rounded-full text-sm font-semibold">正社員・パート</span>
+                    </div>
+                    
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        受付業務、レセプト業務、患者様対応など、クリニック運営の要となるポジションです。
+                    </p>
+                    
+                    <div class="space-y-4 mb-8">
+                        <div class="flex items-center justify-between py-3 px-4 bg-gray-50 rounded-xl">
+                            <span class="text-gray-600 font-medium">給与</span>
+                            <div class="text-right">
+                                <span class="text-text-dark font-bold">正社員: 月給 18.5-21.5万円</span><br>
+                                <span class="text-text-dark font-bold text-sm">パート: 時給 1,100-1,200円</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between py-3 px-4 bg-gray-50 rounded-xl">
+                            <span class="text-gray-600 font-medium">勤務時間</span>
+                            <span class="text-text-dark font-bold">8:45〜18:15</span>
+                        </div>
+                        <div class="flex items-center justify-between py-3 px-4 bg-gray-50 rounded-xl">
+                            <span class="text-gray-600 font-medium">休日</span>
+                            <span class="text-text-dark font-bold text-sm">木曜、日祝、土曜午後</span>
+                        </div>
+                    </div>
+                    
+                    <div class="pt-6 border-t border-gray-100">
+                        <a href="#contact" class="block text-center bg-medical-blue text-white py-3 px-6 rounded-xl font-semibold hover:bg-blue-600 transition-all duration-200">
+                            この職種に応募する
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Position Card 3 - 理学療法士 -->
+                <div class="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300">
+                    <div class="flex items-center justify-between mb-6">
+                        <h3 class="text-2xl font-bold text-text-dark">理学療法士</h3>
+                        <span class="bg-medical-mint/10 text-medical-mint px-3 py-1 rounded-full text-sm font-semibold">正社員</span>
+                    </div>
+                    
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        リハビリテーション業務全般。患者様の機能回復を支援する専門職です。
+                    </p>
+                    
+                    <div class="space-y-4 mb-8">
+                        <div class="flex items-center justify-between py-3 px-4 bg-gray-50 rounded-xl">
+                            <span class="text-gray-600 font-medium">給与</span>
+                            <span class="text-text-dark font-bold">月給 22-28万円</span>
+                        </div>
+                        <div class="flex items-center justify-between py-3 px-4 bg-gray-50 rounded-xl">
+                            <span class="text-gray-600 font-medium">勤務時間</span>
+                            <span class="text-text-dark font-bold">8:45〜18:15</span>
+                        </div>
+                        <div class="flex items-center justify-between py-3 px-4 bg-gray-50 rounded-xl">
+                            <span class="text-gray-600 font-medium">休日</span>
+                            <span class="text-text-dark font-bold text-sm">木曜、日祝、土曜午後</span>
+                        </div>
+                    </div>
+                    
+                    <div class="pt-6 border-t border-gray-100">
+                        <a href="#contact" class="block text-center bg-medical-mint text-white py-3 px-6 rounded-xl font-semibold hover:bg-teal-600 transition-all duration-200">
+                            この職種に応募する
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Position Card 4 - 診療放射線技師 -->
+                <div class="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300">
+                    <div class="flex items-center justify-between mb-6">
+                        <h3 class="text-2xl font-bold text-text-dark">診療放射線技師</h3>
+                        <span class="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm font-semibold">正社員</span>
+                    </div>
+                    
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        MRI・レントゲン等の画像診断業務。最新機器を用いた専門的な検査を担当します。
+                    </p>
+                    
+                    <div class="space-y-4 mb-8">
+                        <div class="flex items-center justify-between py-3 px-4 bg-gray-50 rounded-xl">
+                            <span class="text-gray-600 font-medium">給与</span>
+                            <span class="text-text-dark font-bold">月給 23-40万円</span>
+                        </div>
+                        <div class="flex items-center justify-between py-3 px-4 bg-gray-50 rounded-xl">
+                            <span class="text-gray-600 font-medium">勤務時間</span>
+                            <span class="text-text-dark font-bold">8:45〜18:15</span>
+                        </div>
+                        <div class="flex items-center justify-between py-3 px-4 bg-gray-50 rounded-xl">
+                            <span class="text-gray-600 font-medium">休日</span>
+                            <span class="text-text-dark font-bold text-sm">木曜、日祝、土曜午後</span>
+                        </div>
+                    </div>
+                    
+                    <div class="pt-6 border-t border-gray-100">
+                        <a href="#contact" class="block text-center bg-purple-600 text-white py-3 px-6 rounded-xl font-semibold hover:bg-purple-700 transition-all duration-200">
+                            この職種に応募する
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Position Card 5 - 看護・リハ助手 -->
+                <div class="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300">
+                    <div class="flex items-center justify-between mb-6">
+                        <h3 class="text-2xl font-bold text-text-dark">看護・リハ助手</h3>
+                        <span class="bg-orange-100 text-orange-700 px-3 py-1 rounded-full text-sm font-semibold">パート</span>
+                    </div>
+                    
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        看護師やリハビリスタッフのサポート業務。患者様の誘導や器具の準備など、医療チームを支える重要な役割です。
+                    </p>
+                    
+                    <div class="space-y-4 mb-8">
+                        <div class="flex items-center justify-between py-3 px-4 bg-gray-50 rounded-xl">
+                            <span class="text-gray-600 font-medium">給与</span>
+                            <span class="text-text-dark font-bold">時給 1,100-1,200円</span>
+                        </div>
+                        <div class="flex items-center justify-between py-3 px-4 bg-gray-50 rounded-xl">
+                            <span class="text-gray-600 font-medium">勤務時間</span>
+                            <span class="text-text-dark font-bold">8:45〜18:15</span>
+                        </div>
+                        <div class="flex items-center justify-between py-3 px-4 bg-gray-50 rounded-xl">
+                            <span class="text-gray-600 font-medium">休日</span>
+                            <span class="text-text-dark font-bold text-sm">木曜、日祝、土曜午後</span>
+                        </div>
+                    </div>
+                    
+                    <div class="pt-6 border-t border-gray-100">
+                        <a href="#contact" class="block text-center bg-orange-600 text-white py-3 px-6 rounded-xl font-semibold hover:bg-orange-700 transition-all duration-200">
+                            この職種に応募する
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Facility Images Section -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-text-dark mb-6">
+                    <span class="text-medical-blue">院内のご紹介</span>
+                </h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                    清潔感のある受付・待合室と、充実したリハビリテーション設備
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+                <!-- Reception & Waiting Room Image -->
+                <div class="group cursor-pointer overflow-hidden rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300">
+                    <div class="relative">
+                        <img src="./assets/IMG_8202-emqRydqj.jpeg" alt="受付・待合室" class="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-300">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
+                        <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
+                            <h3 class="text-2xl font-bold mb-2 drop-shadow-lg">明るい受付・待合室</h3>
+                            <p class="text-sm opacity-95 drop-shadow">清潔感のある空間でお迎えします</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Rehabilitation Room Image -->
+                <div class="group cursor-pointer overflow-hidden rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300">
+                    <div class="relative">
+                        <img src="./assets/IMG_8214-B7dnluh4.jpeg" alt="リハビリテーションルーム" class="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-300">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
+                        <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
+                            <h3 class="text-2xl font-bold mb-2 drop-shadow-lg">広々としたリハビリルーム</h3>
+                            <p class="text-sm opacity-95 drop-shadow">開放感のある空間で機能回復訓練を提供</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Clinic Hours Section -->
+    <section class="py-20 bg-gradient-to-br from-medical-blue/5 to-medical-mint/5">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="inline-block bg-medical-blue/10 text-medical-blue px-4 py-2 rounded-full text-sm font-semibold mb-4">
+                    診療時間・勤務体制
+                </span>
+                <h2 class="text-3xl md:text-4xl font-bold text-text-dark mb-4">
+                    働きやすい環境で<br>
+                    <span class="text-medical-blue">地域医療に貢献</span>
+                </h2>
+                <p class="text-gray-700 max-w-2xl mx-auto">
+                    ワークライフバランスを重視した勤務体制。<br>
+                    プライベートも充実させながら、医療の現場で活躍できます。
+                </p>
+            </div>
+
+            <div class="max-w-4xl mx-auto">
+                <!-- Clinic Hours Table -->
+                <div class="glass-card rounded-2xl shadow-xl p-8 mb-8">
+                    <h3 class="text-2xl font-bold text-text-dark mb-6 text-center">診療時間</h3>
+                    
+                    <div class="overflow-x-auto">
+                        <table class="w-full">
+                            <thead>
+                                <tr class="border-b-2 border-medical-blue/20">
+                                    <th class="text-left py-3 px-4 font-semibold text-gray-700">診療時間</th>
+                                    <th class="text-center py-3 px-4 font-semibold text-gray-700">月</th>
+                                    <th class="text-center py-3 px-4 font-semibold text-gray-700">火</th>
+                                    <th class="text-center py-3 px-4 font-semibold text-gray-700">水</th>
+                                    <th class="text-center py-3 px-4 font-semibold text-gray-700">木</th>
+                                    <th class="text-center py-3 px-4 font-semibold text-gray-700">金</th>
+                                    <th class="text-center py-3 px-4 font-semibold text-gray-700">土</th>
+                                    <th class="text-center py-3 px-4 font-semibold text-gray-700">日・祝</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="border-b border-gray-200">
+                                    <td class="py-4 px-4 font-medium text-gray-700">
+                                        <span class="block">午前</span>
+                                        <span class="text-sm text-gray-500">9:00-12:30</span>
+                                    </td>
+                                    <td class="text-center py-4 px-4">
+                                        <span class="inline-block w-8 h-8 bg-medical-green/20 text-medical-green rounded-full leading-8">●</span>
+                                    </td>
+                                    <td class="text-center py-4 px-4">
+                                        <span class="inline-block w-8 h-8 bg-medical-green/20 text-medical-green rounded-full leading-8">●</span>
+                                    </td>
+                                    <td class="text-center py-4 px-4">
+                                        <span class="inline-block w-8 h-8 bg-medical-green/20 text-medical-green rounded-full leading-8">●</span>
+                                    </td>
+                                    <td class="text-center py-4 px-4">
+                                        <span class="inline-block w-8 h-8 bg-gray-200 text-gray-400 rounded-full leading-8">－</span>
+                                    </td>
+                                    <td class="text-center py-4 px-4">
+                                        <span class="inline-block w-8 h-8 bg-medical-green/20 text-medical-green rounded-full leading-8">●</span>
+                                    </td>
+                                    <td class="text-center py-4 px-4">
+                                        <span class="inline-block w-8 h-8 bg-medical-green/20 text-medical-green rounded-full leading-8">●</span>
+                                    </td>
+                                    <td class="text-center py-4 px-4">
+                                        <span class="inline-block w-8 h-8 bg-gray-200 text-gray-400 rounded-full leading-8">－</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="py-4 px-4 font-medium text-gray-700">
+                                        <span class="block">午後</span>
+                                        <span class="text-sm text-gray-500">14:30-18:00</span>
+                                    </td>
+                                    <td class="text-center py-4 px-4">
+                                        <span class="inline-block w-8 h-8 bg-medical-green/20 text-medical-green rounded-full leading-8">●</span>
+                                    </td>
+                                    <td class="text-center py-4 px-4">
+                                        <span class="inline-block w-8 h-8 bg-medical-green/20 text-medical-green rounded-full leading-8">●</span>
+                                    </td>
+                                    <td class="text-center py-4 px-4">
+                                        <span class="inline-block w-8 h-8 bg-medical-green/20 text-medical-green rounded-full leading-8">●</span>
+                                    </td>
+                                    <td class="text-center py-4 px-4">
+                                        <span class="inline-block w-8 h-8 bg-gray-200 text-gray-400 rounded-full leading-8">－</span>
+                                    </td>
+                                    <td class="text-center py-4 px-4">
+                                        <span class="inline-block w-8 h-8 bg-medical-green/20 text-medical-green rounded-full leading-8">●</span>
+                                    </td>
+                                    <td class="text-center py-4 px-4">
+                                        <span class="inline-block w-8 h-8 bg-gray-200 text-gray-400 rounded-full leading-8">－</span>
+                                    </td>
+                                    <td class="text-center py-4 px-4">
+                                        <span class="inline-block w-8 h-8 bg-gray-200 text-gray-400 rounded-full leading-8">－</span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mt-6 p-4 bg-medical-blue/5 rounded-lg">
+                        <p class="text-sm text-gray-700">
+                            <span class="font-semibold">勤務時間：</span>
+                            午前 8:45～12:45 / 午後 14:15～18:15<br>
+                            <span class="font-semibold">休診日：</span>
+                            木曜・日曜・祝日・土曜午後
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Work-Life Balance Features -->
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="glass-card rounded-xl p-6 text-center hover:shadow-lg transition-all">
+                        <div class="text-3xl mb-3">⏰</div>
+                        <h4 class="font-bold text-gray-800 mb-2">完全週休2日制</h4>
+                        <p class="text-sm text-gray-600">木曜・日曜が定休日。<br>プライベートも充実</p>
+                    </div>
+                    
+                    <div class="glass-card rounded-xl p-6 text-center hover:shadow-lg transition-all">
+                        <div class="text-3xl mb-3">🏖️</div>
+                        <h4 class="font-bold text-gray-800 mb-2">年間休日120日以上</h4>
+                        <p class="text-sm text-gray-600">しっかり休める環境で<br>長く働ける職場</p>
+                    </div>
+                    
+                    <div class="glass-card rounded-xl p-6 text-center hover:shadow-lg transition-all">
+                        <div class="text-3xl mb-3">🚫</div>
+                        <h4 class="font-bold text-gray-800 mb-2">残業ほぼなし</h4>
+                        <p class="text-sm text-gray-600">診療時間が明確で<br>定時退社が基本</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section id="benefits" class="py-20 bg-bg-light">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="inline-block bg-medical-green/10 text-medical-green px-4 py-2 rounded-full text-sm font-semibold mb-4">
+                    福利厚生
+                </span>
+                <h2 class="text-3xl md:text-4xl font-bold text-text-dark mb-6">
+                    充実した
+                    <span class="text-medical-green">働く環境</span>
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    スタッフが安心して働けるよう、充実した福利厚生制度を整えています
+                </p>
+            </div>
+            
+            <div class="max-w-4xl mx-auto">
+                <div class="grid md:grid-cols-2 gap-6">
+                    <!-- Benefits Items -->
+                    <div class="bg-white rounded-2xl p-6 shadow-md hover:shadow-lg transition-all duration-300 flex items-center space-x-4">
+                        <div class="w-12 h-12 bg-medical-blue/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <svg class="w-6 h-6 text-medical-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-text-dark mb-1">社会保険完備</h4>
+                            <p class="text-gray-600 text-sm">健康保険・厚生年金・雇用保険・労災保険</p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-2xl p-6 shadow-md hover:shadow-lg transition-all duration-300 flex items-center space-x-4">
+                        <div class="w-12 h-12 bg-medical-mint/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <svg class="w-6 h-6 text-medical-mint" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-text-dark mb-1">賞与年2回</h4>
+                            <p class="text-gray-600 text-sm">業績に応じた賞与を支給します</p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-2xl p-6 shadow-md hover:shadow-lg transition-all duration-300 flex items-center space-x-4">
+                        <div class="w-12 h-12 bg-medical-green/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <svg class="w-6 h-6 text-medical-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-text-dark mb-1">交通費支給</h4>
+                            <p class="text-gray-600 text-sm">通勤にかかる交通費を全額支給</p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-2xl p-6 shadow-md hover:shadow-lg transition-all duration-300 flex items-center space-x-4">
+                        <div class="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-text-dark mb-1">制服貸与</h4>
+                            <p class="text-gray-600 text-sm">清潔で機能的な制服を貸与します</p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-2xl p-6 shadow-md hover:shadow-lg transition-all duration-300 flex items-center space-x-4">
+                        <div class="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <svg class="w-6 h-6 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-text-dark mb-1">研修制度充実</h4>
+                            <p class="text-gray-600 text-sm">スキルアップのための研修制度を完備</p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-2xl p-6 shadow-md hover:shadow-lg transition-all duration-300 flex items-center space-x-4">
+                        <div class="w-12 h-12 bg-pink-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <svg class="w-6 h-6 text-pink-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-text-dark mb-1">有給休暇取得推進</h4>
+                            <p class="text-gray-600 text-sm">ワークライフバランスを重視します</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="inline-block bg-medical-blue/10 text-medical-blue px-4 py-2 rounded-full text-sm font-semibold mb-4">
+                    エントリー・お問い合わせ
+                </span>
+                <h2 class="text-3xl md:text-4xl font-bold text-text-dark mb-6">
+                    共に働く仲間を
+                    <span class="text-medical-blue">お待ちしています</span>
+                </h2>
+            </div>
+            
+            <div class="max-w-4xl mx-auto">
+                <div class="bg-bg-light rounded-3xl p-8 md:p-12">
+                    <p class="text-lg text-gray-700 mb-8 text-center leading-relaxed">
+                        ご興味をお持ちいただけましたら、お気軽にお問い合わせください。<br>
+                        見学のご希望も承っております。
+                    </p>
+                    
+                    <!-- Email Contact Only -->
+                    <div class="max-w-lg mx-auto mb-8">
+                        <a href="mailto:staff@sukoyaka-ortho-clinic.com" class="group">
+                            <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 text-center">
+                                <div class="w-16 h-16 bg-gradient-to-br from-medical-blue to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                                    <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                                    </svg>
+                                </div>
+                                <h3 class="text-xl font-bold text-text-dark mb-2">メールで応募・問い合わせ</h3>
+                                <p class="text-medical-blue font-semibold group-hover:underline">staff@sukoyaka-ortho-clinic.com</p>
+                            </div>
+                        </a>
+                    </div>
+                    
+                    <div class="bg-yellow-50 border border-yellow-200 rounded-xl p-6 text-center">
+                        <div class="flex items-center justify-center mb-2">
+                            <svg class="w-5 h-5 text-yellow-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            <span class="font-semibold text-yellow-800">応募時のお願い</span>
+                        </div>
+                        <p class="text-yellow-700 text-sm">
+                            応募の際は、履歴書・職務経歴書をメールまたは郵送にてお送りください。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-gray-400 py-12">
+        <div class="container mx-auto px-4">
+            <div class="max-w-6xl mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                    <!-- Clinic Info -->
+                    <div>
+                        <div class="flex items-center mb-4">
+                            <div class="w-10 h-10 bg-gradient-to-br from-medical-blue to-medical-mint rounded-xl flex items-center justify-center mr-3">
+                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="text-white font-bold text-lg">すこやか整形外科医院</h3>
+                                <p class="text-gray-400 text-sm">能登の地域医療を共に支える仲間募集中</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-400 leading-relaxed">
+                            2026年春開業予定。地域の皆さまの健康を支え、共に歩む医療チームのメンバーを募集しています。
+                        </p>
+                    </div>
+
+                    <!-- Quick Links -->
+                    <div>
+                        <h4 class="text-white font-semibold mb-4">採用情報</h4>
+                        <ul class="space-y-2">
+                            <li><a href="#vision" class="hover:text-white transition-colors">私たちが目指す医療</a></li>
+                            <li><a href="#positions" class="hover:text-white transition-colors">募集職種</a></li>
+                            <li><a href="#benefits" class="hover:text-white transition-colors">福利厚生</a></li>
+                            <li><a href="#contact" class="hover:text-white transition-colors">お問い合わせ</a></li>
+                        </ul>
+                        <h4 class="text-white font-semibold mb-4 mt-6">公式サイト</h4>
+                        <ul class="space-y-2">
+                            <li><a href="sukoyaka-homepage-green.html" class="hover:text-white transition-colors">ホームページ</a></li>
+                            <li><a href="staff.html" class="hover:text-white transition-colors">スタッフ紹介</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Contact -->
+                    <div>
+                        <h4 class="text-white font-semibold mb-4">お問い合わせ</h4>
+                        <div class="space-y-2">
+                            <p class="flex items-center">
+                                <svg class="w-5 h-5 mr-2 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                                </svg>
+                                <span>Email: staff@sukoyaka-ortho-clinic.com</span>
+                            </p>
+                            <div>
+                                <p class="font-semibold mb-1">所在地:</p>
+                                <p>2026年春 石川県羽咋市に開業予定</p>
+                                <p>〒925-0026 石川県羽咋市石野町イ61番1</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Copyright -->
+                <div class="mt-8 pt-8 border-t border-gray-700 text-center">
+                    <p class="text-sm text-gray-500">© 2026 すこやか整形外科医院 All Rights Reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button id="scrollToTop" class="fixed bottom-6 right-6 bg-medical-green text-white p-4 rounded-full shadow-lg hover:bg-green-600 transition-all duration-200 opacity-0 invisible">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+        </svg>
+    </button>
+
+    <script>
+        // Mobile menu with link click handling
+        document.getElementById('mobileMenuButton').onclick = function() {
+            document.getElementById('mobileMenu').style.display = 'block';
+        };
         
-        // Set canvas size
-        function resizeCanvas() {
-            canvas.width = canvas.offsetWidth;
-            canvas.height = canvas.offsetHeight;
+        document.getElementById('mobileMenuClose').onclick = function() {
+            document.getElementById('mobileMenu').style.display = 'none';
+        };
+        
+        document.getElementById('mobileMenu').onclick = function(e) {
+            if (e.target.id === 'mobileMenu') {
+                this.style.display = 'none';
+            }
+        };
+        
+        // Close menu when clicking any link inside the menu
+        var menuLinks = document.querySelectorAll('#mobileMenu a');
+        for (var i = 0; i < menuLinks.length; i++) {
+            menuLinks[i].onclick = function() {
+                document.getElementById('mobileMenu').style.display = 'none';
+            };
         }
-        
-        resizeCanvas();
-        window.addEventListener('resize', resizeCanvas);
-        
-        // Floating Geometric Structure
-        class GeometricStructure {
-            constructor(x, y, z, type = 'cube') {
-                this.baseX = x;
-                this.baseY = y;
-                this.baseZ = z;
-                this.x = x;
-                this.y = y;
-                this.z = z;
-                this.type = type;
-                
-                // Floating animation parameters
-                this.floatPhase = Math.random() * Math.PI * 2;
-                this.floatSpeed = 0.01 + Math.random() * 0.01;
-                this.floatRadius = 20 + Math.random() * 30;
-                
-                // Rotation
-                this.rotationX = Math.random() * Math.PI * 2;
-                this.rotationY = Math.random() * Math.PI * 2;
-                this.rotationZ = Math.random() * Math.PI * 2;
-                this.rotationSpeed = 0.003 + Math.random() * 0.002;
-                
-                // Visual properties
-                this.size = 60 + Math.random() * 40;
-                this.opacity = 0;
-                this.targetOpacity = 0.3 + Math.random() * 0.2;
-                
-                // Define vertices based on type
-                this.setupVertices();
-                this.connections = [];
-            }
-            
-            setupVertices() {
-                if (this.type === 'cube') {
-                    const s = this.size / 2;
-                    this.vertices = [
-                        {x: -s, y: -s, z: -s}, {x: s, y: -s, z: -s},
-                        {x: s, y: s, z: -s}, {x: -s, y: s, z: -s},
-                        {x: -s, y: -s, z: s}, {x: s, y: -s, z: s},
-                        {x: s, y: s, z: s}, {x: -s, y: s, z: s}
-                    ];
-                    this.edges = [
-                        [0,1], [1,2], [2,3], [3,0], // Front face
-                        [4,5], [5,6], [6,7], [7,4], // Back face
-                        [0,4], [1,5], [2,6], [3,7]  // Connecting edges
-                    ];
-                } else if (this.type === 'pyramid') {
-                    const s = this.size / 2;
-                    this.vertices = [
-                        {x: 0, y: -s, z: 0}, // Top
-                        {x: -s, y: s, z: -s}, {x: s, y: s, z: -s},
-                        {x: s, y: s, z: s}, {x: -s, y: s, z: s}
-                    ];
-                    this.edges = [
-                        [0,1], [0,2], [0,3], [0,4], // Top to base
-                        [1,2], [2,3], [3,4], [4,1]  // Base edges
-                    ];
-                } else { // octahedron
-                    const s = this.size / 2;
-                    this.vertices = [
-                        {x: 0, y: -s, z: 0}, {x: 0, y: s, z: 0}, // Top and bottom
-                        {x: -s, y: 0, z: 0}, {x: s, y: 0, z: 0}, // Left and right
-                        {x: 0, y: 0, z: -s}, {x: 0, y: 0, z: s}  // Front and back
-                    ];
-                    this.edges = [
-                        [0,2], [0,3], [0,4], [0,5], // Bottom connections
-                        [1,2], [1,3], [1,4], [1,5], // Top connections
-                        [2,4], [4,3], [3,5], [5,2]  // Middle ring
-                    ];
-                }
-            }
-            
-            update() {
-                // Floating animation
-                this.floatPhase += this.floatSpeed;
-                const floatX = Math.sin(this.floatPhase) * this.floatRadius * 0.5;
-                const floatY = Math.sin(this.floatPhase * 1.5) * this.floatRadius;
-                const floatZ = Math.cos(this.floatPhase * 0.7) * this.floatRadius * 0.3;
-                
-                this.x = this.baseX + floatX;
-                this.y = this.baseY + floatY;
-                this.z = this.baseZ + floatZ;
-                
-                // Rotation
-                this.rotationX += this.rotationSpeed * 0.5;
-                this.rotationY += this.rotationSpeed;
-                this.rotationZ += this.rotationSpeed * 0.3;
-                
-                // Fade in
-                this.opacity += (this.targetOpacity - this.opacity) * 0.02;
-            }
-            
-            project(vertex) {
-                const perspective = 1000;
-                const centerX = canvas.width / 2;
-                const centerY = canvas.height / 2;
-                
-                // Apply rotations to vertex
-                let x = vertex.x;
-                let y = vertex.y;
-                let z = vertex.z;
-                
-                // Rotate around X
-                const cosX = Math.cos(this.rotationX);
-                const sinX = Math.sin(this.rotationX);
-                let y1 = y * cosX - z * sinX;
-                let z1 = y * sinX + z * cosX;
-                y = y1;
-                z = z1;
-                
-                // Rotate around Y
-                const cosY = Math.cos(this.rotationY);
-                const sinY = Math.sin(this.rotationY);
-                let x2 = x * cosY + z * sinY;
-                let z2 = -x * sinY + z * cosY;
-                x = x2;
-                z = z2;
-                
-                // Rotate around Z
-                const cosZ = Math.cos(this.rotationZ);
-                const sinZ = Math.sin(this.rotationZ);
-                let x3 = x * cosZ - y * sinZ;
-                let y3 = x * sinZ + y * cosZ;
-                
-                // Add position
-                x3 += this.x;
-                y3 += this.y;
-                z2 += this.z;
-                
-                // Perspective projection
-                const scale = perspective / (perspective + z2);
-                const projX = x3 * scale + centerX;
-                const projY = y3 * scale + centerY;
-                
-                return { x: projX, y: projY, scale, z: z2 };
-            }
-            
-            draw() {
-                // Draw edges
-                this.edges.forEach(edge => {
-                    const v1 = this.project(this.vertices[edge[0]]);
-                    const v2 = this.project(this.vertices[edge[1]]);
-                    
-                    // Create gradient for edge
-                    const gradient = ctx.createLinearGradient(v1.x, v1.y, v2.x, v2.y);
-                    gradient.addColorStop(0, `rgba(102, 126, 234, ${this.opacity * 0.4})`);
-                    gradient.addColorStop(0.5, `rgba(240, 147, 251, ${this.opacity * 0.3})`);
-                    gradient.addColorStop(1, `rgba(118, 75, 162, ${this.opacity * 0.4})`);
-                    
-                    ctx.strokeStyle = gradient;
-                    ctx.lineWidth = 1.5 * ((v1.scale + v2.scale) / 2);
-                    ctx.beginPath();
-                    ctx.moveTo(v1.x, v1.y);
-                    ctx.lineTo(v2.x, v2.y);
-                    ctx.stroke();
-                });
-                
-                // Draw vertices as glowing points
-                this.vertices.forEach(vertex => {
-                    const v = this.project(vertex);
-                    
-                    // Glow effect
-                    const glowGradient = ctx.createRadialGradient(v.x, v.y, 0, v.x, v.y, 10 * v.scale);
-                    glowGradient.addColorStop(0, `rgba(255, 255, 255, ${this.opacity * 0.8})`);
-                    glowGradient.addColorStop(0.3, `rgba(102, 126, 234, ${this.opacity * 0.4})`);
-                    glowGradient.addColorStop(1, 'transparent');
-                    
-                    ctx.fillStyle = glowGradient;
-                    ctx.beginPath();
-                    ctx.arc(v.x, v.y, 10 * v.scale, 0, Math.PI * 2);
-                    ctx.fill();
-                    
-                    // Core point
-                    ctx.fillStyle = `rgba(255, 255, 255, ${this.opacity * 0.9})`;
-                    ctx.beginPath();
-                    ctx.arc(v.x, v.y, 2 * v.scale, 0, Math.PI * 2);
-                    ctx.fill();
-                });
-                
-                // Draw connections to other structures
-                this.connections.forEach(target => {
-                    const myCenter = this.project({x: 0, y: 0, z: 0});
-                    const targetCenter = target.project({x: 0, y: 0, z: 0});
-                    
-                    ctx.strokeStyle = `rgba(102, 126, 234, ${this.opacity * 0.1})`;
-                    ctx.lineWidth = 0.5;
-                    ctx.setLineDash([5, 10]);
-                    ctx.beginPath();
-                    ctx.moveTo(myCenter.x, myCenter.y);
-                    ctx.lineTo(targetCenter.x, targetCenter.y);
-                    ctx.stroke();
-                    ctx.setLineDash([]);
-                });
-            }
-        }
-        
-        // Create floating geometric structures
-        const structures = [];
-        
-        // Create main structures in strategic positions
-        const positions = [
-            {x: -150, y: -100, z: 0, type: 'cube'},
-            {x: 150, y: 50, z: -100, type: 'pyramid'},
-            {x: 0, y: 100, z: 100, type: 'octahedron'},
-            {x: -100, y: -50, z: -150, type: 'cube'},
-            {x: 100, y: -100, z: 50, type: 'pyramid'},
-            {x: -50, y: 150, z: -50, type: 'octahedron'}
-        ];
-        
-        positions.forEach(pos => {
-            structures.push(new GeometricStructure(pos.x, pos.y, pos.z, pos.type));
-        });
-        
-        // Create some connections between structures
-        structures[0].connections.push(structures[1]);
-        structures[1].connections.push(structures[2]);
-        structures[2].connections.push(structures[3]);
-        structures[3].connections.push(structures[4]);
-        structures[4].connections.push(structures[5]);
-        structures[5].connections.push(structures[0]);
-        
-        // Add floating particles for atmosphere
-        class Particle {
-            constructor() {
-                this.x = (Math.random() - 0.5) * canvas.width;
-                this.y = (Math.random() - 0.5) * canvas.height;
-                this.z = (Math.random() - 0.5) * 500;
-                this.vx = (Math.random() - 0.5) * 0.5;
-                this.vy = (Math.random() - 0.5) * 0.5;
-                this.vz = (Math.random() - 0.5) * 0.5;
-                this.size = Math.random() * 2 + 1;
-                this.opacity = Math.random() * 0.3 + 0.1;
-            }
-            
-            update() {
-                this.x += this.vx;
-                this.y += this.vy;
-                this.z += this.vz;
-                
-                // Wrap around canvas
-                if (Math.abs(this.x) > canvas.width / 2) this.x *= -0.9;
-                if (Math.abs(this.y) > canvas.height / 2) this.y *= -0.9;
-                if (Math.abs(this.z) > 300) this.z *= -0.9;
-            }
-            
-            draw() {
-                const perspective = 1000;
-                const scale = perspective / (perspective + this.z);
-                const projX = this.x * scale + canvas.width / 2;
-                const projY = this.y * scale + canvas.height / 2;
-                
-                ctx.fillStyle = `rgba(102, 126, 234, ${this.opacity * scale})`;
-                ctx.beginPath();
-                ctx.arc(projX, projY, this.size * scale, 0, Math.PI * 2);
-                ctx.fill();
-            }
-        }
-        
-        const particles = [];
-        for (let i = 0; i < 50; i++) {
-            particles.push(new Particle());
-        }
-        
-        // Animation loop
-        function animate() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            
-            // Draw particles in background
-            particles.forEach(particle => {
-                particle.update();
-                particle.draw();
-            });
-            
-            // Sort structures by z-depth
-            const sortedStructures = [...structures].sort((a, b) => {
-                const aCenter = a.project({x: 0, y: 0, z: 0});
-                const bCenter = b.project({x: 0, y: 0, z: 0});
-                return bCenter.z - aCenter.z;
-            });
-            
-            // Update and draw structures
-            sortedStructures.forEach(structure => {
-                structure.update();
-                structure.draw();
-            });
-            
-            requestAnimationFrame(animate);
-        }
-        
-        // Start animation with fade-in
-        setTimeout(() => {
-            structures.forEach((structure, i) => {
-                setTimeout(() => {
-                    structure.targetOpacity = 0.4;
-                }, i * 200);
-            });
-            animate();
-        }, 500);
-        
     </script>
 </body>
 </html>
