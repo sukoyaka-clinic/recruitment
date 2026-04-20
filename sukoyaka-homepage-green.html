@@ -305,12 +305,18 @@
 
     <!-- Medical DX Notice Link -->
     <div class="bg-white pt-2 pb-8 border-b border-warm-beige">
-        <div class="container mx-auto px-4">
+        <div class="container mx-auto px-4 flex flex-col sm:flex-row sm:items-center gap-4">
             <a href="#" onclick="openDxModal(); return false;" class="inline-flex items-center text-warm-orange hover:text-warm-brown transition-colors text-sm font-medium">
                 <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                 </svg>
                 医療DX推進体制に関するお知らせ
+            </a>
+            <a href="#" onclick="openGenericModal(); return false;" class="inline-flex items-center text-warm-orange hover:text-warm-brown transition-colors text-sm font-medium">
+                <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                一般名処方加算について
             </a>
         </div>
     </div>
@@ -822,12 +828,12 @@
                     </div>
 
                     <!-- Instagram CTA -->
-                    <div class="bg-gradient-to-r from-purple-500 via-pink-500 to-orange-400 rounded-2xl p-6 text-white shadow-lg mt-6">
-                        <h3 class="text-xl font-bold mb-3 font-maru">Instagram</h3>
-                        <p class="text-white/90 mb-4 text-sm">
+                    <div class="bg-white rounded-2xl p-6 shadow-lg mt-6 border border-gray-200">
+                        <h3 class="text-xl font-bold mb-3 font-maru text-warm-brown-dark">Instagram</h3>
+                        <p class="text-text-gray mb-4 text-sm">
                             クリニックの最新情報や日常をお届けしています。
                         </p>
-                        <a href="https://www.instagram.com/sukoyaka.orthopedics?igsh=Y2Jhd3l3bXdqaDJ6&utm_source=qr" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center bg-white text-pink-500 px-6 py-3 rounded-full font-semibold hover:bg-pink-50 transition-colors">
+                        <a href="https://www.instagram.com/sukoyaka.orthopedics?igsh=Y2Jhd3l3bXdqaDJ6&utm_source=qr" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center bg-gradient-to-r from-purple-500 via-pink-500 to-orange-400 text-white px-6 py-3 rounded-full font-semibold hover:opacity-90 transition-opacity">
                             <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
                                 <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
                             </svg>
@@ -947,12 +953,20 @@
                                 地域の皆さまの健やかな毎日を支えるために、<br>
                                 お一人おひとりに寄り添った丁寧な診療を行います。
                             </p>
-                            <a href="#" onclick="openDxModal(); return false;" class="inline-flex items-center text-warm-orange hover:text-warm-brown transition-colors text-sm mt-6">
-                                <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                </svg>
-                                医療DX推進体制に関するお知らせ
-                            </a>
+                            <div class="flex flex-col gap-2 mt-6">
+                                <a href="#" onclick="openDxModal(); return false;" class="inline-flex items-center text-warm-orange hover:text-warm-brown transition-colors text-sm">
+                                    <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                    </svg>
+                                    医療DX推進体制に関するお知らせ
+                                </a>
+                                <a href="#" onclick="openGenericModal(); return false;" class="inline-flex items-center text-warm-orange hover:text-warm-brown transition-colors text-sm">
+                                    <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                    </svg>
+                                    一般名処方加算について
+                                </a>
+                            </div>
                         </div>
 
                         <!-- Quick Links -->
@@ -1016,6 +1030,62 @@
 
     <!-- Add padding for fixed bottom bar on mobile -->
     <div class="h-16 xl:hidden"></div>
+
+    <!-- Generic Prescription Modal -->
+    <div id="genericModal" class="fixed inset-0 z-[200] hidden">
+        <div class="absolute inset-0 bg-black/50" onclick="closeGenericModal()"></div>
+        <div class="absolute inset-4 md:inset-auto md:top-1/2 md:left-1/2 md:-translate-x-1/2 md:-translate-y-1/2 md:max-w-2xl md:w-full bg-white rounded-2xl shadow-2xl overflow-hidden flex flex-col max-h-[90vh]">
+            <!-- Modal Header -->
+            <div class="bg-warm-green-light px-6 py-4 flex items-center justify-between flex-shrink-0">
+                <h3 class="text-lg font-bold text-warm-brown-dark font-maru flex items-center">
+                    <svg class="w-5 h-5 mr-2 text-warm-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                    </svg>
+                    一般名処方加算について
+                </h3>
+                <button onclick="closeGenericModal()" class="p-2 rounded-lg hover:bg-warm-beige transition-colors">
+                    <svg class="w-5 h-5 text-text-gray" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+            <!-- Modal Body -->
+            <div class="p-6 overflow-y-auto">
+                <p class="text-text-dark leading-relaxed mb-6">
+                    当院では、現在の医薬品の供給状況等を踏まえ、後発医薬品（ジェネリック医薬品）のある医薬品について、特定の商品名ではなく薬剤の有効成分名で処方する「一般名処方」を行う場合があります。
+                </p>
+                <p class="text-text-dark leading-relaxed mb-4 font-medium">一般名処方には、次のような目的があります。</p>
+                <ul class="space-y-3 text-text-dark mb-6">
+                    <li class="flex items-start">
+                        <span class="flex-shrink-0 w-2 h-2 bg-warm-orange rounded-full mr-3 mt-2"></span>
+                        <span>医薬品の供給状況にかかわらず、患者さんに必要なお薬を安定してお渡しできるようにするため</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="flex-shrink-0 w-2 h-2 bg-warm-orange rounded-full mr-3 mt-2"></span>
+                        <span>同じ有効成分の複数のお薬の中から、薬局で患者さんに選んでいただけるようにするため</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="flex-shrink-0 w-2 h-2 bg-warm-orange rounded-full mr-3 mt-2"></span>
+                        <span>後発医薬品を選択できることで、患者さんの経済的負担の軽減につなげるため</span>
+                    </li>
+                </ul>
+                <div class="p-4 bg-warm-beige rounded-xl mb-4">
+                    <p class="text-text-dark text-sm leading-relaxed">
+                        また、令和6年10月より、医療上の必要性がないにもかかわらず患者さんのご希望で長期収載品（後発医薬品のある先発医薬品）を処方する場合は、「選定療養」として追加のご負担が発生する制度が始まっております。
+                    </p>
+                </div>
+                <p class="text-text-dark leading-relaxed">
+                    当院では、上記の趣旨について患者さんに十分にご説明したうえで処方を行っております。ご不明な点がございましたら、診察時にお気軽にお尋ねください。
+                </p>
+            </div>
+            <!-- Modal Footer -->
+            <div class="px-6 py-4 bg-gray-50 flex-shrink-0">
+                <button onclick="closeGenericModal()" class="w-full bg-warm-orange hover:bg-warm-brown text-white py-3 rounded-full font-semibold transition-colors">
+                    閉じる
+                </button>
+            </div>
+        </div>
+    </div>
 
     <!-- Medical DX Modal -->
     <div id="dxModal" class="fixed inset-0 z-[200] hidden">
@@ -1091,10 +1161,20 @@
             document.getElementById('dxModal').classList.add('hidden');
             document.body.style.overflow = '';
         }
+        // Generic Prescription Modal
+        function openGenericModal() {
+            document.getElementById('genericModal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeGenericModal() {
+            document.getElementById('genericModal').classList.add('hidden');
+            document.body.style.overflow = '';
+        }
         // Close modal with Escape key
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') {
                 closeDxModal();
+                closeGenericModal();
             }
         });
 
