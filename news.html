@@ -3,10 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>院長挨拶 | すこやか整形外科医院</title>
-    <meta name="description" content="すこやか整形外科医院 院長 中村健一のご挨拶。能登地区で20年以上の経験を持つ整形外科専門医が、地域医療に貢献します。">
-    <link rel="icon" type="image/svg+xml" href="./assets/favicon-QMgtj6Um.svg">
-    <link rel="apple-touch-icon" href="./assets/apple_touch-DMYl7YzK.svg">
+    <title>お知らせ一覧 | すこやか整形外科医院</title>
+    <meta name="description" content="すこやか整形外科医院からのお知らせ一覧。開院情報、内覧会、診療に関する最新情報をお届けします。">
+    <link rel="icon" href="data:,">
     <script src="https://cdn.tailwindcss.com?v=3.4.0"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -38,10 +37,6 @@
     </script>
     <style>
         .scroll-smooth { scroll-behavior: smooth; }
-        .glass-card {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-        }
     </style>
 </head>
 <body class="font-sans bg-warm-cream text-text-dark scroll-smooth">
@@ -68,26 +63,32 @@
         <div class="container mx-auto px-4">
             <div class="flex items-center justify-between py-3">
                 <!-- Logo -->
-                <a href="index.html" class="flex items-center">
-                    <img src="./assets/logo-DqjOJdxD.svg" alt="すこやか整形外科医院" class="h-16 md:h-20">
+                <a href="index.html" class="flex items-center space-x-3">
+                    <div class="w-12 h-12 bg-gradient-to-br from-warm-orange to-warm-orange-light rounded-full flex items-center justify-center shadow-md">
+                        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                        </svg>
+                    </div>
+                    <div>
+                        <h1 class="text-xl md:text-2xl font-bold text-warm-brown-dark font-maru">すこやか整形外科医院</h1>
+                    </div>
                 </a>
 
                 <!-- Desktop Navigation -->
-                <nav class="hidden xl:block">
-                    <ul class="flex items-center">
-                        <li><a href="index.html" class="px-2 py-2 text-text-dark hover:text-warm-orange transition-colors font-medium whitespace-nowrap text-sm">ホーム</a></li>
-                        <li><a href="about.html" class="px-2 py-2 text-text-dark hover:text-warm-orange transition-colors font-medium whitespace-nowrap text-sm">当院について</a></li>
-                        <li><a href="index.html#services" class="px-2 py-2 text-text-dark hover:text-warm-orange transition-colors font-medium whitespace-nowrap text-sm">診療案内</a></li>
-                        <li><a href="doctor.html" class="px-2 py-2 text-warm-brown font-medium whitespace-nowrap text-sm">院長紹介</a></li>
-                        <li><a href="staff.html" class="px-2 py-2 text-text-dark hover:text-warm-orange transition-colors font-medium whitespace-nowrap text-sm">スタッフ紹介</a></li>
-                        <li><a href="index.html#access" class="px-2 py-2 text-text-dark hover:text-warm-orange transition-colors font-medium whitespace-nowrap text-sm">アクセス</a></li>
-                        <li><a href="contact.html" class="px-2 py-2 text-text-dark hover:text-warm-orange transition-colors font-medium whitespace-nowrap text-sm">お問い合わせ</a></li>
-                        <li><a href="recruitment.html" class="px-2 py-2 text-warm-orange hover:text-warm-brown transition-colors font-medium whitespace-nowrap text-sm">採用情報</a></li>
+                <nav class="hidden lg:block">
+                    <ul class="flex items-center space-x-1">
+                        <li><a href="index.html" class="px-3 py-2 text-text-dark hover:text-warm-orange transition-colors font-medium">ホーム</a></li>
+                        <li><a href="about.html" class="px-3 py-2 text-text-dark hover:text-warm-orange transition-colors font-medium">当院について</a></li>
+                        <li><a href="index.html#services" class="px-3 py-2 text-text-dark hover:text-warm-orange transition-colors font-medium">診療案内</a></li>
+                        <li><a href="doctor.html" class="px-3 py-2 text-text-dark hover:text-warm-orange transition-colors font-medium">院長紹介</a></li>
+                        <li><a href="staff.html" class="px-3 py-2 text-text-dark hover:text-warm-orange transition-colors font-medium">スタッフ紹介</a></li>
+                        <li><a href="index.html#access" class="px-3 py-2 text-text-dark hover:text-warm-orange transition-colors font-medium">アクセス</a></li>
+                        <li><a href="recruitment.html" class="px-3 py-2 text-warm-orange hover:text-warm-brown transition-colors font-medium">採用情報</a></li>
                     </ul>
                 </nav>
 
                 <!-- Mobile Menu Button -->
-                <button id="mobileMenuBtn" class="xl:hidden p-2 rounded-lg hover:bg-warm-beige transition-colors">
+                <button id="mobileMenuBtn" class="lg:hidden p-2 rounded-lg hover:bg-warm-beige transition-colors">
                     <svg class="w-6 h-6 text-warm-brown-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                     </svg>
@@ -111,10 +112,9 @@
                     <a href="index.html" class="block py-3 px-4 text-text-dark hover:bg-warm-beige rounded-lg transition-colors">ホーム</a>
                     <a href="about.html" class="block py-3 px-4 text-text-dark hover:bg-warm-beige rounded-lg transition-colors">当院について</a>
                     <a href="index.html#services" class="block py-3 px-4 text-text-dark hover:bg-warm-beige rounded-lg transition-colors">診療案内</a>
-                    <a href="doctor.html" class="block py-3 px-4 text-warm-brown bg-warm-beige rounded-lg font-medium">院長紹介</a>
+                    <a href="doctor.html" class="block py-3 px-4 text-text-dark hover:bg-warm-beige rounded-lg transition-colors">院長紹介</a>
                     <a href="staff.html" class="block py-3 px-4 text-text-dark hover:bg-warm-beige rounded-lg transition-colors">スタッフ紹介</a>
                     <a href="index.html#access" class="block py-3 px-4 text-text-dark hover:bg-warm-beige rounded-lg transition-colors">アクセス</a>
-                    <a href="contact.html" class="block py-3 px-4 text-text-dark hover:bg-warm-beige rounded-lg transition-colors">お問い合わせ</a>
                     <a href="recruitment.html" class="block py-3 px-4 text-warm-orange hover:bg-warm-beige rounded-lg transition-colors font-medium">採用情報</a>
                 </div>
 
@@ -131,98 +131,69 @@
     </div>
 
     <!-- Page Header -->
-    <section class="bg-gradient-to-br from-warm-green-light via-white to-warm-beige py-16">
+    <section class="bg-warm-green-light py-16 lg:py-20">
         <div class="container mx-auto px-4">
             <div class="text-center">
-                <span class="inline-block text-warm-orange text-3xl font-heading font-bold tracking-widest mb-4">Doctor</span>
-                <h2 class="text-3xl md:text-4xl font-bold text-warm-brown-dark font-maru">院長挨拶</h2>
+                <span class="inline-block text-warm-orange text-3xl font-heading font-bold tracking-widest mb-4">News</span>
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-warm-brown-dark font-maru">お知らせ</h2>
             </div>
         </div>
     </section>
 
-    <!-- Doctor Profile Section -->
-    <section class="py-16 bg-white">
+    <!-- Breadcrumb -->
+    <div class="bg-white py-3 border-b border-warm-beige">
         <div class="container mx-auto px-4">
-            <div class="max-w-5xl mx-auto">
-                <!-- Profile Card -->
-                <div class="bg-warm-cream rounded-3xl shadow-lg overflow-hidden mb-12">
-                    <div class="grid md:grid-cols-5 gap-0">
-                        <!-- Photo -->
-                        <div class="md:col-span-2 bg-warm-orange p-8 flex items-center justify-center">
-                            <div class="w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-white shadow-lg bg-white">
-                                <img src="./assets/IMG_8445-BOvhSKPs.jpeg" alt="院長 中村健一" class="w-full h-full object-cover object-top">
-                            </div>
-                        </div>
+            <nav class="text-sm text-text-gray">
+                <a href="index.html" class="hover:text-warm-orange transition-colors">ホーム</a>
+                <span class="mx-2">›</span>
+                <span class="text-warm-orange">お知らせ</span>
+            </nav>
+        </div>
+    </div>
 
-                        <!-- Basic Info -->
-                        <div class="md:col-span-3 p-8">
-                            <div class="mb-6">
-                                <p class="text-warm-orange font-semibold mb-1">院長</p>
-                                <h3 class="text-3xl font-bold text-warm-brown-dark font-maru mb-1">中村 健一</h3>
-                                <p class="text-lg text-text-gray">なかむら けんいち</p>
-                                <p class="text-sm text-text-gray font-heading">Nakamura Kenichi</p>
+    <!-- Main Content -->
+    <main class="py-16 lg:py-20">
+        <div class="container mx-auto px-4">
+            <div class="max-w-3xl mx-auto">
+                <!-- お知らせ一覧 -->
+                <div class="bg-warm-orange/10 rounded-xl p-6 md:p-8">
+                    <ul class="divide-y divide-warm-orange-light/30">
+                        <li class="py-4 first:pt-0 last:pb-0">
+                            <a href="news-opening.html" class="flex flex-col sm:flex-row sm:items-center gap-2 group">
+                                <span class="text-sm text-warm-orange font-medium">2026.04.13</span>
+                                <span class="bg-warm-orange text-white text-xs px-2 py-0.5 rounded w-fit">重要</span>
+                                <span class="text-text-dark group-hover:text-warm-orange transition-colors">5月1日(金) 開院のお知らせ</span>
+                            </a>
+                        </li>
+                        <li class="py-4 first:pt-0 last:pb-0">
+                            <a href="news-opening.html" class="flex flex-col sm:flex-row sm:items-center gap-2 group">
+                                <span class="text-sm text-warm-orange font-medium">2026.04.13</span>
+                                <span class="bg-warm-orange text-white text-xs px-2 py-0.5 rounded w-fit">重要</span>
+                                <span class="text-text-dark group-hover:text-warm-orange transition-colors">4月29日(水) 内覧会のお知らせ</span>
+                            </a>
+                        </li>
+                        <li class="py-4 first:pt-0 last:pb-0">
+                            <div class="flex flex-col sm:flex-row sm:items-center gap-2">
+                                <span class="text-sm text-warm-orange font-medium">2026.04.13</span>
+                                <span class="bg-warm-brown text-white text-xs px-2 py-0.5 rounded w-fit">お知らせ</span>
+                                <span class="text-text-dark">ホームページを開設しました</span>
                             </div>
-
-                            <div class="space-y-3">
-                                <div class="flex items-start">
-                                    <span class="text-warm-orange font-semibold min-w-[100px]">出身大学</span>
-                                    <span class="text-text-dark">金沢大学 平成8年卒業</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                        </li>
+                    </ul>
                 </div>
 
-                <!-- Greeting Message -->
-                <div class="bg-warm-green-light rounded-3xl p-8 md:p-12 mb-12">
-                    <h3 class="text-2xl font-bold text-warm-brown-dark font-maru mb-6 flex items-center">
-                        <span class="w-1 h-8 bg-warm-orange rounded-full mr-4"></span>
-                        ご挨拶
-                    </h3>
-                    <div class="text-text-dark leading-loose space-y-6">
-                        <p>
-                            私は大学関連病院および大学での勤務後、2006年に公立羽咋病院勤務となりました。以後現在まで、能登地区で医師人生の半分以上勤務させて頂きました。
-                        </p>
-                        <p>
-                            この間、能登地区の大きな地震を２度経験し、2024年元旦の大地震の時は病院長職務代理という立場で富来病院在職中であり、病院機能の全廃から外来機能再建・入院機能の再建を経験いたしました。この間、全国及び周辺地区の方々からの大変温かいご支援のお陰で、規模は縮小致しましたが病院機能の再建まで見届けることができました。
-                        </p>
-                        <p>
-                            今後は違った形で能登地区の医療に携わることを考え、慣れ親しんだ羽咋郡市での開院をさせて頂くことにいたしました。
-                        </p>
-                        <p>
-                            これまでの診療に加え、地域医療・災害医療とを考えた診療を継続させて頂こうと考えております。
-                        </p>
-                        <p class="text-lg font-medium text-warm-brown-dark">
-                            まずは誰でも相談しやすい、親しみやすい医院を目指してゆこうと考えております。<br>
-                            よろしくお願い申し上げます。
-                        </p>
-                    </div>
+                <!-- 戻るボタン -->
+                <div class="mt-10 text-center">
+                    <a href="index.html" class="inline-flex items-center text-warm-orange hover:text-warm-brown transition-colors font-medium">
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+                        </svg>
+                        トップページに戻る
+                    </a>
                 </div>
             </div>
         </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="py-16 bg-gradient-to-br from-warm-green-light to-warm-beige">
-        <div class="container mx-auto px-4 text-center">
-            <h3 class="text-2xl font-bold text-warm-brown-dark font-maru mb-4">お気軽にご相談ください</h3>
-            <p class="text-text-gray mb-8">誰でも相談しやすい、親しみやすい医院を目指しています</p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="index.html#access" class="inline-flex items-center justify-center bg-warm-orange hover:bg-warm-brown text-white px-8 py-4 rounded-full font-semibold transition-all duration-300 shadow-lg hover:shadow-xl">
-                    アクセス・診療時間
-                    <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                    </svg>
-                </a>
-                <a href="tel:0767-22-1123" class="inline-flex items-center justify-center bg-white text-warm-brown-dark px-8 py-4 rounded-full font-semibold border-2 border-warm-brown-dark hover:bg-warm-brown-dark hover:text-white transition-all duration-300">
-                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
-                    </svg>
-                    電話でお問い合わせ
-                </a>
-            </div>
-        </div>
-    </section>
+    </main>
 
     <!-- Footer -->
     <footer>
@@ -232,8 +203,16 @@
                     <div class="grid md:grid-cols-4 gap-8">
                         <!-- Clinic Info -->
                         <div class="md:col-span-2">
-                            <div class="mb-4">
-                                <img src="./assets/logo-DqjOJdxD.svg" alt="すこやか整形外科医院" class="h-16">
+                            <div class="flex items-center space-x-3 mb-4">
+                                <div class="w-12 h-12 bg-warm-orange rounded-full flex items-center justify-center">
+                                    <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-bold font-maru text-warm-brown-dark">すこやか整形外科医院</h3>
+                                    <p class="text-text-gray text-sm">石川県羽咋市の整形外科・リハビリ</p>
+                                </div>
                             </div>
                             <p class="text-text-gray leading-relaxed">
                                 地域の皆さまの健やかな毎日を支えるために、<br>
@@ -250,7 +229,6 @@
                                 <li><a href="doctor.html" class="hover:text-warm-orange transition-colors">院長紹介</a></li>
                                 <li><a href="staff.html" class="hover:text-warm-orange transition-colors">スタッフ紹介</a></li>
                                 <li><a href="index.html#access" class="hover:text-warm-orange transition-colors">アクセス</a></li>
-                                <li><a href="contact.html" class="hover:text-warm-orange transition-colors">お問い合わせ</a></li>
                                 <li><a href="recruitment.html" class="hover:text-warm-orange transition-colors">採用情報</a></li>
                             </ul>
                         </div>
@@ -290,12 +268,11 @@
                 </svg>
                 電話する
             </a>
-            <a href="index.html#access" class="flex items-center justify-center py-4 bg-warm-orange text-white font-semibold">
+            <a href="index.html" class="flex items-center justify-center py-4 bg-warm-orange text-white font-semibold">
                 <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
                 </svg>
-                アクセス
+                トップページ
             </a>
         </div>
     </div>
